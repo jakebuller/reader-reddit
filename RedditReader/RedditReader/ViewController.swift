@@ -7,9 +7,14 @@
 //
 
 import UIKit
+import Alamofire
 
 class ViewController: UIViewController {
 
+    @IBOutlet var redditData: UITextView!
+    
+    @IBOutlet var searchInput: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -21,5 +26,27 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func searchButtonClick(_ sender: Any) {
+        NSLog("search clicked")
+        NSLog(searchInput.text!)
+        
+        getSearchData()
+    }
+    
+    func getSearchData() {
+        let searchTerm = searchInput.text!
+        let searchUrl = "https://www.reddit.com/r/\(searchTerm)/.json"
+        
+        Alamofire.request(searchUrl).responseJSON { response in
+            print(String(describing: response.request))  // original URL request
+            print(String(describing: response.response)) // HTTP URL response
+            print(String(describing: response.data))     // server data
+            print(String(describing: response.result))   // result of response serialization
+            
+            if let JSON = response.result.value {
+                self.redditData.text = String(describing: JSON)
+            }
+        }
+    }
 }
 
