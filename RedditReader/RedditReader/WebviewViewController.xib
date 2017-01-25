@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WebviewViewController" customModule="RedditReader" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="webview" destination="0m7-sD-wMg" id="4Ao-ma-OdR"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0m7-sD-wMg">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                    <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </webView>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hjd-cS-UdZ">
+                    <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="u0H-h8-5De"/>
+                    </constraints>
+                    <items>
+                        <barButtonItem systemItem="rewind" id="PzP-W3-HaF">
+                            <connections>
+                                <action selector="goBack" destination="0m7-sD-wMg" id="Qtp-7Y-npb"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem systemItem="refresh" id="f2D-Wd-tVa">
+                            <connections>
+                                <action selector="reload" destination="0m7-sD-wMg" id="XTl-So-lAS"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem systemItem="fastForward" id="SqO-dt-A2N">
+                            <connections>
+                                <action selector="goForward" destination="0m7-sD-wMg" id="jdG-uW-kJw"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="jf5-F8-gBb"/>
+                        <barButtonItem systemItem="stop" id="q5W-e2-9Gb">
+                            <connections>
+                                <action selector="stopLoading" destination="0m7-sD-wMg" id="y1s-HM-4Tz"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3CE-r2-qzR">
+                    <rect key="frame" x="16" y="30" width="59" height="30"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W2w-I6-9yl">
+                            <rect key="frame" x="8" y="0.0" width="39" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="39" id="7C4-5S-QBS"/>
+                                <constraint firstAttribute="height" constant="30" id="J0S-bV-PzH"/>
+                            </constraints>
+                            <state key="normal" title="Close"/>
+                            <connections>
+                                <action selector="closeButtonClicked:" destination="-1" eventType="touchUpInside" id="ReC-JH-gOj"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="W2w-I6-9yl" firstAttribute="top" secondItem="3CE-r2-qzR" secondAttribute="top" id="8Xk-fm-5HW"/>
+                        <constraint firstAttribute="width" constant="59" id="HOz-Bi-Cm0"/>
+                        <constraint firstItem="W2w-I6-9yl" firstAttribute="leading" secondItem="3CE-r2-qzR" secondAttribute="leading" constant="8" id="mXU-Uu-vhi"/>
+                        <constraint firstAttribute="height" constant="30" id="rwR-v2-CeT"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="hjd-cS-UdZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="3k3-ik-RXI"/>
+                <constraint firstAttribute="trailing" secondItem="hjd-cS-UdZ" secondAttribute="trailing" id="8DU-54-0X2"/>
+                <constraint firstAttribute="bottom" secondItem="hjd-cS-UdZ" secondAttribute="bottom" id="9tV-Lb-qrt"/>
+                <constraint firstItem="0m7-sD-wMg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="DB1-Dk-XDv"/>
+                <constraint firstItem="3CE-r2-qzR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="eyI-GE-OH0"/>
+                <constraint firstAttribute="trailing" secondItem="0m7-sD-wMg" secondAttribute="trailing" id="iNO-Kc-BCw"/>
+                <constraint firstItem="hjd-cS-UdZ" firstAttribute="top" secondItem="0m7-sD-wMg" secondAttribute="bottom" id="lC4-Vc-04I"/>
+                <constraint firstItem="0m7-sD-wMg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="mmy-yp-kfA"/>
+                <constraint firstItem="3CE-r2-qzR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="x9o-tP-ASx"/>
+            </constraints>
+            <point key="canvasLocation" x="18.5" y="29.5"/>
+        </view>
+    </objects>
+</document>
