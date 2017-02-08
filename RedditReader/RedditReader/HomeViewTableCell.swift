@@ -10,7 +10,6 @@ import UIKit
 
 class HomeViewTableCell: UITableViewCell {
     @IBOutlet var cellTitle: UILabel!
-    @IBOutlet var cellDescription: UILabel!
     @IBOutlet var cellImage: UIImageView!
 
     override func awakeFromNib() {

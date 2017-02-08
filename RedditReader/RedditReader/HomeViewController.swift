@@ -8,10 +8,11 @@
 
 import UIKit
 import Alamofire
+import Kingfisher
 
 class HomeViewController: UITableViewController {
 
-    let postTitles: [String] = []
+    var posts: NSArray = NSArray();
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,14 +31,17 @@ class HomeViewController: UITableViewController {
         let searchUrl = "https://www.reddit.com/.json"
         
         Alamofire.request(searchUrl).responseJSON { response in
-            print(String(describing: response.request))  // original URL request
-            print(String(describing: response.response)) // HTTP URL response
-            print(String(describing: response.data))     // server data
-            print(String(describing: response.result))   // result of response serialization
-//
-//            if let JSON = response.result.value {
-//                
-//            }
+            
+            if let json = response.result.value {
+                let obj = json as! NSDictionary
+                let data = obj["data"] as! NSDictionary
+                let children = data["children"] as! NSArray
+                self.posts = children
+                let c = self.posts.count
+                print("count of dictionary \(c)")
+            }
+            
+            self.tableView.reloadData()
         }
     }
 
@@ -56,11 +60,29 @@ class HomeViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 5
+        let c = self.posts.count
+        print("count of dictionary in table method \(c)")
+        return self.posts.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("Updating cell at index \(indexPath.row)\n")
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! HomeViewTableCell
+        let post = self.posts[indexPath.row] as! NSDictionary
+        let postData = post["data"] as! NSDictionary
+        cell.cellTitle.text = postData["title"] as? String
+        
+        let imgURL = postData["thumbnail"] as! String
+        print("title: \(postData["title"])\n")
+        print("imgURL: \(imgURL)\n")
+        
+        if imgURL.range(of:"http") != nil {
+            print("before request \(imgURL)\n")
+            let url = URL(string: imgURL)
+            cell.cellImage.kf.setImage(with: url)
+        } else {
+            cell.cellImage.image = UIImage(named: "list-thumbnail")
+        }
 
         return cell
     }
