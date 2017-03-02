@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class ViewController: UIViewController {
+class RedditSearchViewController: UIViewController {
 
     @IBOutlet var redditData: UITextView!
     
@@ -33,6 +33,10 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.w
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        searchInput.endEditing(true)
     }
 
     func loadWebView(url:String) {

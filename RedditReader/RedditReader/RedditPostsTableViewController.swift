@@ -82,7 +82,6 @@ class RedditPostsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        let c = self.posts.count
         return self.posts.count
     }
 
