@@ -30,13 +30,13 @@ class ViewController: UIViewController {
         NSLog("search clicked")
         NSLog(searchInput.text!)
         
-        
-        getSearchData()
+        loadWebView(url: "http://google.ca")
+        //getSearchData()
     }
     
-    func loadWebView() {
+    func loadWebView(url:String) {
         let newView = WebviewViewController(nibName: "WebviewViewController", bundle: nil)
-        newView.urlstring = "http://reddit.com"
+        newView.urlstring = url
         newView.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
         self.present(newView, animated: true, completion: nil)
     }

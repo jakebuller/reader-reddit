@@ -86,6 +86,21 @@ class HomeViewController: UITableViewController {
 
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let post = self.posts[indexPath.row] as! NSDictionary
+        let postData = post["data"] as! NSDictionary
+        let url_string = postData["url"] as! String
+        loadWebView(url: url_string)
+    }
+    
+    func loadWebView(url:String) {
+        let newView = WebviewViewController(nibName: "WebviewViewController", bundle: nil)
+        newView.urlstring = url
+        newView.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        self.present(newView, animated: true, completion: nil)
+    }
+    
  
     /*
     // Override to support conditional editing of the table view.
