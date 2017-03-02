@@ -20,20 +20,21 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
-    @IBAction func searchButtonClick(_ sender: Any) {
-        NSLog("search clicked")
-        NSLog(searchInput.text!)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let subReddit = searchInput.text
         
-        loadWebView(url: "http://google.ca")
-        //getSearchData()
+//        if segue.identifier == "MySegueId"{
+            if let nextViewController = segue.destination as? HomeViewController{
+                nextViewController.subReddit = subReddit! //Or pass any values
+            }
+//        }
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.w
+    }
+
     func loadWebView(url:String) {
         let newView = WebviewViewController(nibName: "WebviewViewController", bundle: nil)
         newView.urlstring = url

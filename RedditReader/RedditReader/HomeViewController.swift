@@ -13,6 +13,7 @@ import Kingfisher
 class HomeViewController: UITableViewController {
 
     var posts: NSArray = NSArray();
+    var subReddit = String();
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,14 +23,20 @@ class HomeViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        print(subReddit)
         
         refreshPosts()
     }
     
     func refreshPosts() {
-//        let searchTerm = searchInput.text!
-        let searchUrl = "https://www.reddit.com/.json"
+        var searchUrl = String();
+        if (subReddit.isEmpty) {
+            searchUrl = "https://www.reddit.com/.json"
+        } else {
+            searchUrl = "https://www.reddit.com/r/" + subReddit + "/.json"
+        }
         
+        print(searchUrl)
         Alamofire.request(searchUrl).responseJSON { response in
             
             if let json = response.result.value {
@@ -37,8 +44,6 @@ class HomeViewController: UITableViewController {
                 let data = obj["data"] as! NSDictionary
                 let children = data["children"] as! NSArray
                 self.posts = children
-                let c = self.posts.count
-                print("count of dictionary \(c)")
             }
             
             self.tableView.reloadData()
@@ -61,23 +66,18 @@ class HomeViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         let c = self.posts.count
-        print("count of dictionary in table method \(c)")
         return self.posts.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("Updating cell at index \(indexPath.row)\n")
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! HomeViewTableCell
         let post = self.posts[indexPath.row] as! NSDictionary
         let postData = post["data"] as! NSDictionary
         cell.cellTitle.text = postData["title"] as? String
         
         let imgURL = postData["thumbnail"] as! String
-        print("title: \(postData["title"])\n")
-        print("imgURL: \(imgURL)\n")
         
         if imgURL.range(of:"http") != nil {
-            print("before request \(imgURL)\n")
             let url = URL(string: imgURL)
             cell.cellImage.kf.setImage(with: url)
         } else {
