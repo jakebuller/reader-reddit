@@ -24,7 +24,7 @@ class ViewController: UIViewController {
         let subReddit = searchInput.text
         
 //        if segue.identifier == "MySegueId"{
-            if let nextViewController = segue.destination as? HomeViewController{
+            if let nextViewController = segue.destination as? RedditPostsTableViewController{
                 nextViewController.subReddit = subReddit! //Or pass any values
             }
 //        }

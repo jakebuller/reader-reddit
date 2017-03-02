@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewTableCell: UITableViewCell {
+class RedditPostsTableViewCell: UITableViewCell {
     @IBOutlet var cellTitle: UILabel!
     @IBOutlet var cellImage: UIImageView!
 

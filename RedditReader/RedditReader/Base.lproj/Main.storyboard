@@ -95,16 +95,16 @@
             </objects>
             <point key="canvasLocation" x="1076" y="137.18140929535232"/>
         </scene>
-        <!--Home View Controller-->
+        <!--Reddit Posts Table View Controller-->
         <scene sceneID="Fcz-ib-K7P">
             <objects>
-                <tableViewController id="PiS-y0-kK7" customClass="HomeViewController" customModule="RedditReader" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="PiS-y0-kK7" customClass="RedditPostsTableViewController" customModule="RedditReader" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" id="If4-ej-K8c">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="80" id="B4e-Dk-LxC" customClass="HomeViewTableCell" customModule="RedditReader" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="80" id="B4e-Dk-LxC" customClass="RedditPostsTableViewCell" customModule="RedditReader" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="B4e-Dk-LxC" id="hjb-1N-YkV">

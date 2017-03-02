@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import Kingfisher
 
-class HomeViewController: UITableViewController {
+class RedditPostsTableViewController: UITableViewController {
 
     @IBOutlet var sortTypeControl: UISegmentedControl!
 
@@ -34,8 +34,6 @@ class HomeViewController: UITableViewController {
     
     
     @IBAction func SortTypeChanged(_ sender: Any) {
-        print("sort type changed")
-
         switch sortTypeControl.selectedSegmentIndex {
             case 1:
                 sortType = "new";
@@ -89,7 +87,7 @@ class HomeViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! HomeViewTableCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! RedditPostsTableViewCell
         let post = self.posts[indexPath.row] as! NSDictionary
         let postData = post["data"] as! NSDictionary
         cell.cellTitle.text = postData["title"] as? String
