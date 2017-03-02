@@ -12,7 +12,11 @@ import Kingfisher
 
 class HomeViewController: UITableViewController {
 
+    @IBOutlet var sortTypeControl: UISegmentedControl!
+
     var posts: NSArray = NSArray();
+    
+    var sortType = "hot";
     var subReddit = String();
     
     override func viewDidLoad() {
@@ -28,12 +32,27 @@ class HomeViewController: UITableViewController {
         refreshPosts()
     }
     
+    
+    @IBAction func SortTypeChanged(_ sender: Any) {
+        print("sort type changed")
+
+        switch sortTypeControl.selectedSegmentIndex {
+            case 1:
+                sortType = "new";
+            default:
+                sortType = "hot";
+                break
+        }
+        
+        self.refreshPosts();
+    }
+    
     func refreshPosts() {
         var searchUrl = String();
         if (subReddit.isEmpty) {
-            searchUrl = "https://www.reddit.com/.json"
+            searchUrl = "https://www.reddit.com/" + sortType + "/.json"
         } else {
-            searchUrl = "https://www.reddit.com/r/" + subReddit + "/.json"
+            searchUrl = "https://www.reddit.com/r/" + subReddit + "/" + sortType + "/.json"
         }
         
         print(searchUrl)
