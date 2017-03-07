@@ -16,6 +16,8 @@
 		427172C31E380BB3001DC989 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 427172C11E380BB3001DC989 /* LaunchScreen.storyboard */; };
 		427172CD1E381C2E001DC989 /* RedditPostsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427172CC1E381C2E001DC989 /* RedditPostsTableViewController.swift */; };
 		427172CF1E381C49001DC989 /* RedditPostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427172CE1E381C49001DC989 /* RedditPostsTableViewCell.swift */; };
+		622D5F391E6F74480081A3F6 /* SubredditSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622D5F381E6F74480081A3F6 /* SubredditSearchTableViewController.swift */; };
+		622D5F3B1E6F76210081A3F6 /* SubredditSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622D5F3A1E6F76210081A3F6 /* SubredditSearchTableViewCell.swift */; };
 		623D348A1E381AEC0071AC7E /* WebviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623D34881E381AEC0071AC7E /* WebviewViewController.swift */; };
 		623D348B1E381AEC0071AC7E /* WebviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 623D34891E381AEC0071AC7E /* WebviewViewController.xib */; };
 /* End PBXBuildFile section */
@@ -33,6 +35,8 @@
 		427172C41E380BB3001DC989 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		427172CC1E381C2E001DC989 /* RedditPostsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedditPostsTableViewController.swift; sourceTree = "<group>"; };
 		427172CE1E381C49001DC989 /* RedditPostsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedditPostsTableViewCell.swift; sourceTree = "<group>"; };
+		622D5F381E6F74480081A3F6 /* SubredditSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubredditSearchTableViewController.swift; sourceTree = "<group>"; };
+		622D5F3A1E6F76210081A3F6 /* SubredditSearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubredditSearchTableViewCell.swift; sourceTree = "<group>"; };
 		623D34881E381AEC0071AC7E /* WebviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebviewViewController.swift; sourceTree = "<group>"; };
 		623D34891E381AEC0071AC7E /* WebviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebviewViewController.xib; sourceTree = "<group>"; };
 		9BA6385183E1FC5535DC2DCD /* Pods-RedditReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RedditReader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RedditReader/Pods-RedditReader.debug.xcconfig"; sourceTree = "<group>"; };
@@ -90,6 +94,8 @@
 				427172C11E380BB3001DC989 /* LaunchScreen.storyboard */,
 				427172C41E380BB3001DC989 /* Info.plist */,
 				427172BC1E380BB3001DC989 /* RedditReader.xcdatamodeld */,
+				622D5F381E6F74480081A3F6 /* SubredditSearchTableViewController.swift */,
+				622D5F3A1E6F76210081A3F6 /* SubredditSearchTableViewCell.swift */,
 			);
 			path = RedditReader;
 			sourceTree = "<group>";
@@ -232,6 +238,8 @@
 				427172CF1E381C49001DC989 /* RedditPostsTableViewCell.swift in Sources */,
 				427172B61E380BB3001DC989 /* AppDelegate.swift in Sources */,
 				623D348A1E381AEC0071AC7E /* WebviewViewController.swift in Sources */,
+				622D5F3B1E6F76210081A3F6 /* SubredditSearchTableViewCell.swift in Sources */,
+				622D5F391E6F74480081A3F6 /* SubredditSearchTableViewController.swift in Sources */,
 				427172BE1E380BB3001DC989 /* RedditReader.xcdatamodeld in Sources */,
 				427172CD1E381C2E001DC989 /* RedditPostsTableViewController.swift in Sources */,
 			);
