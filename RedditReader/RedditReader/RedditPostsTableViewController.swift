@@ -14,7 +14,7 @@ class RedditPostsTableViewController: UITableViewController {
 
     @IBOutlet var sortTypeControl: UISegmentedControl!
 
-    var posts: NSArray = NSArray();
+    var posts = [NSDictionary]();
     
     var sortType = "hot";
     var subReddit = String();
@@ -29,38 +29,49 @@ class RedditPostsTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         print(subReddit)
         
-        refreshPosts()
+        posts.removeAll()
+        loadPosts()
     }
     
     
     @IBAction func SortTypeChanged(_ sender: Any) {
         switch sortTypeControl.selectedSegmentIndex {
             case 1:
-                sortType = "new";
+                sortType = "new"
             default:
-                sortType = "hot";
+                sortType = "hot"
                 break
         }
         
-        self.refreshPosts();
+        posts.removeAll()
+        self.loadPosts();
     }
     
-    func refreshPosts() {
+    func loadPosts(after: String = "") {
         var searchUrl = String();
+
         if (subReddit.isEmpty) {
-            searchUrl = "https://www.reddit.com/" + sortType + "/.json"
+            searchUrl = "https://www.reddit.com/" + sortType + "/.json?"
         } else {
-            searchUrl = "https://www.reddit.com/r/" + subReddit + "/" + sortType + "/.json"
+            searchUrl = "https://www.reddit.com/r/" + subReddit + "/" + sortType + "/.json?"
+        }
+
+        if (!self.posts.isEmpty) {
+            searchUrl += "count=" + String(self.posts.count)
+        }
+
+        if (!after.isEmpty) {
+            searchUrl += "&after=" + after
         }
         
         print(searchUrl)
         Alamofire.request(searchUrl).responseJSON { response in
-            
             if let json = response.result.value {
                 let obj = json as! NSDictionary
                 let data = obj["data"] as! NSDictionary
                 let children = data["children"] as! NSArray
-                self.posts = children
+                let childrenArray = children as! Array<NSDictionary>
+                self.posts.append(contentsOf: childrenArray)
             }
             
             self.tableView.reloadData()
@@ -73,21 +84,22 @@ class RedditPostsTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return self.posts.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! RedditPostsTableViewCell
-        let post = self.posts[indexPath.row] as! NSDictionary
+        if (self.posts.isEmpty) {
+            return cell;
+        }
+
+        let post = self.posts[indexPath.row] as NSDictionary
         let postData = post["data"] as! NSDictionary
         cell.cellTitle.text = postData["title"] as? String
         
@@ -100,11 +112,20 @@ class RedditPostsTableViewController: UITableViewController {
             cell.cellImage.image = UIImage(named: "list-thumbnail")
         }
 
+        // Start loading more posts when we are 3 away to make scrolling smoother
+        if indexPath.row == self.posts.count - 3 {
+            print("Scrolling last cell")
+            let lastPost = self.posts[self.posts.count - 1] as NSDictionary
+            let lastPostData = lastPost["data"] as! NSDictionary
+            loadPosts(after: lastPostData["name"] as! String)
+        }
+
         return cell
+
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let post = self.posts[indexPath.row] as! NSDictionary
+        let post = self.posts[indexPath.row] as NSDictionary
         let postData = post["data"] as! NSDictionary
         let url_string = postData["url"] as! String
         loadWebView(url: url_string)
