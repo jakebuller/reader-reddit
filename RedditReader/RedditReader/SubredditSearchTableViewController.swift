@@ -80,18 +80,10 @@ class SubredditSearchTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SubredditCell", for: indexPath) as! SubredditSearchTableViewCell
         let post = self.subredditList[indexPath.row] as! NSDictionary
-//        print(String(describing: post))
         let postData = post["data"] as! NSDictionary
         cell.subredditTitle.text = postData["display_name"] as? String
-//
-//        let imgURL = postData["thumbnail"] as! String
-//        
-//        if imgURL.range(of:"http") != nil {
-//            let url = URL(string: imgURL)
-//            cell.cellImage.kf.setImage(with: url)
-//        } else {
-//            cell.cellImage.image = UIImage(named: "list-thumbnail")
-//        }
+        cell.subredditDescription.text = postData["public_description"] as? String
+
         
         return cell
     }

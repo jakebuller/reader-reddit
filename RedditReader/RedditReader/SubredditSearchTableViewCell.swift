@@ -11,6 +11,7 @@ import UIKit
 class SubredditSearchTableViewCell: UITableViewCell {
 
     @IBOutlet weak var subredditTitle: UILabel!
+    @IBOutlet weak var subredditDescription: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
