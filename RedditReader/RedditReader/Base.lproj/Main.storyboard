@@ -6,9 +6,18 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Dosis-Bold.ttf">
+            <string>Dosis-Bold</string>
+        </array>
+        <array key="Dosis-Regular.ttf">
+            <string>Dosis-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Home-->
         <scene sceneID="U1l-Wo-GqT">
@@ -16,7 +25,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EcR-nH-2TK" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" tag="4" title="Home" image="home" id="mfh-d6-jwc"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xzb-gp-t2a">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Xzb-gp-t2a">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -33,41 +42,100 @@
         <scene sceneID="Fcz-ib-K7P">
             <objects>
                 <tableViewController id="PiS-y0-kK7" customClass="RedditPostsTableViewController" customModule="RedditReader" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" id="If4-ej-K8c">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="317" sectionHeaderHeight="28" sectionFooterHeight="28" id="If4-ej-K8c">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="80" id="B4e-Dk-LxC" customClass="RedditPostsTableViewCell" customModule="RedditReader" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="317" id="B4e-Dk-LxC" customClass="RedditPostsTableViewCell" customModule="RedditReader" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="317"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="B4e-Dk-LxC" id="hjb-1N-YkV">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="316"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="list-thumbnail" translatesAutoresizingMaskIntoConstraints="NO" id="hdZ-r8-AvF">
-                                            <rect key="frame" x="8" y="8" width="80" height="60"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="list-thumbnail" translatesAutoresizingMaskIntoConstraints="NO" id="hdZ-r8-AvF">
+                                            <rect key="frame" x="0.0" y="75" width="375" height="200"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="80" id="E2Z-LD-iai"/>
-                                                <constraint firstAttribute="height" constant="60" id="uiy-oL-QDp"/>
+                                                <constraint firstAttribute="width" secondItem="hdZ-r8-AvF" secondAttribute="height" multiplier="15:8" id="gjx-ZB-NGh"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S72-8j-f1F">
-                                            <rect key="frame" x="96" y="8" width="271" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OZM-eQ-wsl">
+                                            <rect key="frame" x="0.0" y="275" width="375" height="30"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jim Bob" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iOS-Ig-acl">
+                                                    <rect key="frame" x="164" y="5.5" width="48" height="19"/>
+                                                    <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAu-ii-K2S">
+                                                    <rect key="frame" x="283.5" y="4" width="83.5" height="22"/>
+                                                    <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="message" translatesAutoresizingMaskIntoConstraints="NO" id="WNH-GX-oXP">
+                                                    <rect key="frame" x="262" y="5" width="19" height="19"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="eoW-tH-jrM"/>
+                                                        <constraint firstAttribute="width" constant="20" id="j4v-PI-YsL"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="clock" translatesAutoresizingMaskIntoConstraints="NO" id="Gfa-fc-EZx">
+                                                    <rect key="frame" x="8" y="6" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="9KT-bF-Lg9"/>
+                                                        <constraint firstAttribute="width" constant="20" id="kNp-jX-j8D"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="3 Hours Ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BH2-JW-wa0">
+                                                    <rect key="frame" x="35" y="5" width="96" height="21"/>
+                                                    <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="0.74861052852348997" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="hAu-ii-K2S" firstAttribute="leading" secondItem="WNH-GX-oXP" secondAttribute="trailing" constant="2.5" id="4ZN-e0-CM4"/>
+                                                <constraint firstItem="WNH-GX-oXP" firstAttribute="centerY" secondItem="OZM-eQ-wsl" secondAttribute="centerY" id="7bW-8Y-cS8"/>
+                                                <constraint firstItem="hAu-ii-K2S" firstAttribute="centerY" secondItem="OZM-eQ-wsl" secondAttribute="centerY" id="9TB-MY-Yar"/>
+                                                <constraint firstItem="Gfa-fc-EZx" firstAttribute="centerY" secondItem="OZM-eQ-wsl" secondAttribute="centerY" id="QS0-Do-a7Z"/>
+                                                <constraint firstItem="BH2-JW-wa0" firstAttribute="centerY" secondItem="OZM-eQ-wsl" secondAttribute="centerY" id="Qd9-7Y-03d"/>
+                                                <constraint firstAttribute="trailing" secondItem="hAu-ii-K2S" secondAttribute="trailing" constant="8" id="Rfr-1T-a6x"/>
+                                                <constraint firstItem="BH2-JW-wa0" firstAttribute="leading" secondItem="Gfa-fc-EZx" secondAttribute="trailing" constant="2.5" id="VJt-zk-CeI"/>
+                                                <constraint firstItem="iOS-Ig-acl" firstAttribute="centerX" secondItem="OZM-eQ-wsl" secondAttribute="centerX" id="Wqp-rz-8tm"/>
+                                                <constraint firstItem="Gfa-fc-EZx" firstAttribute="leading" secondItem="OZM-eQ-wsl" secondAttribute="leading" constant="8" id="YnZ-aW-ag4"/>
+                                                <constraint firstItem="iOS-Ig-acl" firstAttribute="centerY" secondItem="OZM-eQ-wsl" secondAttribute="centerY" id="oe0-FS-O7m"/>
+                                                <constraint firstAttribute="height" constant="30" id="rfP-gM-99O"/>
+                                            </constraints>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S72-8j-f1F">
+                                            <rect key="frame" x="14" y="39" width="346" height="28"/>
+                                            <fontDescription key="fontDescription" name="Dosis-Bold" family="Dosis" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
-                                        <constraint firstItem="S72-8j-f1F" firstAttribute="leading" secondItem="hdZ-r8-AvF" secondAttribute="trailing" constant="8" id="FhW-Vs-nAx"/>
-                                        <constraint firstItem="S72-8j-f1F" firstAttribute="top" secondItem="hjb-1N-YkV" secondAttribute="topMargin" id="nf3-EL-5VE"/>
-                                        <constraint firstItem="hdZ-r8-AvF" firstAttribute="leading" secondItem="hjb-1N-YkV" secondAttribute="leadingMargin" id="p2S-l9-EWA"/>
-                                        <constraint firstItem="hdZ-r8-AvF" firstAttribute="top" secondItem="hjb-1N-YkV" secondAttribute="topMargin" id="xeO-VN-afR"/>
+                                        <constraint firstItem="hdZ-r8-AvF" firstAttribute="leading" secondItem="hjb-1N-YkV" secondAttribute="leading" id="BZb-F0-hOi"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="hdZ-r8-AvF" secondAttribute="trailing" constant="7" id="Omt-8S-EoY"/>
+                                        <constraint firstItem="OZM-eQ-wsl" firstAttribute="leading" secondItem="hjb-1N-YkV" secondAttribute="leading" id="Q8f-kT-ivB"/>
+                                        <constraint firstItem="hdZ-r8-AvF" firstAttribute="leading" secondItem="hjb-1N-YkV" secondAttribute="leadingMargin" constant="7" id="TH8-DM-Vqd"/>
+                                        <constraint firstAttribute="trailing" secondItem="OZM-eQ-wsl" secondAttribute="trailing" id="WpP-Ye-IZC"/>
+                                        <constraint firstItem="hdZ-r8-AvF" firstAttribute="top" secondItem="S72-8j-f1F" secondAttribute="bottom" constant="20" id="Zfe-1O-2b0"/>
+                                        <constraint firstAttribute="trailing" secondItem="hdZ-r8-AvF" secondAttribute="trailing" id="kqm-sw-OmA"/>
+                                        <constraint firstItem="OZM-eQ-wsl" firstAttribute="top" secondItem="hdZ-r8-AvF" secondAttribute="bottom" id="ofx-M8-cHB"/>
+                                        <constraint firstAttribute="bottom" secondItem="OZM-eQ-wsl" secondAttribute="bottom" constant="8" id="rBh-zP-wEb"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="cellImage" destination="hdZ-r8-AvF" id="3e2-x1-itR"/>
+                                    <outlet property="cellPostAuthor" destination="iOS-Ig-acl" id="0bu-9B-wub"/>
+                                    <outlet property="cellPostComments" destination="hAu-ii-K2S" id="1wr-SE-slo"/>
+                                    <outlet property="cellPostDate" destination="BH2-JW-wa0" id="kZE-k3-VWw"/>
                                     <outlet property="cellTitle" destination="S72-8j-f1F" id="WQ3-Jn-fi2"/>
                                 </connections>
                             </tableViewCell>
@@ -97,7 +165,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jiq-3B-WVw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2260" y="452"/>
+            <point key="canvasLocation" x="2260" y="451.12443778110946"/>
         </scene>
         <!--Subreddit Search Table View Controller-->
         <scene sceneID="klA-2w-EZy">
@@ -189,7 +257,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HNs-xF-OhJ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Search" image="search" id="g8C-Fm-mfx"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="opm-dK-WR3">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="opm-dK-WR3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -204,11 +272,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="clock" width="30" height="30"/>
         <image name="home" width="30" height="30"/>
         <image name="list-thumbnail" width="128" height="128"/>
+        <image name="message" width="30" height="30"/>
         <image name="search" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wed-MJ-5aX"/>
+        <segue reference="3I7-lg-hIv"/>
     </inferredMetricsTieBreakers>
 </document>
