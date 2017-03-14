@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="loD-X7-Ql6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="loD-X7-Ql6">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,77 +10,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Reddit Search View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="RedditSearchViewController" customModule="RedditReader" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZYx-hl-Sp8">
-                                <rect key="frame" x="16" y="64" width="343" height="47"/>
-                                <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xqL-2A-Y39">
-                                        <rect key="frame" x="6" y="8" width="262" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="Jsm-zw-YAt"/>
-                                        </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ZE-iq-2J8">
-                                        <rect key="frame" x="276" y="8" width="67" height="30"/>
-                                        <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="67" id="JoU-4E-3Vv"/>
-                                            <constraint firstAttribute="height" constant="30" id="vRq-HB-EcR"/>
-                                        </constraints>
-                                        <state key="normal" title="Search">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="PiS-y0-kK7" kind="show" id="oPN-XL-UEa"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="6ZE-iq-2J8" firstAttribute="leading" secondItem="xqL-2A-Y39" secondAttribute="trailing" constant="8" id="EW2-km-dra"/>
-                                    <constraint firstAttribute="height" constant="47" id="Vr4-IZ-jxm"/>
-                                    <constraint firstItem="xqL-2A-Y39" firstAttribute="centerY" secondItem="ZYx-hl-Sp8" secondAttribute="centerY" id="YkM-ho-9cG"/>
-                                    <constraint firstAttribute="trailing" secondItem="6ZE-iq-2J8" secondAttribute="trailing" id="Z53-kE-Cnj"/>
-                                    <constraint firstItem="xqL-2A-Y39" firstAttribute="leading" secondItem="ZYx-hl-Sp8" secondAttribute="leading" constant="6" id="idQ-Ky-vDH"/>
-                                    <constraint firstItem="6ZE-iq-2J8" firstAttribute="centerY" secondItem="ZYx-hl-Sp8" secondAttribute="centerY" id="m6G-M5-dhm"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="ZYx-hl-Sp8" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Eek-Xw-QQf"/>
-                            <constraint firstItem="ZYx-hl-Sp8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="OGo-l0-StE"/>
-                            <constraint firstItem="ZYx-hl-Sp8" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="mIy-GD-sJl"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="DlM-YS-cP2"/>
-                    <connections>
-                        <outlet property="searchInput" destination="xqL-2A-Y39" id="CRA-TK-c7E"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1076" y="895.50224887556226"/>
-        </scene>
-        <!--Navigation Controller-->
+        <!--Home-->
         <scene sceneID="U1l-Wo-GqT">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EcR-nH-2TK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="4" title="" image="home" id="mfh-d6-jwc"/>
+                    <tabBarItem key="tabBarItem" tag="4" title="Home" image="home" id="mfh-d6-jwc"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xzb-gp-t2a">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -242,7 +176,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="EcR-nH-2TK" kind="relationship" relationship="viewControllers" id="h03-zn-KHZ"/>
-                        <segue destination="Wrv-zk-Hk9" kind="relationship" relationship="viewControllers" id="BLQ-NC-aPS"/>
                         <segue destination="HNs-xF-OhJ" kind="relationship" relationship="viewControllers" id="11l-R8-Ob3"/>
                     </connections>
                 </tabBarController>
@@ -250,30 +183,11 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="137.18140929535232"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="yL2-39-cr7">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Wrv-zk-Hk9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="search" id="8Yr-D5-GgC"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OoR-b4-qdH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="uU6-Re-F37"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="q3T-vU-1Nw" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="895.50224887556226"/>
-        </scene>
-        <!--Item-->
+        <!--Search-->
         <scene sceneID="GAe-th-ZcA">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HNs-xF-OhJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="g8C-Fm-mfx"/>
+                    <tabBarItem key="tabBarItem" title="Search" image="search" id="g8C-Fm-mfx"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="opm-dK-WR3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -295,6 +209,6 @@
         <image name="search" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3I7-lg-hIv"/>
+        <segue reference="wed-MJ-5aX"/>
     </inferredMetricsTieBreakers>
 </document>
