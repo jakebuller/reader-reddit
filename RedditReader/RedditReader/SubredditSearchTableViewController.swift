@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import Kingfisher
 
 class SubredditSearchTableViewController: UITableViewController {
     
@@ -20,39 +21,61 @@ class SubredditSearchTableViewController: UITableViewController {
         let searchUrl = "https://www.reddit.com/subreddits/search.json?q=\(searchTerm)"
         
         if searchTerm.isEmpty {
+            loadTrendingSubreddits()
             return
         }
         
         Alamofire.request(searchUrl).responseJSON { response in
-            //            print(String(describing: response.request))  // original URL request
-//                        print(String(describing: response.response)) // HTTP URL response
-            //            print(String(describing: response.data))     // server data
-//                        print(String(describing: response.result))   // result of response serialization
-            
             if let json = response.result.value {
-//                print(String(describing: json))
-                
                 let obj = json as! NSDictionary
-
                 if obj.object(forKey: "kind") != nil {
-                    
                     let data = obj["data"] as! NSDictionary
                     let children = data["children"] as! NSArray
-
                     self.subredditList = children
                 }
-                
             }
-            
             self.tableView.reloadData()
         }
+    }
+    
+    func loadTrendingSubreddits() {
+        let url = "https://www.reddit.com/subreddits/.json"
+        Alamofire.request(url).responseJSON { response in
+            if let json = response.result.value {
+                let obj = json as! NSDictionary
+                if obj.object(forKey: "kind") != nil {
+                    let data = obj["data"] as! NSDictionary
+                    let children = data["children"] as! NSArray
+                    self.subredditList = children
+                }
+            }
+            self.tableView.reloadData()
+        }
+    }
+    
+    func decodeString(_ htmlEncodedString : String) -> String {
+        guard let encodedData = htmlEncodedString.data(using: .utf8) else {
+            return htmlEncodedString
+        }
         
-
+        let attributedOptions: [String : Any] = [
+            NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
+            NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue
+        ]
+        
+        do {
+            let attributedString = try NSAttributedString(data: encodedData, options: attributedOptions, documentAttributes: nil)
+            return attributedString.string
+        } catch {
+            print("Error: \(error)")
+            return htmlEncodedString
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        loadTrendingSubreddits()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -82,8 +105,28 @@ class SubredditSearchTableViewController: UITableViewController {
         let post = self.subredditList[indexPath.row] as! NSDictionary
         let postData = post["data"] as! NSDictionary
         cell.subredditTitle.text = postData["display_name"] as? String
-        cell.subredditDescription.text = postData["public_description"] as? String
-
+        if let description = postData["public_description"] as? String {
+            cell.subredditDescription.text = decodeString(description)
+        } else {
+            cell.subredditDescription.text = ""
+        }
+        if let imgURL = postData["icon_img"] as? String {
+            if  imgURL.range(of:"http") != nil {
+                let url = URL(string: imgURL)
+                cell.subredditImage.kf.setImage(with: url)
+            } else {
+                cell.subredditImage.image = UIImage(named: "list-thumbnail")
+            }
+        } else {
+            cell.subredditImage.image = UIImage(named: "list-thumbnail")
+        }
+        
+        if let subscriberCount = postData["subscribers"] as? Int {
+            cell.subredditSubscriberCount.text = String(describing: subscriberCount)
+        } else {
+            cell.subredditSubscriberCount.text = "?"
+        }
+        
         
         return cell
     }

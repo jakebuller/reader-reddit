@@ -10,8 +10,10 @@ import UIKit
 
 class SubredditSearchTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var subredditSubscriberCount: UILabel!
     @IBOutlet weak var subredditTitle: UILabel!
     @IBOutlet weak var subredditDescription: UILabel!
+    @IBOutlet weak var subredditImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
