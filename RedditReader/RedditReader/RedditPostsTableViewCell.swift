@@ -11,7 +11,10 @@ import UIKit
 class RedditPostsTableViewCell: UITableViewCell {
     @IBOutlet var cellTitle: UILabel!
     @IBOutlet var cellImage: UIImageView!
-
+    @IBOutlet var cellPostDate: UILabel!
+    @IBOutlet var cellPostAuthor: UILabel!
+    @IBOutlet var cellPostComments: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

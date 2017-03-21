@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		222F29E3A691C636B819F8C0 /* Pods_RedditReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B4404BF14F672345D1679B8 /* Pods_RedditReader.framework */; };
+		42321D931E78A827004F64D2 /* Dosis-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42321D8C1E78A827004F64D2 /* Dosis-Bold.ttf */; };
+		42321D941E78A827004F64D2 /* Dosis-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42321D8D1E78A827004F64D2 /* Dosis-ExtraBold.ttf */; };
+		42321D951E78A827004F64D2 /* Dosis-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42321D8E1E78A827004F64D2 /* Dosis-ExtraLight.ttf */; };
+		42321D961E78A827004F64D2 /* Dosis-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42321D8F1E78A827004F64D2 /* Dosis-Light.ttf */; };
+		42321D971E78A827004F64D2 /* Dosis-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42321D901E78A827004F64D2 /* Dosis-Medium.ttf */; };
+		42321D981E78A827004F64D2 /* Dosis-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42321D911E78A827004F64D2 /* Dosis-Regular.ttf */; };
+		42321D991E78A827004F64D2 /* Dosis-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42321D921E78A827004F64D2 /* Dosis-SemiBold.ttf */; };
 		427172B61E380BB3001DC989 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427172B51E380BB3001DC989 /* AppDelegate.swift */; };
 		427172BB1E380BB3001DC989 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 427172B91E380BB3001DC989 /* Main.storyboard */; };
 		427172BE1E380BB3001DC989 /* RedditReader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 427172BC1E380BB3001DC989 /* RedditReader.xcdatamodeld */; };
@@ -24,6 +31,13 @@
 /* Begin PBXFileReference section */
 		265404F8BAE1B84D9B91B2A2 /* Pods-RedditReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RedditReader.release.xcconfig"; path = "Pods/Target Support Files/Pods-RedditReader/Pods-RedditReader.release.xcconfig"; sourceTree = "<group>"; };
 		2B4404BF14F672345D1679B8 /* Pods_RedditReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RedditReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		42321D8C1E78A827004F64D2 /* Dosis-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Bold.ttf"; sourceTree = "<group>"; };
+		42321D8D1E78A827004F64D2 /* Dosis-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-ExtraBold.ttf"; sourceTree = "<group>"; };
+		42321D8E1E78A827004F64D2 /* Dosis-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-ExtraLight.ttf"; sourceTree = "<group>"; };
+		42321D8F1E78A827004F64D2 /* Dosis-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Light.ttf"; sourceTree = "<group>"; };
+		42321D901E78A827004F64D2 /* Dosis-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Medium.ttf"; sourceTree = "<group>"; };
+		42321D911E78A827004F64D2 /* Dosis-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Regular.ttf"; sourceTree = "<group>"; };
+		42321D921E78A827004F64D2 /* Dosis-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-SemiBold.ttf"; sourceTree = "<group>"; };
 		427172B21E380BB3001DC989 /* RedditReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedditReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		427172B51E380BB3001DC989 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		427172BA1E380BB3001DC989 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -81,6 +95,13 @@
 		427172B41E380BB3001DC989 /* RedditReader */ = {
 			isa = PBXGroup;
 			children = (
+				42321D8C1E78A827004F64D2 /* Dosis-Bold.ttf */,
+				42321D8D1E78A827004F64D2 /* Dosis-ExtraBold.ttf */,
+				42321D8E1E78A827004F64D2 /* Dosis-ExtraLight.ttf */,
+				42321D8F1E78A827004F64D2 /* Dosis-Light.ttf */,
+				42321D901E78A827004F64D2 /* Dosis-Medium.ttf */,
+				42321D911E78A827004F64D2 /* Dosis-Regular.ttf */,
+				42321D921E78A827004F64D2 /* Dosis-SemiBold.ttf */,
 				427172B51E380BB3001DC989 /* AppDelegate.swift */,
 				427172B91E380BB3001DC989 /* Main.storyboard */,
 				623D34881E381AEC0071AC7E /* WebviewViewController.swift */,
@@ -170,9 +191,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				427172C31E380BB3001DC989 /* LaunchScreen.storyboard in Resources */,
+				42321D941E78A827004F64D2 /* Dosis-ExtraBold.ttf in Resources */,
+				42321D961E78A827004F64D2 /* Dosis-Light.ttf in Resources */,
+				42321D991E78A827004F64D2 /* Dosis-SemiBold.ttf in Resources */,
 				427172C01E380BB3001DC989 /* Assets.xcassets in Resources */,
+				42321D951E78A827004F64D2 /* Dosis-ExtraLight.ttf in Resources */,
+				42321D971E78A827004F64D2 /* Dosis-Medium.ttf in Resources */,
+				42321D981E78A827004F64D2 /* Dosis-Regular.ttf in Resources */,
 				623D348B1E381AEC0071AC7E /* WebviewViewController.xib in Resources */,
 				427172BB1E380BB3001DC989 /* Main.storyboard in Resources */,
+				42321D931E78A827004F64D2 /* Dosis-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
