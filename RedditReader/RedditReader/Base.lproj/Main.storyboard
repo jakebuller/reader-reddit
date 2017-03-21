@@ -25,7 +25,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EcR-nH-2TK" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" tag="4" title="Home" image="home" id="mfh-d6-jwc"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Xzb-gp-t2a">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xzb-gp-t2a">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -51,7 +51,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="317"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="B4e-Dk-LxC" id="hjb-1N-YkV">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="316"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="316.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="list-thumbnail" translatesAutoresizingMaskIntoConstraints="NO" id="hdZ-r8-AvF">
@@ -111,8 +111,8 @@
                                                 <constraint firstAttribute="height" constant="30" id="rfP-gM-99O"/>
                                             </constraints>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S72-8j-f1F">
-                                            <rect key="frame" x="14" y="39" width="346" height="28"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S72-8j-f1F">
+                                            <rect key="frame" x="14" y="8" width="346" height="59"/>
                                             <fontDescription key="fontDescription" name="Dosis-Bold" family="Dosis" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -120,11 +120,15 @@
                                     </subviews>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="S72-8j-f1F" secondAttribute="trailing" constant="6" id="745-mm-lC0"/>
                                         <constraint firstItem="hdZ-r8-AvF" firstAttribute="leading" secondItem="hjb-1N-YkV" secondAttribute="leading" id="BZb-F0-hOi"/>
+                                        <constraint firstItem="S72-8j-f1F" firstAttribute="centerX" secondItem="hjb-1N-YkV" secondAttribute="centerX" id="Gca-xQ-Tvv"/>
+                                        <constraint firstItem="S72-8j-f1F" firstAttribute="top" secondItem="hjb-1N-YkV" secondAttribute="topMargin" id="JHd-L1-Hrl"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="hdZ-r8-AvF" secondAttribute="trailing" constant="7" id="Omt-8S-EoY"/>
                                         <constraint firstItem="OZM-eQ-wsl" firstAttribute="leading" secondItem="hjb-1N-YkV" secondAttribute="leading" id="Q8f-kT-ivB"/>
                                         <constraint firstItem="hdZ-r8-AvF" firstAttribute="leading" secondItem="hjb-1N-YkV" secondAttribute="leadingMargin" constant="7" id="TH8-DM-Vqd"/>
                                         <constraint firstAttribute="trailing" secondItem="OZM-eQ-wsl" secondAttribute="trailing" id="WpP-Ye-IZC"/>
+                                        <constraint firstItem="S72-8j-f1F" firstAttribute="leading" secondItem="hjb-1N-YkV" secondAttribute="leadingMargin" constant="6" id="XQs-GY-SMe"/>
                                         <constraint firstItem="hdZ-r8-AvF" firstAttribute="top" secondItem="S72-8j-f1F" secondAttribute="bottom" constant="20" id="Zfe-1O-2b0"/>
                                         <constraint firstAttribute="trailing" secondItem="hdZ-r8-AvF" secondAttribute="trailing" id="kqm-sw-OmA"/>
                                         <constraint firstItem="OZM-eQ-wsl" firstAttribute="top" secondItem="hdZ-r8-AvF" secondAttribute="bottom" id="ofx-M8-cHB"/>
@@ -148,7 +152,7 @@
                     <navigationItem key="navigationItem" id="ZIK-N5-doF">
                         <nil key="title"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="kJF-bV-ljh">
-                            <rect key="frame" x="113" y="7" width="150" height="30"/>
+                            <rect key="frame" x="112.5" y="7" width="150" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="Hot"/>
@@ -180,7 +184,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hYr-hv-ct7" id="0a9-Ry-tjw">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DcM-UU-B6d">
@@ -257,7 +261,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HNs-xF-OhJ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Search" image="search" id="g8C-Fm-mfx"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="opm-dK-WR3">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="opm-dK-WR3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
