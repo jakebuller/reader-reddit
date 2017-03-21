@@ -27,7 +27,7 @@ class RedditPostsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        print(subReddit)
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         
         posts.removeAll()
         loadPosts()
