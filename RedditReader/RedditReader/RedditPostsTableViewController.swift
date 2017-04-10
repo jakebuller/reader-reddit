@@ -124,12 +124,12 @@ class RedditPostsTableViewController: UITableViewController {
 
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let post = self.posts[indexPath.row] as NSDictionary
-        let postData = post["data"] as! NSDictionary
-        let url_string = postData["url"] as! String
-        loadWebView(url: url_string)
-    }
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let post = self.posts[indexPath.row] as NSDictionary
+//        let postData = post["data"] as! NSDictionary
+//        let url_string = postData["url"] as! String
+//        loadWebView(url: url_string)
+//    }
     
     func loadWebView(url:String) {
         let newView = WebviewViewController(nibName: "WebviewViewController", bundle: nil)
@@ -137,6 +137,27 @@ class RedditPostsTableViewController: UITableViewController {
         newView.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
         self.present(newView, animated: true, completion: nil)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let indexPath = tableView.indexPathForSelectedRow{
+            let selectedRow = indexPath.row
+            let post = self.posts[selectedRow]
+            
+            
+            let postData = post["data"] as! NSDictionary
+            let subReddit = postData["permalink"] as? String
+            
+            
+            if let nextViewController = segue.destination as? CommentsTableViewController{
+                nextViewController.permalink = subReddit! //Or pass any values
+            }
+        }
+        
+        //        if segue.identifier == "MySegueId"{
+        
+        //        }
+    }
+
     
  
     /*
