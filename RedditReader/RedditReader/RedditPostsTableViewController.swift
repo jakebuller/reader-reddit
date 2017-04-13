@@ -14,14 +14,12 @@ class RedditPostsTableViewController: UITableViewController {
 
     @IBOutlet var sortTypeControl: UISegmentedControl!
 
-    var posts = [NSDictionary]();
-    
-    var sortType = "hot";
-    var subReddit = String();
+    var subReddit = String()
+    var posts = [NSDictionary]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPress))
         self.view.addGestureRecognizer(longPressRecognizer)
 
@@ -29,9 +27,25 @@ class RedditPostsTableViewController: UITableViewController {
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         
+        NotificationCenter.default.addObserver(forName: Notification.Name("postsLoaded"), object: nil, queue: nil, using: postsHaveLoaded)
+        
         posts.removeAll()
         loadPosts()
     }
+    
+    func postsHaveLoaded(notification: Notification) {
+        print("My Posts loaded notification received!")
+        
+        guard let userInfo = notification.userInfo,
+            let data = userInfo["posts"] as? Array<NSDictionary> else {
+                print("No data was returned")
+                return
+        }
+        
+        self.posts = data
+        self.tableView.reloadData()
+    }
+
     
     //Called, when long press occurred
     func longPress(longPressGestureRecognizer: UILongPressGestureRecognizer) {
@@ -45,48 +59,21 @@ class RedditPostsTableViewController: UITableViewController {
         }
     }
     
-    @IBAction func SortTypeChanged(_ sender: Any) {
-        switch sortTypeControl.selectedSegmentIndex {
-            case 1:
-                sortType = "new"
-            default:
-                sortType = "hot"
-                break
-        }
-        
-        posts.removeAll()
-        self.loadPosts();
-    }
+//    @IBAction func SortTypeChanged(_ sender: Any) {
+//        switch sortTypeControl.selectedSegmentIndex {
+//            case 1:
+//                sortType = "new"
+//            default:
+//                sortType = "hot"
+//                break
+//        }
+//        
+//        posts.removeAll()
+//        self.loadPosts();
+//    }
     
     func loadPosts(after: String = "") {
-        var searchUrl = String();
-
-        if (subReddit.isEmpty) {
-            searchUrl = "https://www.reddit.com/" + sortType + "/.json?"
-        } else {
-            searchUrl = "https://www.reddit.com/r/" + subReddit + "/" + sortType + "/.json?"
-        }
-
-        if (!self.posts.isEmpty) {
-            searchUrl += "count=" + String(self.posts.count)
-        }
-
-        if (!after.isEmpty) {
-            searchUrl += "&after=" + after
-        }
-        
-        print(searchUrl)
-        Alamofire.request(searchUrl).responseJSON { response in
-            if let json = response.result.value {
-                let obj = json as! NSDictionary
-                let data = obj["data"] as! NSDictionary
-                let children = data["children"] as! NSArray
-                let childrenArray = children as! Array<NSDictionary>
-                self.posts.append(contentsOf: childrenArray)
-            }
-            
-            self.tableView.reloadData()
-        }
+        self.posts = RedditPostsService().getPosts()
     }
 
 
