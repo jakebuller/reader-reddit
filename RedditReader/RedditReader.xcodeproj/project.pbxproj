@@ -15,7 +15,6 @@
 		42321D971E78A827004F64D2 /* Dosis-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42321D901E78A827004F64D2 /* Dosis-Medium.ttf */; };
 		42321D981E78A827004F64D2 /* Dosis-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42321D911E78A827004F64D2 /* Dosis-Regular.ttf */; };
 		42321D991E78A827004F64D2 /* Dosis-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42321D921E78A827004F64D2 /* Dosis-SemiBold.ttf */; };
-		425B9F0B1EA022EF0077E0DE /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425B9F0A1EA022EF0077E0DE /* CollectionViewController.swift */; };
 		425B9F0E1EA023830077E0DE /* RedditPostsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425B9F0D1EA023830077E0DE /* RedditPostsService.swift */; };
 		427172B61E380BB3001DC989 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427172B51E380BB3001DC989 /* AppDelegate.swift */; };
 		427172BB1E380BB3001DC989 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 427172B91E380BB3001DC989 /* Main.storyboard */; };
@@ -42,7 +41,6 @@
 		42321D901E78A827004F64D2 /* Dosis-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Medium.ttf"; sourceTree = "<group>"; };
 		42321D911E78A827004F64D2 /* Dosis-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Regular.ttf"; sourceTree = "<group>"; };
 		42321D921E78A827004F64D2 /* Dosis-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-SemiBold.ttf"; sourceTree = "<group>"; };
-		425B9F0A1EA022EF0077E0DE /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		425B9F0D1EA023830077E0DE /* RedditPostsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedditPostsService.swift; sourceTree = "<group>"; };
 		427172B21E380BB3001DC989 /* RedditReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedditReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		427172B51E380BB3001DC989 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +88,28 @@
 			name = Services;
 			sourceTree = "<group>";
 		};
+		425B9F0F1EA030DB0077E0DE /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				42321D8C1E78A827004F64D2 /* Dosis-Bold.ttf */,
+				42321D8D1E78A827004F64D2 /* Dosis-ExtraBold.ttf */,
+				42321D8E1E78A827004F64D2 /* Dosis-ExtraLight.ttf */,
+				42321D8F1E78A827004F64D2 /* Dosis-Light.ttf */,
+				42321D901E78A827004F64D2 /* Dosis-Medium.ttf */,
+				42321D911E78A827004F64D2 /* Dosis-Regular.ttf */,
+				42321D921E78A827004F64D2 /* Dosis-SemiBold.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		425B9F101EA030EE0077E0DE /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				425B9F0F1EA030DB0077E0DE /* Fonts */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
 		427172A91E380BB2001DC989 = {
 			isa = PBXGroup;
 			children = (
@@ -111,14 +131,8 @@
 		427172B41E380BB3001DC989 /* RedditReader */ = {
 			isa = PBXGroup;
 			children = (
+				425B9F101EA030EE0077E0DE /* Assets */,
 				425B9F0C1EA023600077E0DE /* Services */,
-				42321D8C1E78A827004F64D2 /* Dosis-Bold.ttf */,
-				42321D8D1E78A827004F64D2 /* Dosis-ExtraBold.ttf */,
-				42321D8E1E78A827004F64D2 /* Dosis-ExtraLight.ttf */,
-				42321D8F1E78A827004F64D2 /* Dosis-Light.ttf */,
-				42321D901E78A827004F64D2 /* Dosis-Medium.ttf */,
-				42321D911E78A827004F64D2 /* Dosis-Regular.ttf */,
-				42321D921E78A827004F64D2 /* Dosis-SemiBold.ttf */,
 				427172B51E380BB3001DC989 /* AppDelegate.swift */,
 				427172B91E380BB3001DC989 /* Main.storyboard */,
 				623D34881E381AEC0071AC7E /* WebviewViewController.swift */,
@@ -133,7 +147,6 @@
 				622D5F3A1E6F76210081A3F6 /* SubredditSearchTableViewCell.swift */,
 				622CDF551E81DEB100747944 /* CommentsTableViewCell.swift */,
 				622CDF571E81DECB00747944 /* CommentsTableViewController.swift */,
-				425B9F0A1EA022EF0077E0DE /* CollectionViewController.swift */,
 			);
 			path = RedditReader;
 			sourceTree = "<group>";
@@ -283,7 +296,6 @@
 				427172B61E380BB3001DC989 /* AppDelegate.swift in Sources */,
 				623D348A1E381AEC0071AC7E /* WebviewViewController.swift in Sources */,
 				622D5F3B1E6F76210081A3F6 /* SubredditSearchTableViewCell.swift in Sources */,
-				425B9F0B1EA022EF0077E0DE /* CollectionViewController.swift in Sources */,
 				622D5F391E6F74480081A3F6 /* SubredditSearchTableViewController.swift in Sources */,
 				427172BE1E380BB3001DC989 /* RedditReader.xcdatamodeld in Sources */,
 				427172CD1E381C2E001DC989 /* RedditPostsTableViewController.swift in Sources */,
