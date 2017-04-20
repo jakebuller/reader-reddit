@@ -10,11 +10,19 @@ import Foundation
 
 
 class SubReddit {
-    var name: String = "TEST123"
+    var name: String = ""
     var subscribers: Int = 0
     var description: String = ""
     var url: String = ""
     var imageUrl: String = ""
     
-    var posts: Array<Post> = []
+    func posts() {
+        RedditPostsService().get(subreddit: self, completion: self.postsLoaded)
+    }
+
+    func postsLoaded(posts: Array<Post>) {
+        for post in posts {
+            print(post)
+        }
+    }
 }

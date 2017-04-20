@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 class RedditPostsService {
     
@@ -15,6 +16,34 @@ class RedditPostsService {
     var sortType = "hot";
     var subReddit = String();
     
+    func get(subreddit: SubReddit, completion: @escaping (_ result: Array<Post>) -> Void) {
+        let postsUrl = "http://reddit.com/" + subreddit.url + ".json"
+
+        Alamofire.request(postsUrl).responseJSON { response in
+            var posts = Array<Post>()
+
+            if (response.result.value != nil) {
+                let postsJson = JSON(response.result.value!)["data"]["children"]
+
+                for (_,obj) in postsJson {
+                    let postJson = obj["data"]
+                        let post = Post()
+                        post.author = postJson["author"].string!
+                        post.commentCount = postJson["num_comments"].int!
+                        post.createdAt = Date(timeIntervalSince1970: TimeInterval(postJson["created"].int!))
+                        post.title = postJson["title"].string!
+                        post.isSelf = postJson["is_self"].bool!
+                        post.imageUrl = postJson["thumbnail"].string!
+                        post.permaLink = postJson["permalink"].string!
+
+                    posts.append(post)
+                }
+            }
+
+            completion(posts)
+        }
+    }
+
     func getPosts(after: String = "") -> Array<NSDictionary> {
         self.loadPosts()
         return self.posts
@@ -44,6 +73,7 @@ class RedditPostsService {
                 let childrenArray = children as! Array<NSDictionary>
                 self.posts.append(contentsOf: childrenArray)
             }
+
             
             NotificationCenter.default.post(name: Notification.Name("postsLoaded"), object: nil, userInfo: ["posts": self.posts])
         }

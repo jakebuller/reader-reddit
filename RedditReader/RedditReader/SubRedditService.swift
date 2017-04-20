@@ -14,9 +14,9 @@ class SubRedditService {
     func get(subreddit: String = "", completion: @escaping (_ result: SubReddit) -> Void) {
         let subRedditUrl = "http://reddit.com/r/" + subreddit + "/about.json"
         Alamofire.request(subRedditUrl).responseJSON { response in
-            var subreddit = SubReddit()
+            let subreddit = SubReddit()
             
-            if let json = response.result.value {
+            if (response.result.value != nil) {
                 let subData = JSON(response.result.value!)["data"]
                 subreddit.name = subData["display_name"].string!
                 subreddit.description = subData["description"].string!
@@ -26,7 +26,6 @@ class SubRedditService {
             }
             
             completion(subreddit)
-//            NotificationCenter.default.post(name: Notification.Name("postsLoaded"), object: nil, userInfo: ["posts": self.posts])
         }
     }
 }
