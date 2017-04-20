@@ -28,5 +28,33 @@ class SubRedditService {
             completion(subreddit)
         }
     }
+    
+    func search(searchTerm: String, completion: @escaping (_ result: Array<SubReddit>) -> Void) {
+        let searchUrl = "https://www.reddit.com/subreddits/search.json?q=\(searchTerm)"
+        
+        Alamofire.request(searchUrl).responseJSON { response in
+            var subreddits = Array<SubReddit>()
+            
+            if (response.result.value != nil) {
+                let listings = JSON(response.result.value!)["data"]["children"]
+                
+                for (_,obj) in listings {
+                    let subData = obj["data"]
+                    let subreddit = SubReddit()
+                    
+                    subreddit.name = subData["display_name"].string!
+                    subreddit.description = subData["description"].string!
+                    subreddit.subscribers = subData["subscribers"].int!
+                    subreddit.url = subData["url"].string!
+                    subreddit.imageUrl = subData["icon_img"].string!
+                    
+                    subreddits.append(subreddit)
+                }
+                
+            }
+            
+            completion(subreddits)
+        }
+    }
 }
 
