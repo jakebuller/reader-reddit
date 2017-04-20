@@ -45,8 +45,6 @@ class RedditPostsService {
                 self.posts.append(contentsOf: childrenArray)
             }
             
-            print(self.posts)
-            
             NotificationCenter.default.post(name: Notification.Name("postsLoaded"), object: nil, userInfo: ["posts": self.posts])
         }
     }
