@@ -44,7 +44,13 @@ class RedditPostsService {
         }
     }
 
-    func getPosts(after: String = "") -> Array<NSDictionary> {
+    func getPosts(after: String = "", sortType: String = "") -> Array<NSDictionary> {
+        // Remove all posts held in memory if the sort type has changed
+        if (self.sortType != sortType) {
+            self.sortType = sortType
+            self.posts.removeAll()
+        }
+
         self.loadPosts()
         return self.posts
     }

@@ -16,6 +16,7 @@ class RedditPostsTableViewController: UITableViewController {
 
     var subReddit = String()
     var posts = [NSDictionary]()
+    var sortType = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +42,7 @@ class RedditPostsTableViewController: UITableViewController {
                 print("No data was returned")
                 return
         }
-        
+
         self.posts = data
         self.tableView.reloadData()
     }
@@ -59,23 +60,22 @@ class RedditPostsTableViewController: UITableViewController {
         }
     }
     
-//    @IBAction func SortTypeChanged(_ sender: Any) {
-//        switch sortTypeControl.selectedSegmentIndex {
-//            case 1:
-//                sortType = "new"
-//            default:
-//                sortType = "hot"
-//                break
-//        }
-//        
-//        posts.removeAll()
-//        self.loadPosts();
-//    }
+    @IBAction func SortTypeChanged(_ sender: Any) {
+        switch sortTypeControl.selectedSegmentIndex {
+            case 1:
+                sortType = "new"
+            default:
+                sortType = "hot"
+                break
+        }
+
+        posts.removeAll()
+        self.loadPosts();
+    }
     
     func loadPosts(after: String = "") {
-        self.posts = RedditPostsService().getPosts()
+        self.posts = RedditPostsService().getPosts(sortType: sortType)
     }
-
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -119,7 +119,6 @@ class RedditPostsTableViewController: UITableViewController {
         }
 
         return cell
-
     }
     
 //    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
