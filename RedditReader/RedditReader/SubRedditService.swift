@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
+import Kingfisher
 
 class SubRedditService {
     func get(subreddit: String = "", completion: @escaping (_ result: SubReddit) -> Void) {
@@ -43,11 +44,27 @@ class SubRedditService {
                     let subreddit = SubReddit()
                     
                     subreddit.name = subData["display_name"].string!
-                    subreddit.description = subData["description"].string!
-                    subreddit.subscribers = subData["subscribers"].int!
-                    subreddit.url = subData["url"].string!
-                    subreddit.imageUrl = subData["icon_img"].string!
                     
+                    if let description = subData["description"].string {
+                        subreddit.description = description
+                    }
+//                    subreddit.description = subData["description"].string!
+                    if let subscribers = subData["subscribers"].int {
+                        subreddit.subscribers = subscribers
+                    }
+//                    subreddit.subscribers = subData["subscribers"].int!
+                    subreddit.url = subData["url"].string!
+                    
+                    if let imageUrl = subData["icon_img"].string {
+                        subreddit.imageUrl = imageUrl
+                    }
+//                    subreddit.imageUrl = subData["icon_img"].string!
+                    
+//                    if (subData["icon_img"].string!.range(of: "http") != nil) {
+//                        let url = URL(string: subData["icon_img"].string!)
+//                        subreddit.image.kf.setImage(with: url)
+//                    }
+                  
                     subreddits.append(subreddit)
                 }
                 

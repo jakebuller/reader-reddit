@@ -12,45 +12,35 @@ import Kingfisher
 
 class SubredditSearchTableViewController: UITableViewController {
     
-    var subredditList: NSArray = NSArray();
+    var subredditList = [SubReddit]()
+    
+    
     
     @IBOutlet weak var searchInput: UITextField!
     
     @IBAction func searchSubreddit(_ sender: Any) {
         let searchTerm = searchInput.text!
-        let searchUrl = "https://www.reddit.com/subreddits/search.json?q=\(searchTerm)"
-        
-        if searchTerm.isEmpty {
-            loadTrendingSubreddits()
-            return
-        }
-        
-        Alamofire.request(searchUrl).responseJSON { response in
-            if let json = response.result.value {
-                let obj = json as! NSDictionary
-                if obj.object(forKey: "kind") != nil {
-                    let data = obj["data"] as! NSDictionary
-                    let children = data["children"] as! NSArray
-                    self.subredditList = children
-                }
-            }
-            self.tableView.reloadData()
-        }
+        SubRedditService().search(searchTerm: searchTerm, completion: self.subredditsLoaded)
     }
     
     func loadTrendingSubreddits() {
-        let url = "https://www.reddit.com/subreddits/.json"
-        Alamofire.request(url).responseJSON { response in
-            if let json = response.result.value {
-                let obj = json as! NSDictionary
-                if obj.object(forKey: "kind") != nil {
-                    let data = obj["data"] as! NSDictionary
-                    let children = data["children"] as! NSArray
-                    self.subredditList = children
-                }
-            }
-            self.tableView.reloadData()
-        }
+//        let url = "https://www.reddit.com/subreddits/.json"
+//        Alamofire.request(url).responseJSON { response in
+//            if let json = response.result.value {
+//                let obj = json as! NSDictionary
+//                if obj.object(forKey: "kind") != nil {
+//                    let data = obj["data"] as! NSDictionary
+//                    let children = data["children"] as! NSArray
+//                    self.subredditList = children
+//                }
+//            }
+//            self.tableView.reloadData()
+//        }
+    }
+    
+    func subredditsLoaded(subReddits: Array<SubReddit>) {
+        self.subredditList = subReddits
+        self.tableView.reloadData()
     }
     
     func decodeString(_ htmlEncodedString : String) -> String {
@@ -102,31 +92,12 @@ class SubredditSearchTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SubredditCell", for: indexPath) as! SubredditSearchTableViewCell
-        let post = self.subredditList[indexPath.row] as! NSDictionary
-        let postData = post["data"] as! NSDictionary
-        cell.subredditTitle.text = postData["display_name"] as? String
-        if let description = postData["public_description"] as? String {
-            cell.subredditDescription.text = decodeString(description)
-        } else {
-            cell.subredditDescription.text = ""
-        }
-        if let imgURL = postData["icon_img"] as? String {
-            if  imgURL.range(of:"http") != nil {
-                let url = URL(string: imgURL)
-                cell.subredditImage.kf.setImage(with: url)
-            } else {
-                cell.subredditImage.image = UIImage(named: "list-thumbnail")
-            }
-        } else {
-            cell.subredditImage.image = UIImage(named: "list-thumbnail")
-        }
+        let subReddit = self.subredditList[indexPath.row]
         
-        if let subscriberCount = postData["subscribers"] as? Int {
-            cell.subredditSubscriberCount.text = String(describing: subscriberCount)
-        } else {
-            cell.subredditSubscriberCount.text = "?"
-        }
-        
+        cell.subredditTitle.text = subReddit.name
+        cell.subredditDescription.text = subReddit.description
+        cell.subredditImage.image = subReddit.image
+        cell.subredditSubscriberCount.text = String(describing: subReddit.subscribers)
         
         return cell
     }
@@ -134,21 +105,12 @@ class SubredditSearchTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let indexPath = tableView.indexPathForSelectedRow{
             let selectedRow = indexPath.row
-            let selectedSubreddit = self.subredditList[selectedRow] as! NSDictionary
-            
-            
-            let postData = selectedSubreddit["data"] as! NSDictionary
-            let subReddit = postData["display_name"] as? String
-            
-            
+            let selectedSubreddit = self.subredditList[selectedRow]
+
             if let nextViewController = segue.destination as? RedditPostsTableViewController{
-                nextViewController.subReddit = subReddit! //Or pass any values
+                nextViewController.subReddit = selectedSubreddit.name //Or pass any values
             }
         }
-        
-        //        if segue.identifier == "MySegueId"{
-
-        //        }
     }
     
     

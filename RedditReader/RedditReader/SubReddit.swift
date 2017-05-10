@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import UIKit
 
 class SubReddit {
     var name: String = ""
@@ -15,6 +15,7 @@ class SubReddit {
     var description: String = ""
     var url: String = ""
     var imageUrl: String = ""
+    var image: UIImage = UIImage(named: "list-thumbnail")!
     
     func posts() {
         RedditPostsService().get(subreddit: self, completion: self.postsLoaded)
