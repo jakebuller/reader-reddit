@@ -13,7 +13,7 @@ import SwiftyJSON
 class RedditPostsService {
     
     var posts = [NSDictionary]();
-    var sortType = "hot";
+    var sortType = Constants.SortType.Hot;
     var subReddit = String();
     
     func get(subreddit: SubReddit, completion: @escaping (_ result: Array<Post>) -> Void) {
@@ -44,7 +44,13 @@ class RedditPostsService {
         }
     }
 
-    func getPosts(after: String = "") -> Array<NSDictionary> {
+    func getPosts(after: String = "", sortType: String = "") -> Array<NSDictionary> {
+        // Remove all posts held in memory if the sort type has changed
+        if (self.sortType != sortType) {
+            self.sortType = sortType
+            self.posts.removeAll()
+        }
+
         self.loadPosts()
         return self.posts
     }
@@ -52,9 +58,9 @@ class RedditPostsService {
     private func loadPosts(after: String = "") {
         var searchUrl = String();
         if (subReddit.isEmpty) {
-            searchUrl = "https://www.reddit.com/" + sortType + "/.json?"
+            searchUrl = Constants.RedditApi.baseUrl + sortType + "/" + Constants.RedditApi.jsonApiExt + "?"
         } else {
-            searchUrl = "https://www.reddit.com/r/" + subReddit + "/" + sortType + "/.json?"
+            searchUrl = Constants.RedditApi.baseUrl + Constants.RedditApi.subredditUri + subReddit + "/" + sortType + "/" + Constants.RedditApi.jsonApiExt + "?"
         }
         
         if (!self.posts.isEmpty) {
