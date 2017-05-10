@@ -47,9 +47,6 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UIAppFonts</key>
-	<array>
-		<string>Dosis-Regular.ttf</string>
-		<string>Dosis-Bold.ttf</string>
-	</array>
+	<array/>
 </dict>
 </plist>
