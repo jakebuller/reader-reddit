@@ -48,11 +48,9 @@ class SubRedditService {
                     if let description = subData["description"].string {
                         subreddit.description = description
                     }
-//                    subreddit.description = subData["description"].string!
                     if let subscribers = subData["subscribers"].int {
                         subreddit.subscribers = subscribers
                     }
-//                    subreddit.subscribers = subData["subscribers"].int!
                     subreddit.url = subData["url"].string!
                     
                     if let imageUrl = subData["icon_img"].string {
