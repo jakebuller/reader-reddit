@@ -63,9 +63,9 @@ class RedditPostsTableViewController: UITableViewController {
     @IBAction func SortTypeChanged(_ sender: Any) {
         switch sortTypeControl.selectedSegmentIndex {
             case 1:
-                sortType = "new"
+                sortType = Constants.SortType.New
             default:
-                sortType = "hot"
+                sortType = Constants.SortType.Hot
                 break
         }
 
