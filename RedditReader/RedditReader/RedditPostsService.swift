@@ -12,7 +12,7 @@ import SwiftyJSON
 
 class RedditPostsService {
     
-    var posts = [NSDictionary]();
+//    var posts = [NSDictionary]();
     var sortType = Constants.SortType.Hot;
     var subReddit = String();
     
@@ -40,48 +40,49 @@ class RedditPostsService {
                 }
             }
 
+            subreddit.posts.append(contentsOf: posts)
             completion(posts)
         }
     }
 
-    func getPosts(after: String = "", sortType: String = "") -> Array<NSDictionary> {
-        // Remove all posts held in memory if the sort type has changed
-        if (self.sortType != sortType) {
-            self.sortType = sortType
-            self.posts.removeAll()
-        }
-
-        self.loadPosts()
-        return self.posts
-    }
+//    func getPosts(after: String = "", sortType: String = "") -> Array<NSDictionary> {
+//        // Remove all posts held in memory if the sort type has changed
+//        if (self.sortType != sortType) {
+//            self.sortType = sortType
+//            self.posts.removeAll()
+//        }
+//
+//        self.loadPosts()
+//        return self.posts
+//    }
     
-    private func loadPosts(after: String = "") {
-        var searchUrl = String();
-        if (subReddit.isEmpty) {
-            searchUrl = Constants.RedditApi.baseUrl + sortType + "/" + Constants.RedditApi.jsonApiExt + "?"
-        } else {
-            searchUrl = Constants.RedditApi.baseUrl + Constants.RedditApi.subredditUri + subReddit + "/" + sortType + "/" + Constants.RedditApi.jsonApiExt + "?"
-        }
-        
-        if (!self.posts.isEmpty) {
-            searchUrl += "count=" + String(self.posts.count)
-        }
-        
-        if (!after.isEmpty) {
-            searchUrl += "&after=" + after
-        }
-        
-        Alamofire.request(searchUrl).responseJSON { response in
-            if let json = response.result.value {
-                let obj = json as! NSDictionary
-                let data = obj["data"] as! NSDictionary
-                let children = data["children"] as! NSArray
-                let childrenArray = children as! Array<NSDictionary>
-                self.posts.append(contentsOf: childrenArray)
-            }
-
-            
-            NotificationCenter.default.post(name: Notification.Name("postsLoaded"), object: nil, userInfo: ["posts": self.posts])
-        }
-    }
+//    private func loadPosts(after: String = "") {
+//        var searchUrl = String();
+//        if (subReddit.isEmpty) {
+//            searchUrl = Constants.RedditApi.baseUrl + sortType + "/" + Constants.RedditApi.jsonApiExt + "?"
+//        } else {
+//            searchUrl = Constants.RedditApi.baseUrl + Constants.RedditApi.subredditUri + subReddit + "/" + sortType + "/" + Constants.RedditApi.jsonApiExt + "?"
+//        }
+//        
+//        if (!self.posts.isEmpty) {
+//            searchUrl += "count=" + String(self.posts.count)
+//        }
+//        
+//        if (!after.isEmpty) {
+//            searchUrl += "&after=" + after
+//        }
+//        
+//        Alamofire.request(searchUrl).responseJSON { response in
+//            if let json = response.result.value {
+//                let obj = json as! NSDictionary
+//                let data = obj["data"] as! NSDictionary
+//                let children = data["children"] as! NSArray
+//                let childrenArray = children as! Array<NSDictionary>
+//                self.posts.append(contentsOf: childrenArray)
+//            }
+//
+//            
+//            NotificationCenter.default.post(name: Notification.Name("postsLoaded"), object: nil, userInfo: ["posts": self.posts])
+//        }
+//    }
 }

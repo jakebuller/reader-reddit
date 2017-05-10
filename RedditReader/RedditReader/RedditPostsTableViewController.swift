@@ -14,9 +14,10 @@ class RedditPostsTableViewController: UITableViewController {
 
     @IBOutlet var sortTypeControl: UISegmentedControl!
 
-    var subReddit = String()
+    var subreddit = SubReddit()
     var posts = [NSDictionary]()
     var sortType = String()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +31,20 @@ class RedditPostsTableViewController: UITableViewController {
         
         NotificationCenter.default.addObserver(forName: Notification.Name("postsLoaded"), object: nil, queue: nil, using: postsHaveLoaded)
         
-        posts.removeAll()
-        loadPosts()
+        let subRedditService = SubRedditService()
+        subRedditService.get(subreddit: "hockey", completion: self.subredditLoadedHandler)
+        
+//        posts.removeAll()
+//        loadPosts()
+    }
+    
+    func subredditLoadedHandler(subreddit: SubReddit) {
+        print("subreddit loaded")
+        self.subreddit.loadPosts(completion: self.postsLoaded)
+    }
+    
+    func postsLoaded(posts: Array<Post>) {
+        print("posts loaded")
     }
     
     func postsHaveLoaded(notification: Notification) {
@@ -60,22 +73,22 @@ class RedditPostsTableViewController: UITableViewController {
         }
     }
     
-    @IBAction func SortTypeChanged(_ sender: Any) {
-        switch sortTypeControl.selectedSegmentIndex {
-            case 1:
-                sortType = Constants.SortType.New
-            default:
-                sortType = Constants.SortType.Hot
-                break
-        }
-
-        posts.removeAll()
-        self.loadPosts();
-    }
+//    @IBAction func SortTypeChanged(_ sender: Any) {
+//        switch sortTypeControl.selectedSegmentIndex {
+//            case 1:
+//                sortType = Constants.SortType.New
+//            default:
+//                sortType = Constants.SortType.Hot
+//                break
+//        }
+//
+//        posts.removeAll()
+//        self.loadPosts();
+//    }
     
-    func loadPosts(after: String = "") {
-        self.posts = RedditPostsService().getPosts(sortType: sortType)
-    }
+//    func loadPosts(after: String = "") {
+//        self.posts = RedditPostsService().getPosts(sortType: sortType)
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -91,35 +104,35 @@ class RedditPostsTableViewController: UITableViewController {
         return self.posts.count
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! RedditPostsTableViewCell
-        if (self.posts.isEmpty) {
-            return cell;
-        }
-
-        let post = self.posts[indexPath.row] as NSDictionary
-        let postData = post["data"] as! NSDictionary
-        cell.cellTitle.text = postData["title"] as? String
-        
-        let imgURL = postData["thumbnail"] as! String
-        
-        if imgURL.range(of:"http") != nil {
-            let url = URL(string: imgURL)
-            cell.cellImage.kf.setImage(with: url)
-        } else {
-            cell.cellImage.image = UIImage(named: "list-thumbnail")
-        }
-
-        // Start loading more posts when we are 3 away to make scrolling smoother
-        if indexPath.row == self.posts.count - 3 {
-            print("Scrolling last cell")
-            let lastPost = self.posts[self.posts.count - 1] as NSDictionary
-            let lastPostData = lastPost["data"] as! NSDictionary
-            loadPosts(after: lastPostData["name"] as! String)
-        }
-
-        return cell
-    }
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! RedditPostsTableViewCell
+//        if (self.posts.isEmpty) {
+//            return cell;
+//        }
+//
+//        let post = self.posts[indexPath.row] as NSDictionary
+//        let postData = post["data"] as! NSDictionary
+//        cell.cellTitle.text = postData["title"] as? String
+//        
+//        let imgURL = postData["thumbnail"] as! String
+//        
+//        if imgURL.range(of:"http") != nil {
+//            let url = URL(string: imgURL)
+//            cell.cellImage.kf.setImage(with: url)
+//        } else {
+//            cell.cellImage.image = UIImage(named: "list-thumbnail")
+//        }
+//
+//        // Start loading more posts when we are 3 away to make scrolling smoother
+//        if indexPath.row == self.posts.count - 3 {
+//            print("Scrolling last cell")
+//            let lastPost = self.posts[self.posts.count - 1] as NSDictionary
+//            let lastPostData = lastPost["data"] as! NSDictionary
+//            loadPosts(after: lastPostData["name"] as! String)
+//        }
+//
+//        return cell
+//    }
     
 //    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        let post = self.posts[indexPath.row] as NSDictionary

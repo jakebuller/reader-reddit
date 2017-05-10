@@ -107,7 +107,6 @@ class SubredditSearchTableViewController: UITableViewController {
         }
     }
     
-    
 //    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        let post = self.subredditList[indexPath.row] as! NSDictionary
 //        let postData = post["data"] as! NSDictionary
