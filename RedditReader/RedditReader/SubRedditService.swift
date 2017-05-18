@@ -63,16 +63,20 @@ class SubRedditService {
     
     private func buildSubredditFromJson(jsonData: JSON) -> SubReddit {
         let subreddit = SubReddit()
-
-        subreddit.name = jsonData["display_name"].string!
+        
+        if let displayName = jsonData["display_name"].string {
+            subreddit.name = displayName
+        }
+        
         if let description = jsonData["description"].string {
             subreddit.description = description
         }
         if let subscribers = jsonData["subscribers"].int {
             subreddit.subscribers = subscribers
         }
+        
         subreddit.url = jsonData["url"].string!
-
+        
         if let imageUrl = jsonData["icon_img"].string {
             subreddit.imageUrl = imageUrl
         }

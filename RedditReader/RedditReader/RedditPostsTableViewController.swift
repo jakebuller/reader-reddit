@@ -14,69 +14,31 @@ class RedditPostsTableViewController: UITableViewController {
 
     @IBOutlet var sortTypeControl: UISegmentedControl!
 
-    var subReddit = String()
-    var posts = [NSDictionary]()
+    var subreddit = SubReddit()
     var sortType = String()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPress))
-        self.view.addGestureRecognizer(longPressRecognizer)
-
-         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         
-        NotificationCenter.default.addObserver(forName: Notification.Name("postsLoaded"), object: nil, queue: nil, using: postsHaveLoaded)
-        
-        posts.removeAll()
-        loadPosts()
+        let subRedditService = SubRedditService()
+        if (self.subreddit.name.isEmpty) {
+            subRedditService.get(subreddit: "politics", completion: self.subredditLoadedHandler)
+        } else {
+            self.subreddit.loadPosts(completion: self.postsLoaded)
+        }
     }
     
-    func postsHaveLoaded(notification: Notification) {
-        print("My Posts loaded notification received!")
-        
-        guard let userInfo = notification.userInfo,
-            let data = userInfo["posts"] as? Array<NSDictionary> else {
-                print("No data was returned")
-                return
-        }
-
-        self.posts = data
+    func subredditLoadedHandler(subreddit: SubReddit) { 
+        self.subreddit = subreddit
+        self.subreddit.loadPosts(completion: self.postsLoaded)
+    }
+    
+    func postsLoaded(posts: Array<Post>) {
         self.tableView.reloadData()
     }
-
-    
-    //Called, when long press occurred
-    func longPress(longPressGestureRecognizer: UILongPressGestureRecognizer) {
-        if longPressGestureRecognizer.state == UIGestureRecognizerState.began {
-            print("a long press gesture was recognized")
-            let touchPoint = longPressGestureRecognizer.location(in: self.view)
-            if let indexPath = tableView.indexPathForRow(at: touchPoint) {
-                print(String(indexPath.row))
-                // your code here, get the row for the indexPath or do whatever you want
-            }
-        }
-    }
-    
-    @IBAction func SortTypeChanged(_ sender: Any) {
-        switch sortTypeControl.selectedSegmentIndex {
-            case 1:
-                sortType = Constants.SortType.New
-            default:
-                sortType = Constants.SortType.Hot
-                break
-        }
-
-        posts.removeAll()
-        self.loadPosts();
-    }
-    
-    func loadPosts(after: String = "") {
-        self.posts = RedditPostsService().getPosts(sortType: sortType)
-    }
-
+  
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -88,21 +50,26 @@ class RedditPostsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.posts.count
+        return self.subreddit.posts.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! RedditPostsTableViewCell
-        if (self.posts.isEmpty) {
+        if (self.subreddit.posts.isEmpty) {
             return cell;
         }
 
-        let post = self.posts[indexPath.row] as NSDictionary
-        let postData = post["data"] as! NSDictionary
-        cell.cellTitle.text = postData["title"] as? String
+        let post = self.subreddit.posts[indexPath.row]
+        cell.cellTitle.text = post.title
+        cell.cellPostAuthor.text = post.author
         
-        let imgURL = postData["thumbnail"] as! String
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        cell.cellPostDate.text = formatter.string(from: post.createdAt)
         
+
+        let imgURL = post.imageUrl
+
         if imgURL.range(of:"http") != nil {
             let url = URL(string: imgURL)
             cell.cellImage.kf.setImage(with: url)
@@ -111,22 +78,13 @@ class RedditPostsTableViewController: UITableViewController {
         }
 
         // Start loading more posts when we are 3 away to make scrolling smoother
-        if indexPath.row == self.posts.count - 3 {
-            print("Scrolling last cell")
-            let lastPost = self.posts[self.posts.count - 1] as NSDictionary
-            let lastPostData = lastPost["data"] as! NSDictionary
-            loadPosts(after: lastPostData["name"] as! String)
+        if indexPath.row == self.subreddit.posts.count - 3 {
+            let lastPost = self.subreddit.posts[self.subreddit.posts.count - 1]
+            self.subreddit.loadPosts(after: lastPost, completion: self.postsLoaded)
         }
 
         return cell
     }
-    
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let post = self.posts[indexPath.row] as NSDictionary
-//        let postData = post["data"] as! NSDictionary
-//        let url_string = postData["url"] as! String
-//        loadWebView(url: url_string)
-//    }
     
     func loadWebView(url:String) {
         let newView = WebviewViewController(nibName: "WebviewViewController", bundle: nil)
@@ -138,31 +96,14 @@ class RedditPostsTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let indexPath = tableView.indexPathForSelectedRow{
             let selectedRow = indexPath.row
-            let post = self.posts[selectedRow]
-            
-            
-            let postData = post["data"] as! NSDictionary
-            let subReddit = postData["permalink"] as? String
-            
+            let post = self.subreddit.posts[selectedRow]
             
             if let nextViewController = segue.destination as? CommentsTableViewController{
-                nextViewController.permalink = subReddit! //Or pass any values
+                nextViewController.permalink = post.permaLink //Or pass any values
             }
         }
     }
 
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            print ("deleting row")
-            // Delete the row from the data source
-//            tableView.deleteRows(at: [indexPath], with: .fade)
-//        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }
-     }
-
-    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

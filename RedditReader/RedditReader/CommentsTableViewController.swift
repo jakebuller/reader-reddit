@@ -20,15 +20,8 @@ class CommentsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
         loadComments()
     }
-    
     
     func loadComments() {
         let url = "https://www.reddit.com/" + self.permalink + ".json"
@@ -38,50 +31,16 @@ class CommentsTableViewController: UITableViewController {
                 
                 for (_,subJson) in listings {
                     for (_, comment) in subJson["data"]["children"] {
-//                        print(comment["kind"].string!)
                         if (comment["kind"].string == "t1") {
                             self.commentsList.append(comment["data"])
                         }
                     }
                 }
-//                
-//                for listing in listings {
-//                    for (key,subJson):(String, JSON) in listing {
-//                        
-//                    }
-                
-//                    let comments = listing["data"]["children"]
-//                    for comment in comments {
-//                        print(comment["body"].string)
-//                    }
-//                }
             }
-            
-            
-            
-            
-//                let obj = json as! NSArray
-//                for listing in obj as! NSDictionary {
-//                    let data = listing["data"] as! NSDictionary
-//                    let children = data["children"] as! NSArray
-//                }
-//                let obj = json as! NSDictionary
-//                if obj.object(forKey: "kind") != nil {
-//                    let data = obj["data"] as! NSDictionary
-//                    let children = data["children"] as! NSArray
-//                    self.commentsList = children
-//                }
-            
-                        self.tableView.reloadData()
-//            print(self.commentsList.count)
+            self.tableView.reloadData()
         }
-        
-
     }
-    
-//    func parseSingleComment(data) {
-//        
-//    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -105,8 +64,6 @@ class CommentsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as! CommentsTableViewCell
 
         let comment = self.commentsList[indexPath.row]
-        
-//        print(comment["body"].stringValue)
         
         cell.commentLabel.text = comment["body"].stringValue
         cell.authorLabel.text = comment["author"].stringValue
