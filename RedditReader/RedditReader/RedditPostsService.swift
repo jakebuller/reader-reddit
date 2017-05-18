@@ -16,7 +16,7 @@ class RedditPostsService {
     var sortType = Constants.SortType.Hot;
     var subReddit = String();
     
-    func get(subreddit: SubReddit, completion: @escaping (_ result: Array<Post>) -> Void) {
+    func get(subreddit: SubReddit, after: Post? = nil, completion: @escaping (_ result: Array<Post>) -> Void) {
         let postsUrl = "http://reddit.com/" + subreddit.url + ".json"
 
         Alamofire.request(postsUrl).responseJSON { response in

@@ -15,7 +15,6 @@ class RedditPostsTableViewController: UITableViewController {
     @IBOutlet var sortTypeControl: UISegmentedControl!
 
     var subreddit = SubReddit()
-    var posts = [NSDictionary]()
     var sortType = String()
 
     
@@ -29,38 +28,18 @@ class RedditPostsTableViewController: UITableViewController {
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         
-        NotificationCenter.default.addObserver(forName: Notification.Name("postsLoaded"), object: nil, queue: nil, using: postsHaveLoaded)
-        
         let subRedditService = SubRedditService()
         subRedditService.get(subreddit: "hockey", completion: self.subredditLoadedHandler)
-        
-//        posts.removeAll()
-//        loadPosts()
     }
     
     func subredditLoadedHandler(subreddit: SubReddit) {
-        print("subreddit loaded")
         self.subreddit.loadPosts(completion: self.postsLoaded)
     }
     
     func postsLoaded(posts: Array<Post>) {
-        print("posts loaded")
-    }
-    
-    func postsHaveLoaded(notification: Notification) {
-        print("My Posts loaded notification received!")
-        
-        guard let userInfo = notification.userInfo,
-            let data = userInfo["posts"] as? Array<NSDictionary> else {
-                print("No data was returned")
-                return
-        }
-
-        self.posts = data
         self.tableView.reloadData()
     }
-
-    
+  
     //Called, when long press occurred
     func longPress(longPressGestureRecognizer: UILongPressGestureRecognizer) {
         if longPressGestureRecognizer.state == UIGestureRecognizerState.began {
@@ -101,38 +80,45 @@ class RedditPostsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.posts.count
+        return self.subreddit.posts.count
     }
 
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! RedditPostsTableViewCell
-//        if (self.posts.isEmpty) {
-//            return cell;
-//        }
-//
-//        let post = self.posts[indexPath.row] as NSDictionary
-//        let postData = post["data"] as! NSDictionary
-//        cell.cellTitle.text = postData["title"] as? String
-//        
-//        let imgURL = postData["thumbnail"] as! String
-//        
-//        if imgURL.range(of:"http") != nil {
-//            let url = URL(string: imgURL)
-//            cell.cellImage.kf.setImage(with: url)
-//        } else {
-//            cell.cellImage.image = UIImage(named: "list-thumbnail")
-//        }
-//
-//        // Start loading more posts when we are 3 away to make scrolling smoother
-//        if indexPath.row == self.posts.count - 3 {
-//            print("Scrolling last cell")
-//            let lastPost = self.posts[self.posts.count - 1] as NSDictionary
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! RedditPostsTableViewCell
+        if (self.subreddit.posts.isEmpty) {
+            return cell;
+        }
+
+        let post = self.subreddit.posts[indexPath.row]
+        cell.cellTitle.text = post.title
+        cell.cellPostAuthor.text = post.author
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        cell.cellPostDate.text = formatter.string(from: post.createdAt)
+        
+
+        let imgURL = post.imageUrl
+
+        if imgURL.range(of:"http") != nil {
+            let url = URL(string: imgURL)
+            cell.cellImage.kf.setImage(with: url)
+        } else {
+            cell.cellImage.image = UIImage(named: "list-thumbnail")
+        }
+
+        // Start loading more posts when we are 3 away to make scrolling smoother
+        if indexPath.row == self.subreddit.posts.count - 3 {
+            print("Scrolling last cell")
+            
+            let lastPost = self.subreddit.posts[self.subreddit.posts.count - 1]
+            self.subreddit.loadPosts(after: lastPost, completion: self.postsLoaded)
 //            let lastPostData = lastPost["data"] as! NSDictionary
 //            loadPosts(after: lastPostData["name"] as! String)
-//        }
+        }
 //
-//        return cell
-//    }
+        return cell
+    }
     
 //    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        let post = self.posts[indexPath.row] as NSDictionary
@@ -148,21 +134,21 @@ class RedditPostsTableViewController: UITableViewController {
         self.present(newView, animated: true, completion: nil)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let indexPath = tableView.indexPathForSelectedRow{
-            let selectedRow = indexPath.row
-            let post = self.posts[selectedRow]
-            
-            
-            let postData = post["data"] as! NSDictionary
-            let subReddit = postData["permalink"] as? String
-            
-            
-            if let nextViewController = segue.destination as? CommentsTableViewController{
-                nextViewController.permalink = subReddit! //Or pass any values
-            }
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if let indexPath = tableView.indexPathForSelectedRow{
+//            let selectedRow = indexPath.row
+//            let post = self.posts[selectedRow]
+//            
+//            
+//            let postData = post["data"] as! NSDictionary
+//            let subReddit = postData["permalink"] as? String
+//            
+//            
+//            if let nextViewController = segue.destination as? CommentsTableViewController{
+//                nextViewController.permalink = subReddit! //Or pass any values
+//            }
+//        }
+//    }
 
      // Override to support editing the table view.
      override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {

@@ -18,7 +18,7 @@ class SubReddit {
     var image: UIImage = UIImage(named: "list-thumbnail")!
     var posts = [Post]();
     
-    func loadPosts(completion: @escaping (_ result: Array<Post>) -> Void) {
-        RedditPostsService().get(subreddit: self, completion: completion)
+    func loadPosts(after: Post? = nil, completion: @escaping (_ result: Array<Post>) -> Void) {
+        RedditPostsService().get(subreddit: self, after: after, completion: completion)
     }
 }

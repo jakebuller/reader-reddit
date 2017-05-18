@@ -16,7 +16,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EcR-nH-2TK" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" tag="4" title="Home" image="home" id="mfh-d6-jwc"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xzb-gp-t2a">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Xzb-gp-t2a">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -105,7 +105,6 @@
                                     <outlet property="cellPostAuthor" destination="iOS-Ig-acl" id="0bu-9B-wub"/>
                                     <outlet property="cellPostDate" destination="BH2-JW-wa0" id="kZE-k3-VWw"/>
                                     <outlet property="cellTitle" destination="S72-8j-f1F" id="WQ3-Jn-fi2"/>
-                                    <segue destination="Rjd-bR-Qls" kind="show" id="MOa-h2-NGm"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -300,7 +299,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HNs-xF-OhJ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Search" image="search" id="g8C-Fm-mfx"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="opm-dK-WR3">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="opm-dK-WR3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
