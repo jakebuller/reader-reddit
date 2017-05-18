@@ -24,18 +24,7 @@ class SubredditSearchTableViewController: UITableViewController {
     }
     
     func loadTrendingSubreddits() {
-//        let url = "https://www.reddit.com/subreddits/.json"
-//        Alamofire.request(url).responseJSON { response in
-//            if let json = response.result.value {
-//                let obj = json as! NSDictionary
-//                if obj.object(forKey: "kind") != nil {
-//                    let data = obj["data"] as! NSDictionary
-//                    let children = data["children"] as! NSArray
-//                    self.subredditList = children
-//                }
-//            }
-//            self.tableView.reloadData()
-//        }
+        SubRedditService().trending(completion: self.subredditsLoaded)
     }
     
     func subredditsLoaded(subReddits: Array<SubReddit>) {
@@ -98,6 +87,11 @@ class SubredditSearchTableViewController: UITableViewController {
         cell.subredditDescription.text = subReddit.description
         cell.subredditImage.image = subReddit.image
         cell.subredditSubscriberCount.text = String(describing: subReddit.subscribers)
+        
+        if (subReddit.imageUrl.range(of: "http") != nil) {
+            let url = URL(string: subReddit.imageUrl)
+            cell.subredditImage.kf.setImage(with: url)
+        }
         
         return cell
     }
