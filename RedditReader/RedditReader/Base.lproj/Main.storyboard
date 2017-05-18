@@ -105,6 +105,7 @@
                                     <outlet property="cellPostAuthor" destination="iOS-Ig-acl" id="0bu-9B-wub"/>
                                     <outlet property="cellPostDate" destination="BH2-JW-wa0" id="kZE-k3-VWw"/>
                                     <outlet property="cellTitle" destination="S72-8j-f1F" id="WQ3-Jn-fi2"/>
+                                    <segue destination="Rjd-bR-Qls" kind="show" id="ohE-FJ-T0Z"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -115,21 +116,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="ZIK-N5-doF">
                         <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="kJF-bV-ljh">
-                            <rect key="frame" x="112.5" y="7" width="150" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <segments>
-                                <segment title="Hot"/>
-                                <segment title="New"/>
-                            </segments>
-                            <connections>
-                                <action selector="SortTypeChanged:" destination="PiS-y0-kK7" eventType="valueChanged" id="JKq-PY-eb1"/>
-                            </connections>
-                        </segmentedControl>
                     </navigationItem>
-                    <connections>
-                        <outlet property="sortTypeControl" destination="kJF-bV-ljh" id="jHl-9w-5hI"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jiq-3B-WVw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -15,7 +15,6 @@ class SubReddit {
     var description: String = ""
     var url: String = ""
     var imageUrl: String = ""
-    var image: UIImage = UIImage(named: "list-thumbnail")!
     var posts = [Post]();
     
     func loadPosts(after: Post? = nil, completion: @escaping (_ result: Array<Post>) -> Void) {

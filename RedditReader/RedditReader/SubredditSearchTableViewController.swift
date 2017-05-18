@@ -14,8 +14,6 @@ class SubredditSearchTableViewController: UITableViewController {
     
     var subredditList = [SubReddit]()
     
-    
-    
     @IBOutlet weak var searchInput: UITextField!
     
     @IBAction func searchSubreddit(_ sender: Any) {
@@ -32,34 +30,10 @@ class SubredditSearchTableViewController: UITableViewController {
         self.tableView.reloadData()
     }
     
-    func decodeString(_ htmlEncodedString : String) -> String {
-        guard let encodedData = htmlEncodedString.data(using: .utf8) else {
-            return htmlEncodedString
-        }
-        
-        let attributedOptions: [String : Any] = [
-            NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
-            NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue
-        ]
-        
-        do {
-            let attributedString = try NSAttributedString(data: encodedData, options: attributedOptions, documentAttributes: nil)
-            return attributedString.string
-        } catch {
-            print("Error: \(error)")
-            return htmlEncodedString
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         loadTrendingSubreddits()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
@@ -85,7 +59,6 @@ class SubredditSearchTableViewController: UITableViewController {
         
         cell.subredditTitle.text = subReddit.name
         cell.subredditDescription.text = subReddit.description
-        cell.subredditImage.image = subReddit.image
         cell.subredditSubscriberCount.text = String(describing: subReddit.subscribers)
         
         if (subReddit.imageUrl.range(of: "http") != nil) {
@@ -102,18 +75,11 @@ class SubredditSearchTableViewController: UITableViewController {
             let selectedSubreddit = self.subredditList[selectedRow]
 
             if let nextViewController = segue.destination as? RedditPostsTableViewController{
-                nextViewController.subReddit = selectedSubreddit.name //Or pass any values
+                nextViewController.subreddit = selectedSubreddit //Or pass any values
             }
         }
     }
     
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let post = self.subredditList[indexPath.row] as! NSDictionary
-//        let postData = post["data"] as! NSDictionary
-//        let url_string = postData["url"] as! String
-//        loadWebView(url: url_string)
-//    }
-
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
