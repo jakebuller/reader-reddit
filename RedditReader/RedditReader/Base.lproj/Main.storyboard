@@ -34,20 +34,20 @@
         <scene sceneID="Fcz-ib-K7P">
             <objects>
                 <tableViewController id="PiS-y0-kK7" customClass="RedditPostsTableViewController" customModule="RedditReader" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="339" sectionHeaderHeight="28" sectionFooterHeight="28" id="If4-ej-K8c">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="320" sectionHeaderHeight="28" sectionFooterHeight="28" id="If4-ej-K8c">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="339" id="B4e-Dk-LxC" customClass="RedditPostsTableViewCell" customModule="RedditReader" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="339"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="320" id="B4e-Dk-LxC" customClass="RedditPostsTableViewCell" customModule="RedditReader" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="320"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="B4e-Dk-LxC" id="hjb-1N-YkV">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="338.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="319.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ze-il-sS6">
-                                            <rect key="frame" x="8" y="4" width="359" height="330.5"/>
+                                            <rect key="frame" x="8" y="4" width="359" height="311.5"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="list-thumbnail" translatesAutoresizingMaskIntoConstraints="NO" id="hdZ-r8-AvF">
                                                     <rect key="frame" x="0.0" y="0.0" width="359" height="164"/>
@@ -56,10 +56,10 @@
                                                     </constraints>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HJk-Ec-Be0" userLabel="Title Container">
-                                                    <rect key="frame" x="0.0" y="206" width="359" height="68"/>
+                                                    <rect key="frame" x="0.0" y="206" width="359" height="49"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S72-8j-f1F">
-                                                            <rect key="frame" x="8" y="4" width="343" height="60"/>
+                                                            <rect key="frame" x="8" y="12.5" width="343" height="24"/>
                                                             <color key="backgroundColor" red="0.23529411764705882" green="0.29019607843137252" blue="0.32549019607843138" alpha="0.0" colorSpace="calibratedRGB"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                             <color key="textColor" red="0.26666666666666666" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
@@ -72,13 +72,11 @@
                                                     <constraints>
                                                         <constraint firstItem="S72-8j-f1F" firstAttribute="leading" secondItem="HJk-Ec-Be0" secondAttribute="leading" constant="8" id="Ebd-Nl-1zg"/>
                                                         <constraint firstAttribute="trailing" secondItem="S72-8j-f1F" secondAttribute="trailing" constant="8" id="QoU-Kb-yco"/>
-                                                        <constraint firstItem="S72-8j-f1F" firstAttribute="top" secondItem="HJk-Ec-Be0" secondAttribute="top" constant="4" id="cKT-zg-hYP"/>
                                                         <constraint firstItem="S72-8j-f1F" firstAttribute="centerY" secondItem="HJk-Ec-Be0" secondAttribute="centerY" id="mwl-bl-yaI"/>
-                                                        <constraint firstAttribute="bottom" secondItem="S72-8j-f1F" secondAttribute="bottom" constant="4" id="vfq-xF-Uew"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OZM-eQ-wsl">
-                                                    <rect key="frame" x="0.0" y="278" width="359" height="52"/>
+                                                    <rect key="frame" x="0.0" y="259" width="359" height="52"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 Hours Ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BH2-JW-wa0">
                                                             <rect key="frame" x="8" y="28" width="70.5" height="20"/>
