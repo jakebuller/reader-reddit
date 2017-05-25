@@ -49,8 +49,8 @@
                                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ze-il-sS6">
                                             <rect key="frame" x="8" y="4" width="359" height="311.5"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="list-thumbnail" translatesAutoresizingMaskIntoConstraints="NO" id="hdZ-r8-AvF">
-                                                    <rect key="frame" x="0.0" y="0.0" width="359" height="164"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="list-thumbnail" translatesAutoresizingMaskIntoConstraints="NO" id="hdZ-r8-AvF">
+                                                    <rect key="frame" x="0.0" y="0.0" width="359" height="202"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="hdZ-r8-AvF" secondAttribute="height" multiplier="16:9" id="3uW-1O-AMk"/>
                                                     </constraints>
@@ -61,7 +61,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S72-8j-f1F">
                                                             <rect key="frame" x="8" y="12.5" width="343" height="24"/>
                                                             <color key="backgroundColor" red="0.23529411764705882" green="0.29019607843137252" blue="0.32549019607843138" alpha="0.0" colorSpace="calibratedRGB"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                             <color key="textColor" red="0.26666666666666666" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                                                             <color key="highlightedColor" red="0.23529411764705882" green="0.29019607843137252" blue="0.32549019607843138" alpha="0.0" colorSpace="calibratedRGB"/>
                                                             <color key="shadowColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="0.0" colorSpace="calibratedRGB"/>
