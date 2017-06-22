@@ -20,6 +20,9 @@ class CommentsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Hide the search bar by default
+        self.tableView.setContentOffset(CGPoint(x: 0, y: 44), animated: false)
+        
         loadComments()
     }
     

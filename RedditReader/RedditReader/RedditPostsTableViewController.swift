@@ -10,17 +10,25 @@ import UIKit
 import Alamofire
 import Kingfisher
 
-class RedditPostsTableViewController: UITableViewController {
+class RedditPostsTableViewController: UITableViewController, UISearchBarDelegate {
 
     @IBOutlet var sortTypeControl: UISegmentedControl!
-
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     var subreddit = SubReddit()
     var sortType = String()
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchBar.delegate = self
+        
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        
+        // Hide the search bar by default
+        self.tableView.setContentOffset(CGPoint(x: 0, y: 44), animated: false)
+        
         
         let subRedditService = SubRedditService()
         if (self.subreddit.name.isEmpty) {
@@ -102,6 +110,10 @@ class RedditPostsTableViewController: UITableViewController {
                 nextViewController.permalink = post.permaLink //Or pass any values
             }
         }
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print(searchText)
     }
 
     /*

@@ -32,7 +32,7 @@
             </objects>
             <point key="canvasLocation" x="1076" y="137.18140929535232"/>
         </scene>
-        <!--Reddit Posts Table View Controller-->
+        <!--Posts-->
         <scene sceneID="Fcz-ib-K7P">
             <objects>
                 <tableViewController id="PiS-y0-kK7" customClass="RedditPostsTableViewController" customModule="RedditReader" customModuleProvider="target" sceneMemberID="viewController">
@@ -40,9 +40,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" showsCancelButton="YES" id="DaV-Cj-6lW">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="320" id="B4e-Dk-LxC" customClass="RedditPostsTableViewCell" customModule="RedditReader" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="320"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="320"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="B4e-Dk-LxC" id="hjb-1N-YkV">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="319.5"/>
@@ -155,11 +160,21 @@
                             <outlet property="delegate" destination="PiS-y0-kK7" id="Ynj-R7-2aJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="ZIK-N5-doF">
-                        <nil key="title"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Posts" id="mMF-f3-x9x"/>
+                    <connections>
+                        <outlet property="searchBar" destination="DaV-Cj-6lW" id="qwK-Iz-gbE"/>
+                        <outlet property="searchDisplayController" destination="SaT-Nn-xs1" id="fz6-ph-TVi"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jiq-3B-WVw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="SaT-Nn-xs1">
+                    <connections>
+                        <outlet property="delegate" destination="PiS-y0-kK7" id="fvM-yY-CYC"/>
+                        <outlet property="searchContentsController" destination="PiS-y0-kK7" id="Ym0-g8-4pM"/>
+                        <outlet property="searchResultsDataSource" destination="PiS-y0-kK7" id="apG-Mu-XtI"/>
+                        <outlet property="searchResultsDelegate" destination="PiS-y0-kK7" id="eZq-yV-Gmq"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="2260" y="451.12443778110946"/>
         </scene>
@@ -171,9 +186,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" showsCancelButton="YES" id="4Ts-8N-CU1">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <scopeButtonTitles>
+                                <string>Title</string>
+                                <string>Title</string>
+                            </scopeButtonTitles>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentCell" rowHeight="119" id="4nJ-bc-P7k" customClass="CommentsTableViewCell" customModule="RedditReader" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="119"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="119"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4nJ-bc-P7k" id="dMf-yu-GFX">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="118.5"/>
@@ -212,12 +236,13 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="" id="Sfz-Vr-eA3"/>
+                    <navigationItem key="navigationItem" title="Comments" id="TTW-JJ-SZc"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rmf-Rl-yox" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3096.8000000000002" y="450.22488755622192"/>
         </scene>
-        <!--Subreddit Search Table View Controller-->
+        <!--Trending-->
         <scene sceneID="klA-2w-EZy">
             <objects>
                 <tableViewController id="lzs-zP-tpF" customClass="SubredditSearchTableViewController" customModule="RedditReader" customModuleProvider="target" sceneMemberID="viewController">
@@ -281,22 +306,9 @@
                             <outlet property="delegate" destination="lzs-zP-tpF" id="XX4-vY-cLu"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Fiw-hd-VKv">
-                        <nil key="title"/>
-                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search for subreddit" textAlignment="natural" minimumFontSize="17" id="NTd-pJ-Cy2">
-                            <rect key="frame" x="8" y="7" width="359" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <nil key="textColor"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                            <connections>
-                                <action selector="searchSubreddit:" destination="lzs-zP-tpF" eventType="editingChanged" id="Ora-IG-Xvj"/>
-                            </connections>
-                        </textField>
+                    <navigationItem key="navigationItem" title="Trending" id="yH3-DS-aep">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="qpj-8H-Pbz"/>
                     </navigationItem>
-                    <connections>
-                        <outlet property="searchInput" destination="NTd-pJ-Cy2" id="6bm-ZY-Vba"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a1q-nD-aG8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
