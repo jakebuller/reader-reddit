@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="loD-X7-Ql6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="loD-X7-Ql6">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home-->
+        <!--Reddit-->
         <scene sceneID="U1l-Wo-GqT">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EcR-nH-2TK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="4" title="Home" image="home" id="mfh-d6-jwc"/>
+                <navigationController title="Reddit" automaticallyAdjustsScrollViewInsets="NO" id="EcR-nH-2TK" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" tag="4" title="Home" image="086-home" id="mfh-d6-jwc">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Xzb-gp-t2a">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -161,7 +163,7 @@
             </objects>
             <point key="canvasLocation" x="2260" y="451.12443778110946"/>
         </scene>
-        <!--Item-->
+        <!--Comments Table View Controller-->
         <scene sceneID="jfg-Sj-q2X">
             <objects>
                 <tableViewController id="Rjd-bR-Qls" customClass="CommentsTableViewController" customModule="RedditReader" customModuleProvider="target" sceneMemberID="viewController">
@@ -209,7 +211,7 @@
                             <outlet property="delegate" destination="Rjd-bR-Qls" id="qoi-kp-LOQ"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="Sfz-Vr-eA3"/>
+                    <tabBarItem key="tabBarItem" title="" id="Sfz-Vr-eA3"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rmf-Rl-yox" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -309,21 +311,70 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.94961734693877553" green="0.26440263605442177" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="EcR-nH-2TK" kind="relationship" relationship="viewControllers" id="h03-zn-KHZ"/>
                         <segue destination="HNs-xF-OhJ" kind="relationship" relationship="viewControllers" id="11l-R8-Ob3"/>
+                        <segue destination="qAH-97-WbJ" kind="relationship" relationship="viewControllers" id="hTX-JB-JEd"/>
+                        <segue destination="Kz6-m2-Fya" kind="relationship" relationship="viewControllers" id="hty-Ij-zzY"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U69-PW-M6G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="137.18140929535232"/>
         </scene>
-        <!--Search-->
+        <!--Saved-->
+        <scene sceneID="QpM-sY-D6q">
+            <objects>
+                <viewController id="qAH-97-WbJ" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="V1J-Lo-tZc"/>
+                        <viewControllerLayoutGuide type="bottom" id="Er4-ez-y7O"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dBu-Kn-HZN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Saved" image="123-bookmark" badgeValue="15" id="Us9-8w-6XX">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LAC-vO-5UL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="17" y="-870"/>
+        </scene>
+        <!--Account-->
+        <scene sceneID="ZRy-mC-Nk6">
+            <objects>
+                <viewController id="Kz6-m2-Fya" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rDX-3G-w4u"/>
+                        <viewControllerLayoutGuide type="bottom" id="1ux-GS-oLh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SKz-2f-FoH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Account" image="011-user-2" id="NUv-DJ-mTp"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cZ3-cn-xDF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="849" y="-619"/>
+        </scene>
+        <!--Popular-->
         <scene sceneID="GAe-th-ZcA">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HNs-xF-OhJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" image="search" id="g8C-Fm-mfx"/>
+                    <tabBarItem key="tabBarItem" title="Popular" image="003-thunderbolt" id="g8C-Fm-mfx"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="opm-dK-WR3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -340,9 +391,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="home" width="30" height="30"/>
+        <image name="003-thunderbolt" width="25" height="25"/>
+        <image name="011-user-2" width="25" height="25"/>
+        <image name="086-home" width="25" height="25"/>
+        <image name="123-bookmark" width="25" height="25"/>
         <image name="list-thumbnail" width="128" height="128"/>
-        <image name="search" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="wed-MJ-5aX"/>

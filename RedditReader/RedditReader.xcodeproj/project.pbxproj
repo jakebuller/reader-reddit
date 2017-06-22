@@ -116,6 +116,7 @@
 		425B9F101EA030EE0077E0DE /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				428B3B331EFC72B40018F323 /* Images */,
 				425B9F0F1EA030DB0077E0DE /* Fonts */,
 			);
 			name = Assets;
@@ -162,6 +163,13 @@
 				423160CA1EC3BFC400E44518 /* Constants.swift */,
 			);
 			path = RedditReader;
+			sourceTree = "<group>";
+		};
+		428B3B331EFC72B40018F323 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 		6232F78D1EA030C900F0005D /* Models */ = {
