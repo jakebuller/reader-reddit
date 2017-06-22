@@ -74,7 +74,7 @@ class RedditPostsTableViewController: UITableViewController {
             let url = URL(string: imgURL)
             cell.cellImage.kf.setImage(with: url)
         } else {
-            cell.cellImage.image = UIImage(named: "list-thumbnail")
+            cell.cellImage.image = UIImage(named: "pepe")
         }
 
         // Start loading more posts when we are 3 away to make scrolling smoother

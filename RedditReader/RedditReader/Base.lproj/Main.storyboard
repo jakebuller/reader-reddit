@@ -51,7 +51,7 @@
                                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ze-il-sS6">
                                             <rect key="frame" x="8" y="4" width="359" height="311.5"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="list-thumbnail" translatesAutoresizingMaskIntoConstraints="NO" id="hdZ-r8-AvF">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pepe" translatesAutoresizingMaskIntoConstraints="NO" id="hdZ-r8-AvF">
                                                     <rect key="frame" x="0.0" y="0.0" width="359" height="202"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="hdZ-r8-AvF" secondAttribute="height" multiplier="16:9" id="3uW-1O-AMk"/>
@@ -395,7 +395,7 @@
         <image name="011-user-2" width="25" height="25"/>
         <image name="086-home" width="25" height="25"/>
         <image name="123-bookmark" width="25" height="25"/>
-        <image name="list-thumbnail" width="128" height="128"/>
+        <image name="pepe" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="wed-MJ-5aX"/>
