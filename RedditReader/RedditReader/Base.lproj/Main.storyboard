@@ -178,7 +178,7 @@
             </objects>
             <point key="canvasLocation" x="2260" y="451.12443778110946"/>
         </scene>
-        <!--Comments Table View Controller-->
+        <!--Comments-->
         <scene sceneID="jfg-Sj-q2X">
             <objects>
                 <tableViewController id="Rjd-bR-Qls" customClass="CommentsTableViewController" customModule="RedditReader" customModuleProvider="target" sceneMemberID="viewController">
@@ -334,7 +334,7 @@
                     <connections>
                         <segue destination="EcR-nH-2TK" kind="relationship" relationship="viewControllers" id="h03-zn-KHZ"/>
                         <segue destination="HNs-xF-OhJ" kind="relationship" relationship="viewControllers" id="11l-R8-Ob3"/>
-                        <segue destination="qAH-97-WbJ" kind="relationship" relationship="viewControllers" id="hTX-JB-JEd"/>
+                        <segue destination="zIr-0h-ckx" kind="relationship" relationship="viewControllers" id="cjt-Yk-pLD"/>
                         <segue destination="Kz6-m2-Fya" kind="relationship" relationship="viewControllers" id="hty-Ij-zzY"/>
                     </connections>
                 </tabBarController>
@@ -343,25 +343,33 @@
             <point key="canvasLocation" x="136.80000000000001" y="137.18140929535232"/>
         </scene>
         <!--Saved-->
-        <scene sceneID="QpM-sY-D6q">
+        <scene sceneID="WVO-DU-fBS">
             <objects>
-                <viewController id="qAH-97-WbJ" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="V1J-Lo-tZc"/>
-                        <viewControllerLayoutGuide type="bottom" id="Er4-ez-y7O"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="dBu-Kn-HZN">
+                <tableViewController id="zIr-0h-ckx" customClass="SavedPostsViewControllerTableViewController" customModule="RedditReader" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="2Gx-XY-X0u">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Saved" image="123-bookmark" badgeValue="15" id="Us9-8w-6XX">
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
-                    </tabBarItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LAC-vO-5UL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="mHI-6D-jzd">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mHI-6D-jzd" id="Ezw-w1-oLT">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="zIr-0h-ckx" id="yEt-MD-yYG"/>
+                            <outlet property="delegate" destination="zIr-0h-ckx" id="84v-jn-2oZ"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Saved" image="123-bookmark" badgeValue="15" id="j3L-fI-n6z"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6s2-5t-mip" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="17" y="-870"/>
+            <point key="canvasLocation" x="137" y="-646"/>
         </scene>
         <!--Account-->
         <scene sceneID="ZRy-mC-Nk6">
