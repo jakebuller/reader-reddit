@@ -113,7 +113,9 @@ class RedditPostsTableViewController: UITableViewController, UISearchBarDelegate
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
+        self.subreddit.filter = searchText
+        self.subreddit.posts = [Post]();
+        self.subreddit.loadPosts(completion: self.postsLoaded)
     }
 
     /*

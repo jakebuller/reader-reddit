@@ -16,6 +16,7 @@ class SubReddit {
     var url: String = ""
     var imageUrl: String = ""
     var posts = [Post]();
+    var filter: String = ""
     
     func loadPosts(after: Post? = nil, completion: @escaping (_ result: Array<Post>) -> Void) {
         RedditPostsService().get(subreddit: self, after: after, completion: completion)
