@@ -23,6 +23,8 @@ class CommentsTableViewController: UITableViewController {
         // Hide the search bar by default
         self.tableView.setContentOffset(CGPoint(x: 0, y: 44), animated: false)
         
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        
         loadComments()
     }
     

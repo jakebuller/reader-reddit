@@ -10,6 +10,7 @@ import UIKit
 
 class CommentsTableViewCell: UITableViewCell {
 
+    @IBOutlet var cardContainer: UIView!
     @IBOutlet weak var commentLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
     override func awakeFromNib() {
@@ -21,6 +22,10 @@ class CommentsTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    override func layoutSubviews() {
+        self.cardContainer.layer.cornerRadius = 5
     }
 
 }

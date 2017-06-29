@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -147,7 +146,7 @@
                                             </constraints>
                                         </view>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.90354297399520878" green="0.90354297399520878" blue="0.90354297399520878" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="5ze-il-sS6" secondAttribute="bottom" constant="4" id="CyE-1d-j8W"/>
                                         <constraint firstItem="5ze-il-sS6" firstAttribute="leading" secondItem="hjb-1N-YkV" secondAttribute="leading" constant="8" id="T7S-a4-mSF"/>
@@ -209,36 +208,54 @@
                             </scopeButtonTitles>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentCell" rowHeight="119" id="4nJ-bc-P7k" customClass="CommentsTableViewCell" customModule="RedditReader" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CommentCell" rowHeight="119" id="4nJ-bc-P7k" customClass="CommentsTableViewCell" customModule="RedditReader" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="375" height="119"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4nJ-bc-P7k" id="dMf-yu-GFX">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="118.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Body" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GEe-iE-kzc">
-                                            <rect key="frame" x="8" y="8" width="359" height="73"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rSU-Ul-FLq">
-                                            <rect key="frame" x="315.5" y="89" width="51.5" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nH4-cX-21N">
+                                            <rect key="frame" x="8" y="4" width="359" height="110.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Author" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rSU-Ul-FLq">
+                                                    <rect key="frame" x="8" y="8" width="125" height="17"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="125" id="D64-uH-dkN"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Body" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GEe-iE-kzc">
+                                                    <rect key="frame" x="8" y="33" width="343" height="70"/>
+                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="GEe-iE-kzc" secondAttribute="trailing" constant="8" id="2sb-A6-cwS"/>
+                                                <constraint firstItem="rSU-Ul-FLq" firstAttribute="leading" secondItem="nH4-cX-21N" secondAttribute="leading" constant="8" id="42Z-wz-km3"/>
+                                                <constraint firstItem="rSU-Ul-FLq" firstAttribute="top" secondItem="nH4-cX-21N" secondAttribute="top" constant="8" id="9TI-VV-rAq"/>
+                                                <constraint firstAttribute="bottom" secondItem="GEe-iE-kzc" secondAttribute="bottom" constant="8" id="fOW-p1-Rii"/>
+                                                <constraint firstItem="GEe-iE-kzc" firstAttribute="leading" secondItem="nH4-cX-21N" secondAttribute="leading" constant="8" id="wUI-2m-YKn"/>
+                                                <constraint firstItem="GEe-iE-kzc" firstAttribute="top" secondItem="rSU-Ul-FLq" secondAttribute="bottom" id="xSH-5q-Qjb"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
+                                    <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
-                                        <constraint firstItem="GEe-iE-kzc" firstAttribute="trailing" secondItem="dMf-yu-GFX" secondAttribute="trailingMargin" id="1aw-qU-rbT"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="rSU-Ul-FLq" secondAttribute="bottom" id="8DD-uW-vrc"/>
-                                        <constraint firstItem="GEe-iE-kzc" firstAttribute="leading" secondItem="dMf-yu-GFX" secondAttribute="leadingMargin" id="LPH-6O-gWW"/>
-                                        <constraint firstItem="GEe-iE-kzc" firstAttribute="top" secondItem="dMf-yu-GFX" secondAttribute="topMargin" id="aNM-Bs-SKm"/>
-                                        <constraint firstItem="rSU-Ul-FLq" firstAttribute="trailing" secondItem="dMf-yu-GFX" secondAttribute="trailingMargin" id="yWo-EN-G3D"/>
+                                        <constraint firstItem="nH4-cX-21N" firstAttribute="top" secondItem="dMf-yu-GFX" secondAttribute="top" constant="4" id="4OE-JD-A9G"/>
+                                        <constraint firstAttribute="trailing" secondItem="nH4-cX-21N" secondAttribute="trailing" constant="8" id="WGE-tD-jB2"/>
+                                        <constraint firstAttribute="bottom" secondItem="nH4-cX-21N" secondAttribute="bottom" constant="4" id="c9Y-9a-U6g"/>
+                                        <constraint firstItem="nH4-cX-21N" firstAttribute="leading" secondItem="dMf-yu-GFX" secondAttribute="leading" constant="8" id="dEc-6V-YSP"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="authorLabel" destination="rSU-Ul-FLq" id="qfh-i8-NXP"/>
+                                    <outlet property="cardContainer" destination="nH4-cX-21N" id="m6V-IT-DPd"/>
                                     <outlet property="commentLabel" destination="GEe-iE-kzc" id="Drz-Tp-1r3"/>
                                 </connections>
                             </tableViewCell>
@@ -437,6 +454,6 @@
         <image name="pepe" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3I7-lg-hIv"/>
+        <segue reference="wed-MJ-5aX"/>
     </inferredMetricsTieBreakers>
 </document>
