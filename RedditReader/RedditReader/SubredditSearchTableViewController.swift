@@ -58,8 +58,8 @@ class SubredditSearchTableViewController: UITableViewController {
         let subReddit = self.subredditList[indexPath.row]
         
         cell.subredditTitle.text = subReddit.name
-        cell.subredditDescription.text = subReddit.description
-        cell.subredditSubscriberCount.text = String(describing: subReddit.subscribers)
+//        cell.subredditDescription.text = subReddit.description
+//        cell.subredditSubscriberCount.text = String(describing: subReddit.subscribers)
         
         if (subReddit.imageUrl.range(of: "http") != nil) {
             let url = URL(string: subReddit.imageUrl)
