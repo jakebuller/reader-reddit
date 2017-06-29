@@ -9,13 +9,6 @@
 /* Begin PBXBuildFile section */
 		222F29E3A691C636B819F8C0 /* Pods_RedditReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B4404BF14F672345D1679B8 /* Pods_RedditReader.framework */; };
 		423160CB1EC3BFC400E44518 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423160CA1EC3BFC400E44518 /* Constants.swift */; };
-		42321D931E78A827004F64D2 /* Dosis-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42321D8C1E78A827004F64D2 /* Dosis-Bold.ttf */; };
-		42321D941E78A827004F64D2 /* Dosis-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42321D8D1E78A827004F64D2 /* Dosis-ExtraBold.ttf */; };
-		42321D951E78A827004F64D2 /* Dosis-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42321D8E1E78A827004F64D2 /* Dosis-ExtraLight.ttf */; };
-		42321D961E78A827004F64D2 /* Dosis-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42321D8F1E78A827004F64D2 /* Dosis-Light.ttf */; };
-		42321D971E78A827004F64D2 /* Dosis-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42321D901E78A827004F64D2 /* Dosis-Medium.ttf */; };
-		42321D981E78A827004F64D2 /* Dosis-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42321D911E78A827004F64D2 /* Dosis-Regular.ttf */; };
-		42321D991E78A827004F64D2 /* Dosis-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42321D921E78A827004F64D2 /* Dosis-SemiBold.ttf */; };
 		425B9F0E1EA023830077E0DE /* RedditPostsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425B9F0D1EA023830077E0DE /* RedditPostsService.swift */; };
 		427172B61E380BB3001DC989 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427172B51E380BB3001DC989 /* AppDelegate.swift */; };
 		427172BB1E380BB3001DC989 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 427172B91E380BB3001DC989 /* Main.storyboard */; };
@@ -25,6 +18,16 @@
 		427172CD1E381C2E001DC989 /* RedditPostsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427172CC1E381C2E001DC989 /* RedditPostsTableViewController.swift */; };
 		427172CF1E381C49001DC989 /* RedditPostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427172CE1E381C49001DC989 /* RedditPostsTableViewCell.swift */; };
 		428B3B491EFC83B20018F323 /* SavedPostsViewControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428B3B481EFC83B20018F323 /* SavedPostsViewControllerTableViewController.swift */; };
+		42D0BC8F1F05B6D2003CDA3B /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42D0BC851F05B66B003CDA3B /* Lato-Black.ttf */; };
+		42D0BC901F05B6D2003CDA3B /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42D0BC861F05B66B003CDA3B /* Lato-BlackItalic.ttf */; };
+		42D0BC911F05B6D2003CDA3B /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42D0BC871F05B66B003CDA3B /* Lato-Bold.ttf */; };
+		42D0BC921F05B6D2003CDA3B /* Lato-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42D0BC881F05B66B003CDA3B /* Lato-BoldItalic.ttf */; };
+		42D0BC931F05B6D2003CDA3B /* Lato-Hairline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42D0BC891F05B66B003CDA3B /* Lato-Hairline.ttf */; };
+		42D0BC941F05B6D2003CDA3B /* Lato-HairlineItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42D0BC8A1F05B66B003CDA3B /* Lato-HairlineItalic.ttf */; };
+		42D0BC951F05B6D2003CDA3B /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42D0BC8B1F05B66B003CDA3B /* Lato-Italic.ttf */; };
+		42D0BC961F05B6D2003CDA3B /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42D0BC8C1F05B66B003CDA3B /* Lato-Light.ttf */; };
+		42D0BC971F05B6D2003CDA3B /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42D0BC8D1F05B66B003CDA3B /* Lato-LightItalic.ttf */; };
+		42D0BC981F05B6D2003CDA3B /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42D0BC8E1F05B66B003CDA3B /* Lato-Regular.ttf */; };
 		42D640D11EA9615700394D75 /* SubRedditService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D640D01EA9615700394D75 /* SubRedditService.swift */; };
 		622CDF561E81DEB100747944 /* CommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622CDF551E81DEB100747944 /* CommentsTableViewCell.swift */; };
 		622CDF581E81DECB00747944 /* CommentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622CDF571E81DECB00747944 /* CommentsTableViewController.swift */; };
@@ -41,13 +44,6 @@
 		265404F8BAE1B84D9B91B2A2 /* Pods-RedditReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RedditReader.release.xcconfig"; path = "Pods/Target Support Files/Pods-RedditReader/Pods-RedditReader.release.xcconfig"; sourceTree = "<group>"; };
 		2B4404BF14F672345D1679B8 /* Pods_RedditReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RedditReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		423160CA1EC3BFC400E44518 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		42321D8C1E78A827004F64D2 /* Dosis-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Bold.ttf"; sourceTree = "<group>"; };
-		42321D8D1E78A827004F64D2 /* Dosis-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-ExtraBold.ttf"; sourceTree = "<group>"; };
-		42321D8E1E78A827004F64D2 /* Dosis-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-ExtraLight.ttf"; sourceTree = "<group>"; };
-		42321D8F1E78A827004F64D2 /* Dosis-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Light.ttf"; sourceTree = "<group>"; };
-		42321D901E78A827004F64D2 /* Dosis-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Medium.ttf"; sourceTree = "<group>"; };
-		42321D911E78A827004F64D2 /* Dosis-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Regular.ttf"; sourceTree = "<group>"; };
-		42321D921E78A827004F64D2 /* Dosis-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-SemiBold.ttf"; sourceTree = "<group>"; };
 		425B9F0D1EA023830077E0DE /* RedditPostsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedditPostsService.swift; sourceTree = "<group>"; };
 		427172B21E380BB3001DC989 /* RedditReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedditReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		427172B51E380BB3001DC989 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +55,16 @@
 		427172CC1E381C2E001DC989 /* RedditPostsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedditPostsTableViewController.swift; sourceTree = "<group>"; };
 		427172CE1E381C49001DC989 /* RedditPostsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedditPostsTableViewCell.swift; sourceTree = "<group>"; };
 		428B3B481EFC83B20018F323 /* SavedPostsViewControllerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SavedPostsViewControllerTableViewController.swift; path = ../SavedPostsViewControllerTableViewController.swift; sourceTree = "<group>"; };
+		42D0BC851F05B66B003CDA3B /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
+		42D0BC861F05B66B003CDA3B /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
+		42D0BC871F05B66B003CDA3B /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
+		42D0BC881F05B66B003CDA3B /* Lato-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BoldItalic.ttf"; sourceTree = "<group>"; };
+		42D0BC891F05B66B003CDA3B /* Lato-Hairline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Hairline.ttf"; sourceTree = "<group>"; };
+		42D0BC8A1F05B66B003CDA3B /* Lato-HairlineItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-HairlineItalic.ttf"; sourceTree = "<group>"; };
+		42D0BC8B1F05B66B003CDA3B /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Italic.ttf"; sourceTree = "<group>"; };
+		42D0BC8C1F05B66B003CDA3B /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
+		42D0BC8D1F05B66B003CDA3B /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-LightItalic.ttf"; sourceTree = "<group>"; };
+		42D0BC8E1F05B66B003CDA3B /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		42D640D01EA9615700394D75 /* SubRedditService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubRedditService.swift; sourceTree = "<group>"; };
 		622CDF551E81DEB100747944 /* CommentsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsTableViewCell.swift; sourceTree = "<group>"; };
 		622CDF571E81DECB00747944 /* CommentsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsTableViewController.swift; sourceTree = "<group>"; };
@@ -104,13 +110,16 @@
 		425B9F0F1EA030DB0077E0DE /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				42321D8C1E78A827004F64D2 /* Dosis-Bold.ttf */,
-				42321D8D1E78A827004F64D2 /* Dosis-ExtraBold.ttf */,
-				42321D8E1E78A827004F64D2 /* Dosis-ExtraLight.ttf */,
-				42321D8F1E78A827004F64D2 /* Dosis-Light.ttf */,
-				42321D901E78A827004F64D2 /* Dosis-Medium.ttf */,
-				42321D911E78A827004F64D2 /* Dosis-Regular.ttf */,
-				42321D921E78A827004F64D2 /* Dosis-SemiBold.ttf */,
+				42D0BC851F05B66B003CDA3B /* Lato-Black.ttf */,
+				42D0BC861F05B66B003CDA3B /* Lato-BlackItalic.ttf */,
+				42D0BC871F05B66B003CDA3B /* Lato-Bold.ttf */,
+				42D0BC881F05B66B003CDA3B /* Lato-BoldItalic.ttf */,
+				42D0BC891F05B66B003CDA3B /* Lato-Hairline.ttf */,
+				42D0BC8A1F05B66B003CDA3B /* Lato-HairlineItalic.ttf */,
+				42D0BC8B1F05B66B003CDA3B /* Lato-Italic.ttf */,
+				42D0BC8C1F05B66B003CDA3B /* Lato-Light.ttf */,
+				42D0BC8D1F05B66B003CDA3B /* Lato-LightItalic.ttf */,
+				42D0BC8E1F05B66B003CDA3B /* Lato-Regular.ttf */,
 			);
 			name = Fonts;
 			sourceTree = "<group>";
@@ -257,17 +266,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42D0BC8F1F05B6D2003CDA3B /* Lato-Black.ttf in Resources */,
+				42D0BC901F05B6D2003CDA3B /* Lato-BlackItalic.ttf in Resources */,
+				42D0BC911F05B6D2003CDA3B /* Lato-Bold.ttf in Resources */,
+				42D0BC921F05B6D2003CDA3B /* Lato-BoldItalic.ttf in Resources */,
+				42D0BC931F05B6D2003CDA3B /* Lato-Hairline.ttf in Resources */,
+				42D0BC941F05B6D2003CDA3B /* Lato-HairlineItalic.ttf in Resources */,
+				42D0BC951F05B6D2003CDA3B /* Lato-Italic.ttf in Resources */,
+				42D0BC961F05B6D2003CDA3B /* Lato-Light.ttf in Resources */,
+				42D0BC971F05B6D2003CDA3B /* Lato-LightItalic.ttf in Resources */,
+				42D0BC981F05B6D2003CDA3B /* Lato-Regular.ttf in Resources */,
 				427172C31E380BB3001DC989 /* LaunchScreen.storyboard in Resources */,
-				42321D941E78A827004F64D2 /* Dosis-ExtraBold.ttf in Resources */,
-				42321D961E78A827004F64D2 /* Dosis-Light.ttf in Resources */,
-				42321D991E78A827004F64D2 /* Dosis-SemiBold.ttf in Resources */,
 				427172C01E380BB3001DC989 /* Assets.xcassets in Resources */,
-				42321D951E78A827004F64D2 /* Dosis-ExtraLight.ttf in Resources */,
-				42321D971E78A827004F64D2 /* Dosis-Medium.ttf in Resources */,
-				42321D981E78A827004F64D2 /* Dosis-Regular.ttf in Resources */,
 				623D348B1E381AEC0071AC7E /* WebviewViewController.xib in Resources */,
 				427172BB1E380BB3001DC989 /* Main.storyboard in Resources */,
-				42321D931E78A827004F64D2 /* Dosis-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

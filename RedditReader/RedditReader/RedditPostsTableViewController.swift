@@ -24,6 +24,12 @@ class RedditPostsTableViewController: UITableViewController, UISearchBarDelegate
         
         searchBar.delegate = self
         
+//        let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
+//        if statusBar.responds(to: #selector(setter: UIView.backgroundColor)) {
+//            statusBar.backgroundColor = UIColor.red
+//        }
+        
+        
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         
         // Hide the search bar by default
@@ -38,7 +44,11 @@ class RedditPostsTableViewController: UITableViewController, UISearchBarDelegate
         }
     }
     
-    func subredditLoadedHandler(subreddit: SubReddit) { 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    func subredditLoadedHandler(subreddit: SubReddit) {
         self.subreddit = subreddit
         self.subreddit.loadPosts(completion: self.postsLoaded)
     }

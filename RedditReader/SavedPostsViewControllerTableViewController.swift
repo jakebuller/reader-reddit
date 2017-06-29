@@ -13,8 +13,6 @@ class SavedPostsViewControllerTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-        print("Hi")
         let noDataLabel: UILabel     = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
             noDataLabel.text          = "All of the posts you save will appear here 😀"
             noDataLabel.textColor     = UIColor.black
