@@ -10,6 +10,7 @@ import UIKit
 
 class SubredditSearchTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var cardContainer: UIView!
     @IBOutlet weak var subredditSubscriberCount: UILabel!
     @IBOutlet weak var subredditTitle: UILabel!
     @IBOutlet weak var subredditDescription: UILabel!
@@ -23,6 +24,10 @@ class SubredditSearchTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    override func layoutSubviews() {
+        self.cardContainer.layer.cornerRadius = 5
     }
 
 }
