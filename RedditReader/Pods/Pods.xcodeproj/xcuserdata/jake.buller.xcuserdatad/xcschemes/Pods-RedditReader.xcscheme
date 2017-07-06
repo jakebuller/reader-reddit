@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0830"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C4F6947A80FB6604DC8D1C4D8D7B95CF"
+               BlueprintIdentifier = "CA19F07B3452B7A5CA73815F18FD4F66"
                BuildableName = "Pods_RedditReader.framework"
                BlueprintName = "Pods-RedditReader"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C4F6947A80FB6604DC8D1C4D8D7B95CF"
+            BlueprintIdentifier = "CA19F07B3452B7A5CA73815F18FD4F66"
             BuildableName = "Pods_RedditReader.framework"
             BlueprintName = "Pods-RedditReader"
             ReferencedContainer = "container:Pods.xcodeproj">

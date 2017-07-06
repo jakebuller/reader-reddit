@@ -19,6 +19,10 @@ class SubReddit {
     var filter: String = ""
     var sortOrder: String = Constants.SortType.Hot
     
+    func clearPosts() {
+        self.posts = [Post]();
+    }
+    
     func loadPosts(after: Post? = nil, completion: @escaping (_ result: Array<Post>) -> Void) {
         RedditPostsService().get(subreddit: self, after: after, completion: completion)
     }

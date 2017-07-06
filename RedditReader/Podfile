@@ -6,4 +6,5 @@ target 'RedditReader' do
     pod 'Alamofire'
     pod 'Kingfisher', '~> 3.0'
     pod 'SwiftyJSON'
+    pod 'Floaty'
 end

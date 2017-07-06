@@ -22,6 +22,8 @@ class RedditPostsService {
 
         postsUrl += Constants.RedditApi.jsonApiExt
 
+        print(postsUrl)
+        
         if subreddit.filter != "" {
             postsUrl = Constants.RedditApi.baseUrl + subreddit.url + "search.json?q=" + subreddit.filter + "&restrict_sr=on"
         }

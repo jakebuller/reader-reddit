@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import Kingfisher
+import Floaty
 
 class RedditPostsTableViewController: UITableViewController, UISearchBarDelegate {
 
@@ -28,8 +29,7 @@ class RedditPostsTableViewController: UITableViewController, UISearchBarDelegate
 //        if statusBar.responds(to: #selector(setter: UIView.backgroundColor)) {
 //            statusBar.backgroundColor = UIColor.red
 //        }
-        
-        
+
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         
         // Hide the search bar by default
@@ -42,6 +42,40 @@ class RedditPostsTableViewController: UITableViewController, UISearchBarDelegate
         } else {
             self.subreddit.loadPosts(completion: self.postsLoaded)
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated) // No need for semicolon
+        
+        let floaty = Floaty()
+        floaty.buttonColor = UIColor.red
+        floaty.plusColor = UIColor.white
+    
+        floaty.addItem(title: "Hot", handler: self.sortTypeClicked)
+        floaty.addItem(title: "New", handler: self.sortTypeClicked)
+        floaty.addItem(title: "Rising", handler: self.sortTypeClicked)
+        floaty.addItem(title: "Controversial", handler: self.sortTypeClicked)
+        floaty.sticky = true
+        floaty.paddingY = 60
+        floaty.openAnimationType = FloatyOpenAnimationType.slideLeft
+        floaty.animationSpeed = 0.01
+        self.view.addSubview(floaty)
+    }
+    
+    func sortTypeClicked(item: FloatyItem) {
+        switch item.title as String! {
+            case "New":
+                self.subreddit.sortOrder = Constants.SortType.New
+            case "Rising":
+                self.subreddit.sortOrder = Constants.SortType.Rising
+            case "Controversial":
+                self.subreddit.sortOrder = Constants.SortType.Controversial
+            default:
+                self.subreddit.sortOrder = Constants.SortType.Hot
+        }
+        
+        self.subreddit.clearPosts()
+        self.subreddit.loadPosts(completion: self.postsLoaded)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
