@@ -35,6 +35,7 @@ class RedditPostsTableViewController: UITableViewController, UISearchBarDelegate
         // Hide the search bar by default
         self.tableView.setContentOffset(CGPoint(x: 0, y: 44), animated: false)
         
+        self.addSortButton()
         
         let subRedditService = SubRedditService()
         if (self.subreddit.name.isEmpty) {
@@ -44,13 +45,11 @@ class RedditPostsTableViewController: UITableViewController, UISearchBarDelegate
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated) // No need for semicolon
-        
+    func addSortButton() {
         let floaty = Floaty()
         floaty.buttonColor = UIColor.red
         floaty.plusColor = UIColor.white
-    
+        
         floaty.addItem(title: "Hot", handler: self.sortTypeClicked)
         floaty.addItem(title: "New", handler: self.sortTypeClicked)
         floaty.addItem(title: "Rising", handler: self.sortTypeClicked)
