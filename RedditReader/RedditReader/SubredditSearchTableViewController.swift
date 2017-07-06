@@ -33,6 +33,8 @@ class SubredditSearchTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+
         loadTrendingSubreddits()
     }
 
