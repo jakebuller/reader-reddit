@@ -15,10 +15,15 @@ class RedditPostsService {
     var subReddit = String();
     
     func get(subreddit: SubReddit, after: Post? = nil, completion: @escaping (_ result: Array<Post>) -> Void) {
-        var postsUrl = "http://reddit.com/" + subreddit.url + ".json"
-        
+        var postsUrl = Constants.RedditApi.baseUrl + subreddit.url
+        if (subreddit.sortOrder != "") {
+            postsUrl += subreddit.sortOrder + "/"
+        }
+
+        postsUrl += Constants.RedditApi.jsonApiExt
+
         if subreddit.filter != "" {
-            postsUrl = "http://reddit.com/" + subreddit.url + "search.json?q=" + subreddit.filter + "&restrict_sr=on"
+            postsUrl = Constants.RedditApi.baseUrl + subreddit.url + "search.json?q=" + subreddit.filter + "&restrict_sr=on"
         }
         
         if (after != nil) {

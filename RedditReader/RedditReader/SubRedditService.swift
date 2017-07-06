@@ -12,7 +12,7 @@ import SwiftyJSON
 
 class SubRedditService {
     func get(subreddit: String = "", completion: @escaping (_ result: SubReddit) -> Void) {
-        let subRedditUrl = "http://reddit.com/r/" + subreddit + "/about.json"
+        let subRedditUrl = "http://reddit.com/" + subreddit + "/about.json"
         Alamofire.request(subRedditUrl).responseJSON { response in
             var subreddit = SubReddit()
             
@@ -75,7 +75,9 @@ class SubRedditService {
             subreddit.subscribers = subscribers
         }
         
-        subreddit.url = jsonData["url"].string!
+        if let url = jsonData["url"].string {
+            subreddit.url = url
+        }
         
         if let imageUrl = jsonData["icon_img"].string {
             subreddit.imageUrl = imageUrl

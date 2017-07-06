@@ -17,6 +17,7 @@ class SubReddit {
     var imageUrl: String = ""
     var posts = [Post]();
     var filter: String = ""
+    var sortOrder: String = Constants.SortType.Hot
     
     func loadPosts(after: Post? = nil, completion: @escaping (_ result: Array<Post>) -> Void) {
         RedditPostsService().get(subreddit: self, after: after, completion: completion)

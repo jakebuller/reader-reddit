@@ -38,7 +38,7 @@ class RedditPostsTableViewController: UITableViewController, UISearchBarDelegate
         
         let subRedditService = SubRedditService()
         if (self.subreddit.name.isEmpty) {
-            subRedditService.get(subreddit: "politics", completion: self.subredditLoadedHandler)
+            subRedditService.get(subreddit: "", completion: self.subredditLoadedHandler)
         } else {
             self.subreddit.loadPosts(completion: self.postsLoaded)
         }
