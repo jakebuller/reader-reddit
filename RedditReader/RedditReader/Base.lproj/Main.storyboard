@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -30,7 +31,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xzb-gp-t2a">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Xzb-gp-t2a">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -51,14 +52,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" showsCancelButton="YES" id="DaV-Cj-6lW">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="320" id="B4e-Dk-LxC" customClass="RedditPostsTableViewCell" customModule="RedditReader" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="375" height="320"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="320"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="B4e-Dk-LxC" id="hjb-1N-YkV">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="319.5"/>
@@ -171,10 +167,17 @@
                             <outlet property="delegate" destination="PiS-y0-kK7" id="Ynj-R7-2aJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Posts" id="mMF-f3-x9x"/>
+                    <navigationItem key="navigationItem" title="Posts" id="mMF-f3-x9x">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="aty-B7-m2U">
+                            <connections>
+                                <action selector="filterButtonClicked:" destination="PiS-y0-kK7" id="fZy-dN-BoG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
-                        <outlet property="searchBar" destination="DaV-Cj-6lW" id="qwK-Iz-gbE"/>
+                        <outlet property="navigationTitle" destination="mMF-f3-x9x" id="9Ru-oO-mK5"/>
+                        <outlet property="searchButton" destination="aty-B7-m2U" id="sMr-07-jY1"/>
                         <outlet property="searchDisplayController" destination="SaT-Nn-xs1" id="fz6-ph-TVi"/>
                     </connections>
                 </tableViewController>
@@ -340,9 +343,7 @@
                             <outlet property="delegate" destination="lzs-zP-tpF" id="XX4-vY-cLu"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Trending" id="yH3-DS-aep">
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="qpj-8H-Pbz"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Trending" id="yH3-DS-aep"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a1q-nD-aG8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -431,6 +432,7 @@
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FYz-j2-SsO">
                                         <rect key="frame" x="90" y="46" width="245" height="30"/>
                                         <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Bf-kM-Aoi">
@@ -486,7 +488,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HNs-xF-OhJ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Popular" image="003-thunderbolt" id="g8C-Fm-mfx"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="opm-dK-WR3">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="opm-dK-WR3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -508,6 +510,6 @@
         <image name="pepe" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wed-MJ-5aX"/>
+        <segue reference="3I7-lg-hIv"/>
     </inferredMetricsTieBreakers>
 </document>

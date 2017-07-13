@@ -14,16 +14,18 @@ import Floaty
 class RedditPostsTableViewController: UITableViewController, UISearchBarDelegate {
 
     @IBOutlet var sortTypeControl: UISegmentedControl!
-    @IBOutlet weak var searchBar: UISearchBar!
-    
+
+    @IBOutlet weak var searchButton: UIBarButtonItem!
+    @IBOutlet weak var navigationTitle: UINavigationItem!
     var subreddit = SubReddit()
     var sortType = String()
+    var searchBar: UISearchBar?
+    var originalTitleView: UIView?
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        searchBar.delegate = self
         
 //        let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
 //        if statusBar.responds(to: #selector(setter: UIView.backgroundColor)) {
@@ -33,7 +35,7 @@ class RedditPostsTableViewController: UITableViewController, UISearchBarDelegate
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         
         // Hide the search bar by default
-        self.tableView.setContentOffset(CGPoint(x: 0, y: 44), animated: false)
+//        self.tableView.setContentOffset(CGPoint(x: 0, y: 44), animated: false)
         
         self.addSortButton()
         
@@ -44,6 +46,44 @@ class RedditPostsTableViewController: UITableViewController, UISearchBarDelegate
             self.subreddit.loadPosts(completion: self.postsLoaded)
         }
     }
+    
+    @IBAction func filterButtonClicked(_ sender: Any) {
+        if (self.navigationTitle.titleView == self.getSearchBar()) {
+            self.getSearchBar().removeFromSuperview()
+            self.navigationTitle.titleView = self.originalTitleView
+            
+            setSearchButtonIcon( icon: UIBarButtonSystemItem.search)
+            
+            self.navigationTitle.title = self.getSearchBar().text!.isEmpty ? "Posts" : "Posts - " + self.getSearchBar().text!
+        } else {
+            self.originalTitleView = self.navigationTitle.titleView
+            setSearchButtonIcon( icon: UIBarButtonSystemItem.done)
+            self.navigationTitle.titleView = self.getSearchBar()
+        }
+    }
+    
+    func getSearchBar() -> UISearchBar {
+        guard (self.searchBar == nil) else {
+            return self.searchBar!
+        }
+        self.searchBar = UISearchBar()
+        
+        self.searchBar!.delegate = self
+        self.searchBar!.searchBarStyle = UISearchBarStyle.prominent
+        self.searchBar!.placeholder = " Search..."
+        self.searchBar!.sizeToFit()
+        self.searchBar!.isTranslucent = false
+        
+        return self.searchBar!
+    }
+    
+    func setSearchButtonIcon(icon: UIBarButtonSystemItem) {
+        
+        let searchButton = UIBarButtonItem(barButtonSystemItem: icon, target: self, action: #selector(filterButtonClicked))
+        self.navigationTitle.setRightBarButton(searchButton, animated: false)
+    }
+    
+    
     
     func addSortButton() {
         let floaty = Floaty()
