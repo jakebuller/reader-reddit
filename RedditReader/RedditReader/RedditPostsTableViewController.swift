@@ -21,23 +21,16 @@ class RedditPostsTableViewController: UITableViewController, UISearchBarDelegate
     var sortType = String()
     var searchBar: UISearchBar?
     var originalTitleView: UIView?
-
+    var indicator = UIActivityIndicatorView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-//        let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
-//        if statusBar.responds(to: #selector(setter: UIView.backgroundColor)) {
-//            statusBar.backgroundColor = UIColor.red
-//        }
 
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
-        
-        // Hide the search bar by default
-//        self.tableView.setContentOffset(CGPoint(x: 0, y: 44), animated: false)
-        
         self.addSortButton()
+        
+        self.initActivityIndicator()
+        self.startActivityAnimation()
         
         let subRedditService = SubRedditService()
         if (self.subreddit.name.isEmpty) {
@@ -45,6 +38,25 @@ class RedditPostsTableViewController: UITableViewController, UISearchBarDelegate
         } else {
             self.subreddit.loadPosts(completion: self.postsLoaded)
         }
+    }
+    
+    func initActivityIndicator() {
+        indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        indicator.center = CGPoint(x: self.tableView.center.x, y: self.tableView.center.y - 40)
+        self.tableView.addSubview(indicator)
+    }
+    
+    func startActivityAnimation()
+    {
+        indicator.startAnimating()
+        indicator.backgroundColor = UIColor.white
+    }
+    
+    func stopActivityAnimation()
+    {
+        indicator.stopAnimating()
+        indicator.hidesWhenStopped = true
     }
     
     @IBAction func filterButtonClicked(_ sender: Any) {
@@ -127,6 +139,7 @@ class RedditPostsTableViewController: UITableViewController, UISearchBarDelegate
     }
     
     func postsLoaded(posts: Array<Post>) {
+        self.stopActivityAnimation()
         self.tableView.reloadData()
     }
   
@@ -197,7 +210,9 @@ class RedditPostsTableViewController: UITableViewController, UISearchBarDelegate
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.subreddit.filter = searchText
-        self.subreddit.posts = [Post]();
+        self.subreddit.posts = [Post]()
+        self.tableView.reloadData()
+        self.startActivityAnimation()
         self.subreddit.loadPosts(completion: self.postsLoaded)
     }
 

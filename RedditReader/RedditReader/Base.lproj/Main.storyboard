@@ -402,7 +402,7 @@
                             <outlet property="delegate" destination="zIr-0h-ckx" id="84v-jn-2oZ"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Saved" image="123-bookmark" badgeValue="15" id="j3L-fI-n6z"/>
+                    <tabBarItem key="tabBarItem" title="Saved" image="123-bookmark" id="j3L-fI-n6z"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6s2-5t-mip" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -482,11 +482,11 @@
             </objects>
             <point key="canvasLocation" x="848.79999999999995" y="-619.34032983508246"/>
         </scene>
-        <!--Popular-->
+        <!--Subreddits-->
         <scene sceneID="GAe-th-ZcA">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HNs-xF-OhJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Popular" image="003-thunderbolt" id="g8C-Fm-mfx"/>
+                    <tabBarItem key="tabBarItem" title="Subreddits" image="003-thunderbolt" id="g8C-Fm-mfx"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="opm-dK-WR3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
