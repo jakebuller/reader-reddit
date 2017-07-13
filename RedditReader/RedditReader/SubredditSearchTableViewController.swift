@@ -10,15 +10,39 @@ import UIKit
 import Alamofire
 import Kingfisher
 
-class SubredditSearchTableViewController: UITableViewController {
+class SubredditSearchTableViewController: UITableViewController, UISearchBarDelegate {
     
     var subredditList = [SubReddit]()
     
-    @IBOutlet weak var searchInput: UITextField!
+    @IBOutlet weak var navigationTitle: UINavigationItem!
+    var searchBar : UISearchBar?
     
-    @IBAction func searchSubreddit(_ sender: Any) {
-        let searchTerm = searchInput.text!
-        SubRedditService().search(searchTerm: searchTerm, completion: self.subredditsLoaded)
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        let searchTerm = searchBar.text!
+        self.subredditList = []
+        self.tableView.reloadData()
+        
+        if (searchTerm.isEmpty) {
+            self.loadTrendingSubreddits()
+        } else {
+            SubRedditService().search(searchTerm: searchTerm, completion: self.subredditsLoaded)
+        }
+    }
+    
+    func getSearchBar() -> UISearchBar {
+        guard (self.searchBar == nil) else {
+            return self.searchBar!
+        }
+        self.searchBar = UISearchBar()
+        
+        self.searchBar!.delegate = self
+        self.searchBar!.searchBarStyle = UISearchBarStyle.prominent
+        self.searchBar!.placeholder = " Search..."
+        self.searchBar!.sizeToFit()
+        self.searchBar!.isTranslucent = false
+        
+        return self.searchBar!
     }
     
     func loadTrendingSubreddits() {
@@ -34,6 +58,8 @@ class SubredditSearchTableViewController: UITableViewController {
         super.viewDidLoad()
 
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        
+        self.navigationTitle.titleView = self.getSearchBar()
 
         loadTrendingSubreddits()
     }
@@ -66,6 +92,8 @@ class SubredditSearchTableViewController: UITableViewController {
         if (subReddit.imageUrl.range(of: "http") != nil) {
             let url = URL(string: subReddit.imageUrl)
             cell.subredditImage.kf.setImage(with: url)
+        } else {
+            cell.subredditImage.image = UIImage(named: "list-thumbnail")
         }
         
         return cell
