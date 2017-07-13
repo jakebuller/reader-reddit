@@ -275,7 +275,7 @@
             </objects>
             <point key="canvasLocation" x="3096.8000000000002" y="450.22488755622192"/>
         </scene>
-        <!--Trending-->
+        <!--SubReddits-->
         <scene sceneID="klA-2w-EZy">
             <objects>
                 <tableViewController id="lzs-zP-tpF" customClass="SubredditSearchTableViewController" customModule="RedditReader" customModuleProvider="target" sceneMemberID="viewController">
@@ -343,9 +343,29 @@
                             <outlet property="delegate" destination="lzs-zP-tpF" id="XX4-vY-cLu"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Trending" id="yH3-DS-aep"/>
+                    <navigationItem key="navigationItem" title="SubReddits" id="yH3-DS-aep"/>
+                    <connections>
+                        <outlet property="navigationTitle" destination="yH3-DS-aep" id="tjr-8e-Pm1"/>
+                        <outlet property="searchDisplayController" destination="ec4-eB-vXH" id="RfS-hD-f4N"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a1q-nD-aG8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="jHl-c0-G4f">
+                    <connections>
+                        <outlet property="delegate" destination="lzs-zP-tpF" id="Q4O-SY-lfI"/>
+                        <outlet property="searchContentsController" destination="lzs-zP-tpF" id="7p9-9f-IHN"/>
+                        <outlet property="searchResultsDataSource" destination="lzs-zP-tpF" id="WCk-Mr-3Us"/>
+                        <outlet property="searchResultsDelegate" destination="lzs-zP-tpF" id="HDL-Pq-Pb8"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="ec4-eB-vXH">
+                    <connections>
+                        <outlet property="delegate" destination="lzs-zP-tpF" id="hGe-Ck-MFl"/>
+                        <outlet property="searchContentsController" destination="lzs-zP-tpF" id="oQN-cV-Pk1"/>
+                        <outlet property="searchResultsDataSource" destination="lzs-zP-tpF" id="YVX-T4-XrE"/>
+                        <outlet property="searchResultsDelegate" destination="lzs-zP-tpF" id="i2I-6W-Q6q"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1076" y="1091.6041979010495"/>
         </scene>
