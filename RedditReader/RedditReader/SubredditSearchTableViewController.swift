@@ -17,12 +17,15 @@ class SubredditSearchTableViewController: UITableViewController, UISearchBarDele
     @IBOutlet weak var navigationTitle: UINavigationItem!
     var searchBar : UISearchBar?
     
+    var animation = LoadingIndicator()
+    
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         let searchTerm = searchBar.text!
         self.subredditList = []
         self.tableView.reloadData()
         
+        animation.startActivityAnimation()
         if (searchTerm.isEmpty) {
             self.loadTrendingSubreddits()
         } else {
@@ -52,6 +55,7 @@ class SubredditSearchTableViewController: UITableViewController, UISearchBarDele
     func subredditsLoaded(subReddits: Array<SubReddit>) {
         self.subredditList = subReddits
         self.tableView.reloadData()
+        animation.stopActivityAnimation()
     }
     
     override func viewDidLoad() {
@@ -60,6 +64,8 @@ class SubredditSearchTableViewController: UITableViewController, UISearchBarDele
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         
         self.navigationTitle.titleView = self.getSearchBar()
+        animation.initActivityIndicator(view: self.tableView)
+        animation.startActivityAnimation()
 
         loadTrendingSubreddits()
     }
