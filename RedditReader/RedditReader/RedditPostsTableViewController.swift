@@ -187,6 +187,7 @@ class RedditPostsTableViewController: UITableViewController, UISearchBarDelegate
             
             if let nextViewController = segue.destination as? CommentsTableViewController{
                 nextViewController.permalink = post.permaLink //Or pass any values
+                nextViewController.post = post
             }
         }
     }

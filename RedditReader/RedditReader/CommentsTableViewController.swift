@@ -12,13 +12,17 @@ import SwiftyJSON
 
 class CommentsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    
     @IBOutlet var tableView: UITableView!
     
+    @IBOutlet var postImage: UIImageView!
+    @IBOutlet var postTitle: UILabel!
+    @IBOutlet var postAuthor: UILabel!
+    @IBOutlet var postTime: UILabel!
     
     var commentsList : Array<JSON> = Array();
     
     var permalink = String();
+    var post = Post();
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,12 +32,29 @@ class CommentsTableViewController: UIViewController, UITableViewDelegate, UITabl
         tableView.delegate = self
         tableView.dataSource = self
         
+        layoutPostComponent()
         loadComments()
+    }
+    
+    func layoutPostComponent()
+    {
+        self.postTitle.text = self.post.title
+//        self.postAuthor.text = self.post.author
+        
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "HH:mm"
+//        self.postTime.text = formatter.string(from: self.post.createdAt)
+        
+        if self.post.imageUrl.range(of:"http") != nil {
+            let url = URL(string: self.post.imageUrl)
+            self.postImage.kf.setImage(with: url)
+        } else {
+            self.postImage.image = UIImage(named: "pepe")
+        }
     }
     
     func loadComments() {
         let url = "https://www.reddit.com/" + self.permalink + ".json"
-        print("Loading from " + url)
         Alamofire.request(url).responseJSON { response in
             if (response.result.value != nil) {
                 let listings = JSON(response.result.value!)
@@ -46,7 +67,6 @@ class CommentsTableViewController: UIViewController, UITableViewDelegate, UITabl
                     }
                 }
             }
-            print("reloading table data")
             self.tableView.reloadData()
         }
     }
@@ -65,8 +85,6 @@ class CommentsTableViewController: UIViewController, UITableViewDelegate, UITabl
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        print(self.commentsList.count)
         // #warning Incomplete implementation, return the number of rows
         return self.commentsList.count
     }
@@ -74,7 +92,6 @@ class CommentsTableViewController: UIViewController, UITableViewDelegate, UITabl
     
 //    func tableView(UITableView, cellForRowAt: IndexPath)
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("cellForRowAt")
         let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as! CommentsTableViewCell
 
         let comment = self.commentsList[indexPath.row]
