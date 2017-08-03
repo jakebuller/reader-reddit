@@ -32,6 +32,9 @@ class CommentsTableViewController: UIViewController, UITableViewDelegate, UITabl
         tableView.delegate = self
         tableView.dataSource = self
         
+        self.tableView.rowHeight = UITableViewAutomaticDimension;
+        self.tableView.estimatedRowHeight = 120
+        
         layoutPostComponent()
         loadComments()
     }

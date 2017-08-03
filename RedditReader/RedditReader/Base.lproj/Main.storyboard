@@ -255,25 +255,24 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CommentCell" rowHeight="119" id="4nJ-bc-P7k" customClass="CommentsTableViewCell" customModule="RedditReader" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="119"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4nJ-bc-P7k" id="dMf-yu-GFX">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="redraw" tableViewCell="4nJ-bc-P7k" id="dMf-yu-GFX">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="118.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="TopLeft" translatesAutoresizingMaskIntoConstraints="NO" id="nH4-cX-21N">
                                                     <rect key="frame" x="8" y="4" width="359" height="111"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rSU-Ul-FLq">
-                                                            <rect key="frame" x="8" y="4" width="343" height="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Author" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rSU-Ul-FLq">
+                                                            <rect key="frame" x="8" y="8" width="343" height="20"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="17" id="mV7-XG-Nso"/>
+                                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="Z6e-Zo-ou6"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zBt-xU-uUk">
-                                                            <rect key="frame" x="8" y="29" width="343" height="74"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zBt-xU-uUk">
+                                                            <rect key="frame" x="8" y="32" width="343" height="71"/>
                                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -281,18 +280,23 @@
                                                     </subviews>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="rSU-Ul-FLq" secondAttribute="trailing" constant="8" id="DOe-79-s7c"/>
-                                                        <constraint firstItem="rSU-Ul-FLq" firstAttribute="leading" secondItem="nH4-cX-21N" secondAttribute="leading" constant="8" id="ZHV-Mk-fwg"/>
-                                                        <constraint firstItem="rSU-Ul-FLq" firstAttribute="top" secondItem="nH4-cX-21N" secondAttribute="top" constant="4" id="zsL-IY-tid"/>
+                                                        <constraint firstItem="rSU-Ul-FLq" firstAttribute="leading" secondItem="nH4-cX-21N" secondAttribute="leading" constant="8" id="2VU-RU-Vte"/>
+                                                        <constraint firstItem="zBt-xU-uUk" firstAttribute="leading" secondItem="nH4-cX-21N" secondAttribute="leading" constant="8" id="3A4-62-Up0"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="110" id="SCs-Kp-Ms9"/>
+                                                        <constraint firstItem="rSU-Ul-FLq" firstAttribute="top" secondItem="nH4-cX-21N" secondAttribute="top" constant="8" id="STK-8V-XYV"/>
+                                                        <constraint firstItem="zBt-xU-uUk" firstAttribute="top" secondItem="rSU-Ul-FLq" secondAttribute="bottom" constant="4" id="bNK-I2-oSv"/>
+                                                        <constraint firstAttribute="trailing" secondItem="rSU-Ul-FLq" secondAttribute="trailing" constant="8" id="edF-7p-H6Z"/>
+                                                        <constraint firstAttribute="trailing" secondItem="zBt-xU-uUk" secondAttribute="trailing" constant="8" id="uba-gx-t2T"/>
+                                                        <constraint firstAttribute="bottom" secondItem="zBt-xU-uUk" secondAttribute="bottom" constant="8" id="zpA-pn-460"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="nH4-cX-21N" secondAttribute="bottom" constant="4" id="3gC-ps-bto"/>
-                                                <constraint firstAttribute="trailing" secondItem="nH4-cX-21N" secondAttribute="trailing" constant="8" id="CEo-67-ocQ"/>
-                                                <constraint firstItem="nH4-cX-21N" firstAttribute="top" secondItem="dMf-yu-GFX" secondAttribute="top" constant="4" id="ajw-3z-ekv"/>
-                                                <constraint firstItem="nH4-cX-21N" firstAttribute="leading" secondItem="dMf-yu-GFX" secondAttribute="leading" constant="8" id="j5c-Sj-qnf"/>
+                                                <constraint firstAttribute="trailing" secondItem="nH4-cX-21N" secondAttribute="trailing" constant="8" id="6Ga-Bd-Eha"/>
+                                                <constraint firstItem="nH4-cX-21N" firstAttribute="leading" secondItem="dMf-yu-GFX" secondAttribute="leading" constant="8" id="Q3r-gm-IiI"/>
+                                                <constraint firstAttribute="bottom" secondItem="nH4-cX-21N" secondAttribute="bottom" constant="4" id="kLl-LZ-IMe"/>
+                                                <constraint firstItem="nH4-cX-21N" firstAttribute="top" secondItem="dMf-yu-GFX" secondAttribute="top" constant="4" id="sOI-Fz-nme"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

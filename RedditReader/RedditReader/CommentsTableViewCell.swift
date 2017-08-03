@@ -26,7 +26,5 @@ class CommentsTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         self.cardContainer.layer.cornerRadius = 5
-        self.commentLabel.sizeToFit()
-        self.commentLabel.numberOfLines = 0
     }
 }
