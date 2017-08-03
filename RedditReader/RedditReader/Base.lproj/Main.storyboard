@@ -283,7 +283,6 @@
                                                     <constraints>
                                                         <constraint firstItem="rSU-Ul-FLq" firstAttribute="leading" secondItem="nH4-cX-21N" secondAttribute="leading" constant="8" id="2VU-RU-Vte"/>
                                                         <constraint firstItem="rMI-nO-swf" firstAttribute="top" secondItem="rSU-Ul-FLq" secondAttribute="bottom" constant="4" id="P0G-mL-WeL"/>
-                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="110" id="SCs-Kp-Ms9"/>
                                                         <constraint firstItem="rSU-Ul-FLq" firstAttribute="top" secondItem="nH4-cX-21N" secondAttribute="top" constant="8" id="STK-8V-XYV"/>
                                                         <constraint firstAttribute="trailing" secondItem="rMI-nO-swf" secondAttribute="trailing" constant="2" id="Scc-RL-U0U"/>
                                                         <constraint firstAttribute="bottom" secondItem="rMI-nO-swf" secondAttribute="bottom" constant="8" id="cZP-fw-HHK"/>
@@ -617,6 +616,6 @@
         <image name="pepe" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wed-MJ-5aX"/>
+        <segue reference="3I7-lg-hIv"/>
     </inferredMetricsTieBreakers>
 </document>
