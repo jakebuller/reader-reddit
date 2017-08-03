@@ -193,10 +193,10 @@
             </objects>
             <point key="canvasLocation" x="2260" y="451.12443778110946"/>
         </scene>
-        <!--Comments Table View Controller-->
+        <!--Comments-->
         <scene sceneID="eUX-Ea-xK1">
             <objects>
-                <viewController id="FfJ-9g-lI4" customClass="CommentsTableViewController" customModule="RedditReader" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Comments" id="FfJ-9g-lI4" customClass="CommentsTableViewController" customModule="RedditReader" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xdm-RF-8Ta"/>
                         <viewControllerLayoutGuide type="bottom" id="0pg-nz-jSY"/>
@@ -311,7 +311,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="TOQ-TV-HfJ" secondAttribute="trailing" id="0Si-4b-3oJ"/>
                             <constraint firstItem="TOQ-TV-HfJ" firstAttribute="leading" secondItem="fqp-u7-62I" secondAttribute="leading" id="0tD-qi-nQg"/>
