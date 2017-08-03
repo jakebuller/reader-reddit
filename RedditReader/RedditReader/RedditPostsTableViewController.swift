@@ -23,6 +23,7 @@ class RedditPostsTableViewController: UITableViewController, UISearchBarDelegate
     var originalTitleView: UIView?
     var indicator = UIActivityIndicatorView()
     
+    var pullRefreshControl = UIRefreshControl()
     var loadingIndicator = LoadingIndicator()
     
     override func viewDidLoad() {
@@ -38,6 +39,20 @@ class RedditPostsTableViewController: UITableViewController, UISearchBarDelegate
         if (self.subreddit.name.isEmpty) {
             subRedditService.get(subreddit: "", completion: self.subredditLoadedHandler)
         } else {
+            self.subreddit.loadPosts(completion: self.postsLoaded)
+        }
+        
+        self.pullRefreshControl.addTarget(self,
+                                 action: #selector(refreshOptions(sender:)),
+                                 for: .valueChanged)
+    
+        self.tableView.refreshControl = self.pullRefreshControl
+        self.pullRefreshControl.backgroundColor = UIColor(red:0.90, green:0.90, blue:0.90, alpha:1.0)
+    }
+    
+    func refreshOptions(sender: UIRefreshControl) {
+        if (self.pullRefreshControl.isRefreshing) {
+            self.subreddit.clearPosts()
             self.subreddit.loadPosts(completion: self.postsLoaded)
         }
     }
@@ -123,6 +138,7 @@ class RedditPostsTableViewController: UITableViewController, UISearchBarDelegate
     
     func postsLoaded(posts: Array<Post>) {
         self.loadingIndicator.stopActivityAnimation()
+        self.pullRefreshControl.endRefreshing()
         self.tableView.reloadData()
     }
   
