@@ -11,8 +11,9 @@ import UIKit
 class CommentsTableViewCell: UITableViewCell {
 
     @IBOutlet var cardContainer: UIView!
-    @IBOutlet weak var commentLabel: UILabel!
+//    @IBOutlet weak var commentLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet weak var commentLabel: UITextView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
