@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import SafariServices
 
 class CommentsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -35,10 +36,20 @@ class CommentsTableViewController: UIViewController, UITableViewDelegate, UITabl
         self.tableView.rowHeight = UITableViewAutomaticDimension;
         self.tableView.estimatedRowHeight = 80
         
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(CommentsTableViewController.userTappedOnTitle))
+        self.postTitle.isUserInteractionEnabled = true
+        self.postTitle.addGestureRecognizer(gesture)
+
         layoutPostComponent()
         loadComments()
     }
-    
+
+    func userTappedOnTitle()
+    {
+        let svc = SFSafariViewController(url: URL(string: self.post.linkUrl)!)
+        self.present(svc, animated: true, completion: nil)
+    }
+
     func layoutPostComponent()
     {
         self.postTitle.text = self.post.title

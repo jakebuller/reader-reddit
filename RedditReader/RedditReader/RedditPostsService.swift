@@ -48,6 +48,7 @@ class RedditPostsService {
                         post.isSelf = postJson["is_self"].bool!
                         post.imageUrl = postJson["thumbnail"].string!
                         post.permaLink = postJson["permalink"].string!
+                        post.linkUrl = postJson["url"].string!
                         post.name = postJson["name"].string!
 
                     posts.append(post)

@@ -36,8 +36,6 @@
 		6232F78F1EA031BE00F0005D /* SubReddit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6232F78E1EA031BE00F0005D /* SubReddit.swift */; };
 		6232F7911EA0333E00F0005D /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6232F7901EA0333E00F0005D /* Post.swift */; };
 		6232F7931EA0352000F0005D /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6232F7921EA0352000F0005D /* Comment.swift */; };
-		623D348A1E381AEC0071AC7E /* WebviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623D34881E381AEC0071AC7E /* WebviewViewController.swift */; };
-		623D348B1E381AEC0071AC7E /* WebviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 623D34891E381AEC0071AC7E /* WebviewViewController.xib */; };
 		6275CEB51F215EA300A21379 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6275CEB41F215EA300A21379 /* LoadingIndicator.swift */; };
 /* End PBXBuildFile section */
 
@@ -74,8 +72,6 @@
 		6232F78E1EA031BE00F0005D /* SubReddit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubReddit.swift; sourceTree = "<group>"; };
 		6232F7901EA0333E00F0005D /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		6232F7921EA0352000F0005D /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
-		623D34881E381AEC0071AC7E /* WebviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebviewViewController.swift; sourceTree = "<group>"; };
-		623D34891E381AEC0071AC7E /* WebviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebviewViewController.xib; sourceTree = "<group>"; };
 		6275CEB41F215EA300A21379 /* LoadingIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
 		9BA6385183E1FC5535DC2DCD /* Pods-RedditReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RedditReader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RedditReader/Pods-RedditReader.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -161,8 +157,6 @@
 				425B9F0C1EA023600077E0DE /* Services */,
 				427172B51E380BB3001DC989 /* AppDelegate.swift */,
 				427172B91E380BB3001DC989 /* Main.storyboard */,
-				623D34881E381AEC0071AC7E /* WebviewViewController.swift */,
-				623D34891E381AEC0071AC7E /* WebviewViewController.xib */,
 				427172CC1E381C2E001DC989 /* RedditPostsTableViewController.swift */,
 				427172CE1E381C49001DC989 /* RedditPostsTableViewCell.swift */,
 				427172BF1E380BB3001DC989 /* Assets.xcassets */,
@@ -281,7 +275,6 @@
 				42D0BC981F05B6D2003CDA3B /* Lato-Regular.ttf in Resources */,
 				427172C31E380BB3001DC989 /* LaunchScreen.storyboard in Resources */,
 				427172C01E380BB3001DC989 /* Assets.xcassets in Resources */,
-				623D348B1E381AEC0071AC7E /* WebviewViewController.xib in Resources */,
 				427172BB1E380BB3001DC989 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -343,7 +336,6 @@
 			files = (
 				427172CF1E381C49001DC989 /* RedditPostsTableViewCell.swift in Sources */,
 				427172B61E380BB3001DC989 /* AppDelegate.swift in Sources */,
-				623D348A1E381AEC0071AC7E /* WebviewViewController.swift in Sources */,
 				6232F7931EA0352000F0005D /* Comment.swift in Sources */,
 				622D5F3B1E6F76210081A3F6 /* SubredditSearchTableViewCell.swift in Sources */,
 				423160CB1EC3BFC400E44518 /* Constants.swift in Sources */,

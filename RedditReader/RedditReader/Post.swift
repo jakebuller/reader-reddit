@@ -18,6 +18,7 @@ class Post : CustomStringConvertible{
     var createdAt: Date = Date()
     var permaLink: String = ""
     var imageUrl: String = ""
+    var linkUrl: String = ""
 
     var isSelf: Bool = false
 

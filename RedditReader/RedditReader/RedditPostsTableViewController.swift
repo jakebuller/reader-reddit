@@ -189,13 +189,6 @@ class RedditPostsTableViewController: UITableViewController, UISearchBarDelegate
         return cell
     }
     
-    func loadWebView(url:String) {
-        let newView = WebviewViewController(nibName: "WebviewViewController", bundle: nil)
-        newView.urlstring = url
-        newView.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-        self.present(newView, animated: true, completion: nil)
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let indexPath = tableView.indexPathForSelectedRow{
             let selectedRow = indexPath.row
