@@ -11,11 +11,13 @@ import Alamofire
 import Kingfisher
 import Floaty
 
-class RedditPostsTableViewController: UITableViewController, UISearchBarDelegate {
+class RedditPostsTableViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet var sortTypeControl: UISegmentedControl!
 
+    @IBOutlet var tableView: UITableView!
     @IBOutlet weak var searchButton: UIBarButtonItem!
+    
     @IBOutlet weak var navigationTitle: UINavigationItem!
     var subreddit = SubReddit()
     var sortType = String()
@@ -29,6 +31,11 @@ class RedditPostsTableViewController: UITableViewController, UISearchBarDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print("view did load")
+        
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         self.addSortButton()
         
@@ -137,6 +144,7 @@ class RedditPostsTableViewController: UITableViewController, UISearchBarDelegate
     }
     
     func postsLoaded(posts: Array<Post>) {
+        print("posts loaded")
         self.loadingIndicator.stopActivityAnimation()
         self.pullRefreshControl.endRefreshing()
         self.tableView.reloadData()
@@ -147,16 +155,16 @@ class RedditPostsTableViewController: UITableViewController, UISearchBarDelegate
         // Dispose of any resources that can be recreated.
     }
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.subreddit.posts.count
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! RedditPostsTableViewCell
         if (self.subreddit.posts.isEmpty) {
             return cell;
