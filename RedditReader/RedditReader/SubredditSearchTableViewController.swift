@@ -61,6 +61,9 @@ class SubredditSearchTableViewController: UITableViewController, UISearchBarDele
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.tableView.rowHeight = UITableViewAutomaticDimension;
+        self.tableView.estimatedRowHeight = 100
+        
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         
         self.navigationTitle.titleView = self.getSearchBar()

@@ -25,7 +25,6 @@
         <!--Reddit-->
         <scene sceneID="U1l-Wo-GqT">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="baE-9t-Qcw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController title="Reddit" automaticallyAdjustsScrollViewInsets="NO" id="EcR-nH-2TK" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" tag="4" title="Home" image="086-home" id="mfh-d6-jwc">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
@@ -41,6 +40,7 @@
                         <segue destination="BUw-gj-q0p" kind="relationship" relationship="rootViewController" id="dDW-ly-KDo"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="baE-9t-Qcw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1076" y="137.18140929535232"/>
         </scene>
@@ -356,32 +356,29 @@
         <scene sceneID="klA-2w-EZy">
             <objects>
                 <tableViewController id="lzs-zP-tpF" customClass="SubredditSearchTableViewController" customModule="RedditReader" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="98" sectionHeaderHeight="28" sectionFooterHeight="28" id="T2H-Kn-bka">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="T2H-Kn-bka">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SubredditCell" rowHeight="98" id="hYr-hv-ct7" customClass="SubredditSearchTableViewCell" customModule="RedditReader" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="98"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SubredditCell" id="hYr-hv-ct7" customClass="SubredditSearchTableViewCell" customModule="RedditReader" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hYr-hv-ct7" id="0a9-Ry-tjw">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="97.5"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="hYr-hv-ct7" id="0a9-Ry-tjw">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1S0-kz-NOJ" userLabel="Card Container">
-                                            <rect key="frame" x="8" y="4" width="359" height="140"/>
+                                        <view clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1S0-kz-NOJ" userLabel="Card Container">
+                                            <rect key="frame" x="8" y="4" width="359" height="100"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" semanticContentAttribute="playback" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V04-Wg-WSL">
-                                                    <rect key="frame" x="0.0" y="0.0" width="275" height="275.5"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" semanticContentAttribute="playback" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V04-Wg-WSL">
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="V04-Wg-WSL" secondAttribute="height" multiplier="359:359" id="5KF-Lr-Qbb"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DcM-UU-B6d">
-                                                    <rect key="frame" x="283" y="8" width="68" height="75.5"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="75" id="OFl-oi-L1P"/>
-                                                    </constraints>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="DcM-UU-B6d">
+                                                    <rect key="frame" x="116" y="4" width="235" height="88"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -389,13 +386,15 @@
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="DcM-UU-B6d" secondAttribute="bottom" constant="8" id="1uo-bg-RRb"/>
+                                                <constraint firstAttribute="height" constant="100" id="14o-8Z-BQG"/>
+                                                <constraint firstAttribute="bottom" secondItem="DcM-UU-B6d" secondAttribute="bottom" constant="8" id="6kZ-DM-Ly4"/>
+                                                <constraint firstAttribute="bottom" secondItem="V04-Wg-WSL" secondAttribute="bottom" id="ECT-0m-0br"/>
                                                 <constraint firstItem="V04-Wg-WSL" firstAttribute="leading" secondItem="1S0-kz-NOJ" secondAttribute="leading" id="HQA-6R-EOg"/>
-                                                <constraint firstItem="DcM-UU-B6d" firstAttribute="leading" secondItem="V04-Wg-WSL" secondAttribute="trailing" constant="8" id="SBU-Ja-zGF"/>
                                                 <constraint firstAttribute="bottom" secondItem="V04-Wg-WSL" secondAttribute="bottom" id="Udu-Hq-vSI"/>
-                                                <constraint firstItem="DcM-UU-B6d" firstAttribute="top" secondItem="1S0-kz-NOJ" secondAttribute="top" constant="8" id="hzb-cP-TGq"/>
-                                                <constraint firstItem="V04-Wg-WSL" firstAttribute="top" secondItem="1S0-kz-NOJ" secondAttribute="top" id="kS2-eY-R0U"/>
-                                                <constraint firstAttribute="trailing" secondItem="DcM-UU-B6d" secondAttribute="trailing" constant="8" id="xXB-g5-k8L"/>
+                                                <constraint firstItem="DcM-UU-B6d" firstAttribute="top" secondItem="1S0-kz-NOJ" secondAttribute="top" constant="8" id="XVA-kO-Dow"/>
+                                                <constraint firstItem="DcM-UU-B6d" firstAttribute="leading" secondItem="V04-Wg-WSL" secondAttribute="trailing" constant="16" id="Xrt-Kw-nEW"/>
+                                                <constraint firstItem="V04-Wg-WSL" firstAttribute="top" secondItem="1S0-kz-NOJ" secondAttribute="top" id="c9s-0C-6EF"/>
+                                                <constraint firstAttribute="trailing" secondItem="DcM-UU-B6d" secondAttribute="trailing" constant="8" id="tbQ-vd-sMu"/>
                                             </constraints>
                                         </view>
                                     </subviews>

@@ -30,8 +30,6 @@ class RedditPostsTableViewController: UIViewController, UISearchBarDelegate, UIT
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        print("view did load")
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
