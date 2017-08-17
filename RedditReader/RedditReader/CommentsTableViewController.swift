@@ -11,9 +11,9 @@ import Alamofire
 import SwiftyJSON
 import SafariServices
 
-class CommentsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CommentsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, RefreshableUITableViewDelegate {
 
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet var tableView: RefreshableUITableView!
     
     @IBOutlet var postImage: UIImageView!
     @IBOutlet var postTitle: UILabel!
@@ -31,6 +31,7 @@ class CommentsTableViewController: UIViewController, UITableViewDelegate, UITabl
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         
         tableView.delegate = self
+        tableView.refreshDelegate = self
         tableView.dataSource = self
         
         self.tableView.rowHeight = UITableViewAutomaticDimension;
@@ -48,6 +49,14 @@ class CommentsTableViewController: UIViewController, UITableViewDelegate, UITabl
     {
         let svc = SFSafariViewController(url: URL(string: self.post.linkUrl)!)
         self.present(svc, animated: true, completion: nil)
+    }
+    
+    func tableViewDidRefresh(_ sender: UIRefreshControl) {
+        if (self.tableView.isRefreshing()) {
+            self.commentsList = Array();
+            self.loadComments()
+            self.tableView.endRefreshing()
+        }
     }
 
     func layoutPostComponent()

@@ -11,11 +11,11 @@ import Alamofire
 import Kingfisher
 import Floaty
 
-class RedditPostsTableViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
+class RedditPostsTableViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, RefreshableUITableViewDelegate {
 
     @IBOutlet var sortTypeControl: UISegmentedControl!
 
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet var tableView: RefreshableUITableView!
     @IBOutlet weak var searchButton: UIBarButtonItem!
     
     @IBOutlet weak var navigationTitle: UINavigationItem!
@@ -32,6 +32,7 @@ class RedditPostsTableViewController: UIViewController, UISearchBarDelegate, UIT
         super.viewDidLoad()
         
         self.tableView.delegate = self
+        self.tableView.refreshDelegate = self
         self.tableView.dataSource = self
         
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
@@ -47,16 +48,16 @@ class RedditPostsTableViewController: UIViewController, UISearchBarDelegate, UIT
             self.subreddit.loadPosts(completion: self.postsLoaded)
         }
         
-        self.pullRefreshControl.addTarget(self,
-                                 action: #selector(refreshOptions(sender:)),
-                                 for: .valueChanged)
+//        self.pullRefreshControl.addTarget(self,
+//                                 action: #selector(refreshOptions(sender:)),
+//                                 for: .valueChanged)
     
-        self.tableView.refreshControl = self.pullRefreshControl
+//        self.tableView.refreshControl = self.pullRefreshControl
         self.pullRefreshControl.backgroundColor = UIColor(red:0.90, green:0.90, blue:0.90, alpha:1.0)
     }
     
-    func refreshOptions(sender: UIRefreshControl) {
-        if (self.pullRefreshControl.isRefreshing) {
+    func tableViewDidRefresh(_ sender: UIRefreshControl) {
+        if (self.tableView.isRefreshing()) {
             self.subreddit.clearPosts()
             self.subreddit.loadPosts(completion: self.postsLoaded)
         }
@@ -144,7 +145,7 @@ class RedditPostsTableViewController: UIViewController, UISearchBarDelegate, UIT
     func postsLoaded(posts: Array<Post>) {
         print("posts loaded")
         self.loadingIndicator.stopActivityAnimation()
-        self.pullRefreshControl.endRefreshing()
+        self.tableView.endRefreshing()
         self.tableView.reloadData()
     }
   
