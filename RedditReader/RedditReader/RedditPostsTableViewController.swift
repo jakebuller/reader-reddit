@@ -178,7 +178,7 @@ class RedditPostsTableViewController: UIViewController, UISearchBarDelegate, UIT
         cell.cellPostDate.text = formatter.string(from: post.createdAt)
         
 
-        let imgURL = post.imageUrl
+        let imgURL = post.sourceImg
 
         if imgURL.range(of:"http") != nil {
             let url = URL(string: imgURL)

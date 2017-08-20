@@ -112,8 +112,6 @@ class CommentsTableViewController: UIViewController, UITableViewDelegate, UITabl
         return self.commentsList.count
     }
 
-    
-//    func tableView(UITableView, cellForRowAt: IndexPath)
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as! CommentsTableViewCell
 

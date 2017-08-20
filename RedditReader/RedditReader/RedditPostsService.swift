@@ -50,6 +50,12 @@ class RedditPostsService {
                         post.permaLink = postJson["permalink"].string!
                         post.linkUrl = postJson["url"].string!
                         post.name = postJson["name"].string!
+                    
+                        // TODO: Refactor to check for availability of appropriate resolution images
+                        if let sourceImg = postJson["preview"]["images"][0]["source"]["url"].string {
+                            post.sourceImg = sourceImg
+                        }
+//                        post.sourceImg = postJson["preview"]["images"]["source"]["url"].string!
 
                     posts.append(post)
                 }
