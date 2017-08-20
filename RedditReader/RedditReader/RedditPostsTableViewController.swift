@@ -143,7 +143,6 @@ class RedditPostsTableViewController: UIViewController, UISearchBarDelegate, UIT
     }
     
     func postsLoaded(posts: Array<Post>) {
-        print("posts loaded")
         self.loadingIndicator.stopActivityAnimation()
         self.tableView.endRefreshing()
         self.tableView.reloadData()

@@ -21,8 +21,6 @@ class RedditPostsService {
         }
 
         postsUrl += Constants.RedditApi.jsonApiExt
-
-        print(postsUrl)
         
         if subreddit.filter != "" {
             postsUrl = Constants.RedditApi.baseUrl + subreddit.url + "search.json?q=" + subreddit.filter + "&restrict_sr=on"
@@ -55,7 +53,6 @@ class RedditPostsService {
                         if let sourceImg = postJson["preview"]["images"][0]["source"]["url"].string {
                             post.sourceImg = sourceImg
                         }
-//                        post.sourceImg = postJson["preview"]["images"]["source"]["url"].string!
 
                     posts.append(post)
                 }
