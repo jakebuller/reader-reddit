@@ -48,8 +48,8 @@ class RedditPostsService {
                         post.permaLink = postJson["permalink"].string!
                         post.linkUrl = postJson["url"].string!
                         post.name = postJson["name"].string!
+                        post.imageUrl = self.extractImageUrl(postJson: postJson)
                     
-                        // TODO: Refactor to check for availability of appropriate resolution images
                         if let sourceImg = postJson["preview"]["images"][0]["source"]["url"].string {
                             post.sourceImg = sourceImg
                         }
@@ -61,5 +61,17 @@ class RedditPostsService {
             subreddit.posts.append(contentsOf: posts)
             completion(posts)
         }
+    }
+
+    func extractImageUrl(postJson: JSON) -> String{
+        var imgUrl = ""
+        if let resolutions = postJson["preview"]["images"][0]["resolutions"].array {
+            // Find the most appropriate resolution
+            imgUrl = (resolutions.last?["url"].string!)!
+        } else if let sourceImg = postJson["preview"]["images"][0]["source"]["url"].string {
+            imgUrl = sourceImg
+        }
+
+        return imgUrl
     }
 }
