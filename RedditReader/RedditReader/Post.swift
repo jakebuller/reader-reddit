@@ -25,6 +25,15 @@ class Post : CustomStringConvertible{
 
     var comments: Array<Comment> = []
 
+    
+    func clearComments() {
+        self.comments = [Comment]();
+    }
+    
+    func loadComments( completion: @escaping (_ result: Array<Comment>) -> Void) {
+        RedditCommentsService().get(post: self, completion: completion)
+    }
+    
     func toString() -> String {
         return "Author: " + self.author + " title: " + self.title
     }
