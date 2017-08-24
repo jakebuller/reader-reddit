@@ -59,7 +59,7 @@ class RedditPostsService {
             }
 
             subreddit.posts.append(contentsOf: posts)
-            completion(posts)
+            completion(subreddit.posts)
         }
     }
 }
