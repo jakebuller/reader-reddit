@@ -352,98 +352,89 @@
             </objects>
             <point key="canvasLocation" x="2260" y="1239"/>
         </scene>
-        <!--SubReddits-->
-        <scene sceneID="klA-2w-EZy">
+        <!--Subreddit Search Table View Controller-->
+        <scene sceneID="0f0-qw-jRL">
             <objects>
-                <tableViewController id="lzs-zP-tpF" customClass="SubredditSearchTableViewController" customModule="RedditReader" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="T2H-Kn-bka">
+                <viewController id="xJz-AI-7DI" customClass="SubredditSearchTableViewController" customModule="RedditReader" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0i6-HU-ShC"/>
+                        <viewControllerLayoutGuide type="bottom" id="Laz-Z4-E9X"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TzG-1D-E5i">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SubredditCell" id="hYr-hv-ct7" customClass="SubredditSearchTableViewCell" customModule="RedditReader" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="hYr-hv-ct7" id="0a9-Ry-tjw">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <view clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1S0-kz-NOJ" userLabel="Card Container">
-                                            <rect key="frame" x="8" y="4" width="359" height="100"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="T2H-Kn-bka">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SubredditCell" id="hYr-hv-ct7" customClass="SubredditSearchTableViewCell" customModule="RedditReader" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="hYr-hv-ct7" id="0a9-Ry-tjw">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" semanticContentAttribute="playback" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V04-Wg-WSL">
-                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                <view clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1S0-kz-NOJ" userLabel="Card Container">
+                                                    <rect key="frame" x="8" y="4" width="359" height="100"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" semanticContentAttribute="playback" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V04-Wg-WSL">
+                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="V04-Wg-WSL" secondAttribute="height" multiplier="359:359" id="5KF-Lr-Qbb"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="DcM-UU-B6d">
+                                                            <rect key="frame" x="116" y="4" width="235" height="88"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="V04-Wg-WSL" secondAttribute="height" multiplier="359:359" id="5KF-Lr-Qbb"/>
+                                                        <constraint firstAttribute="height" constant="100" id="14o-8Z-BQG"/>
+                                                        <constraint firstAttribute="bottom" secondItem="DcM-UU-B6d" secondAttribute="bottom" constant="8" id="6kZ-DM-Ly4"/>
+                                                        <constraint firstAttribute="bottom" secondItem="V04-Wg-WSL" secondAttribute="bottom" id="ECT-0m-0br"/>
+                                                        <constraint firstItem="V04-Wg-WSL" firstAttribute="leading" secondItem="1S0-kz-NOJ" secondAttribute="leading" id="HQA-6R-EOg"/>
+                                                        <constraint firstAttribute="bottom" secondItem="V04-Wg-WSL" secondAttribute="bottom" id="Udu-Hq-vSI"/>
+                                                        <constraint firstItem="DcM-UU-B6d" firstAttribute="top" secondItem="1S0-kz-NOJ" secondAttribute="top" constant="8" id="XVA-kO-Dow"/>
+                                                        <constraint firstItem="DcM-UU-B6d" firstAttribute="leading" secondItem="V04-Wg-WSL" secondAttribute="trailing" constant="16" id="Xrt-Kw-nEW"/>
+                                                        <constraint firstItem="V04-Wg-WSL" firstAttribute="top" secondItem="1S0-kz-NOJ" secondAttribute="top" id="c9s-0C-6EF"/>
+                                                        <constraint firstAttribute="trailing" secondItem="DcM-UU-B6d" secondAttribute="trailing" constant="8" id="tbQ-vd-sMu"/>
                                                     </constraints>
-                                                </imageView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="DcM-UU-B6d">
-                                                    <rect key="frame" x="116" y="4" width="235" height="88"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                </view>
                                             </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" red="0.90354297399520878" green="0.90354297399520878" blue="0.90354297399520878" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="100" id="14o-8Z-BQG"/>
-                                                <constraint firstAttribute="bottom" secondItem="DcM-UU-B6d" secondAttribute="bottom" constant="8" id="6kZ-DM-Ly4"/>
-                                                <constraint firstAttribute="bottom" secondItem="V04-Wg-WSL" secondAttribute="bottom" id="ECT-0m-0br"/>
-                                                <constraint firstItem="V04-Wg-WSL" firstAttribute="leading" secondItem="1S0-kz-NOJ" secondAttribute="leading" id="HQA-6R-EOg"/>
-                                                <constraint firstAttribute="bottom" secondItem="V04-Wg-WSL" secondAttribute="bottom" id="Udu-Hq-vSI"/>
-                                                <constraint firstItem="DcM-UU-B6d" firstAttribute="top" secondItem="1S0-kz-NOJ" secondAttribute="top" constant="8" id="XVA-kO-Dow"/>
-                                                <constraint firstItem="DcM-UU-B6d" firstAttribute="leading" secondItem="V04-Wg-WSL" secondAttribute="trailing" constant="16" id="Xrt-Kw-nEW"/>
-                                                <constraint firstItem="V04-Wg-WSL" firstAttribute="top" secondItem="1S0-kz-NOJ" secondAttribute="top" id="c9s-0C-6EF"/>
-                                                <constraint firstAttribute="trailing" secondItem="DcM-UU-B6d" secondAttribute="trailing" constant="8" id="tbQ-vd-sMu"/>
+                                                <constraint firstAttribute="bottom" secondItem="1S0-kz-NOJ" secondAttribute="bottom" constant="4" id="DXt-m1-Kpv"/>
+                                                <constraint firstItem="1S0-kz-NOJ" firstAttribute="leading" secondItem="0a9-Ry-tjw" secondAttribute="leading" constant="8" id="ZN0-ww-fkk"/>
+                                                <constraint firstItem="1S0-kz-NOJ" firstAttribute="top" secondItem="0a9-Ry-tjw" secondAttribute="top" constant="4" id="ls6-y1-guM"/>
+                                                <constraint firstAttribute="trailing" secondItem="1S0-kz-NOJ" secondAttribute="trailing" constant="8" id="yFy-Hd-fZp"/>
                                             </constraints>
-                                        </view>
-                                    </subviews>
-                                    <color key="backgroundColor" red="0.90354297399520878" green="0.90354297399520878" blue="0.90354297399520878" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="1S0-kz-NOJ" secondAttribute="bottom" constant="4" id="DXt-m1-Kpv"/>
-                                        <constraint firstItem="1S0-kz-NOJ" firstAttribute="leading" secondItem="0a9-Ry-tjw" secondAttribute="leading" constant="8" id="ZN0-ww-fkk"/>
-                                        <constraint firstItem="1S0-kz-NOJ" firstAttribute="top" secondItem="0a9-Ry-tjw" secondAttribute="top" constant="4" id="ls6-y1-guM"/>
-                                        <constraint firstAttribute="trailing" secondItem="1S0-kz-NOJ" secondAttribute="trailing" constant="8" id="yFy-Hd-fZp"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="cardContainer" destination="1S0-kz-NOJ" id="G2p-DG-JFg"/>
-                                    <outlet property="subredditImage" destination="V04-Wg-WSL" id="Ek2-XB-D1W"/>
-                                    <outlet property="subredditTitle" destination="DcM-UU-B6d" id="gdT-JR-FGx"/>
-                                    <segue destination="BUw-gj-q0p" kind="show" id="pw4-6B-gyu"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="lzs-zP-tpF" id="fbh-DD-LR5"/>
-                            <outlet property="delegate" destination="lzs-zP-tpF" id="XX4-vY-cLu"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="SubReddits" id="yH3-DS-aep"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cardContainer" destination="1S0-kz-NOJ" id="G2p-DG-JFg"/>
+                                            <outlet property="subredditImage" destination="V04-Wg-WSL" id="Ek2-XB-D1W"/>
+                                            <outlet property="subredditTitle" destination="DcM-UU-B6d" id="gdT-JR-FGx"/>
+                                            <segue destination="BUw-gj-q0p" kind="show" id="pw4-6B-gyu"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="OjG-Hj-UAZ"/>
                     <connections>
-                        <outlet property="navigationTitle" destination="yH3-DS-aep" id="tjr-8e-Pm1"/>
-                        <outlet property="searchDisplayController" destination="ec4-eB-vXH" id="RfS-hD-f4N"/>
+                        <outlet property="navigationTitle" destination="OjG-Hj-UAZ" id="1x0-Dm-Adn"/>
+                        <outlet property="tableView" destination="T2H-Kn-bka" id="L9b-Zx-5vV"/>
                     </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="a1q-nD-aG8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="jHl-c0-G4f">
-                    <connections>
-                        <outlet property="delegate" destination="lzs-zP-tpF" id="Q4O-SY-lfI"/>
-                        <outlet property="searchContentsController" destination="lzs-zP-tpF" id="7p9-9f-IHN"/>
-                        <outlet property="searchResultsDataSource" destination="lzs-zP-tpF" id="WCk-Mr-3Us"/>
-                        <outlet property="searchResultsDelegate" destination="lzs-zP-tpF" id="HDL-Pq-Pb8"/>
-                    </connections>
-                </searchDisplayController>
-                <searchDisplayController id="ec4-eB-vXH">
-                    <connections>
-                        <outlet property="delegate" destination="lzs-zP-tpF" id="hGe-Ck-MFl"/>
-                        <outlet property="searchContentsController" destination="lzs-zP-tpF" id="oQN-cV-Pk1"/>
-                        <outlet property="searchResultsDataSource" destination="lzs-zP-tpF" id="YVX-T4-XrE"/>
-                        <outlet property="searchResultsDelegate" destination="lzs-zP-tpF" id="i2I-6W-Q6q"/>
-                    </connections>
-                </searchDisplayController>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z2S-wf-JsY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="1091.6041979010495"/>
+            <point key="canvasLocation" x="999" y="1092"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="VFu-l9-d5Y">
@@ -590,7 +581,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="lzs-zP-tpF" kind="relationship" relationship="rootViewController" id="2df-Ul-o5F"/>
+                        <segue destination="xJz-AI-7DI" kind="relationship" relationship="rootViewController" id="f91-mE-diq"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="787-A8-zZr" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -178,9 +178,6 @@ class RedditPostsTableViewController: UIViewController, UISearchBarDelegate, UIT
         
 
         let imgURL = post.imageUrl
-
-        print(post.imageUrl)
-        print(post.sourceImg)
         
         if imgURL.range(of:"http") != nil {
             let url = URL(string: imgURL)
