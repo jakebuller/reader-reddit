@@ -24,7 +24,6 @@ class SubredditSearchTableViewController: UIViewController, UISearchBarDelegate,
         super.viewDidLoad()
         
         self.tableView.delegate = self
-//        self.tableView.refreshDelegate = self
         self.tableView.dataSource = self
         
         self.tableView.rowHeight = UITableViewAutomaticDimension;
@@ -35,7 +34,6 @@ class SubredditSearchTableViewController: UIViewController, UISearchBarDelegate,
         self.navigationTitle.titleView = self.getSearchBar()
         animation.initActivityIndicator(view: self.tableView)
         animation.startActivityAnimation()
-
         loadTrendingSubreddits()
     }
 

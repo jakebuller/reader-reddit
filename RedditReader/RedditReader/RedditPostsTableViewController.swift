@@ -47,12 +47,7 @@ class RedditPostsTableViewController: UIViewController, UISearchBarDelegate, UIT
         } else {
             self.subreddit.loadPosts(completion: self.postsLoaded)
         }
-        
-//        self.pullRefreshControl.addTarget(self,
-//                                 action: #selector(refreshOptions(sender:)),
-//                                 for: .valueChanged)
-    
-//        self.tableView.refreshControl = self.pullRefreshControl
+
         self.pullRefreshControl.backgroundColor = UIColor(red:0.90, green:0.90, blue:0.90, alpha:1.0)
     }
     
