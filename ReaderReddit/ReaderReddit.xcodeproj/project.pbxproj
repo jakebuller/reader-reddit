@@ -41,11 +41,15 @@
 		6254AAD31F464BD000D932A1 /* RefreshableUITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6254AAD21F464BD000D932A1 /* RefreshableUITableViewDelegate.swift */; };
 		6275CEB51F215EA300A21379 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6275CEB41F215EA300A21379 /* LoadingIndicator.swift */; };
 		62F2EFD51F4F7EA20026FB2C /* RedditCommentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F2EFD41F4F7EA20026FB2C /* RedditCommentsService.swift */; };
+		7D9347CEAAA8F509650B85DA /* Pods_ReaderReddit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 322F0446BF77D0C220CFD2A1 /* Pods_ReaderReddit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		260D26EBBDC0E82B316AF08D /* Pods-ReaderReddit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReaderReddit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReaderReddit/Pods-ReaderReddit.debug.xcconfig"; sourceTree = "<group>"; };
 		265404F8BAE1B84D9B91B2A2 /* Pods-RedditReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RedditReader.release.xcconfig"; path = "Pods/Target Support Files/Pods-RedditReader/Pods-RedditReader.release.xcconfig"; sourceTree = "<group>"; };
+		29E2D4C6705C548D2695EE97 /* Pods-ReaderReddit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReaderReddit.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReaderReddit/Pods-ReaderReddit.release.xcconfig"; sourceTree = "<group>"; };
 		2B4404BF14F672345D1679B8 /* Pods_RedditReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RedditReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		322F0446BF77D0C220CFD2A1 /* Pods_ReaderReddit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReaderReddit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		423160CA1EC3BFC400E44518 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		425B9F0D1EA023830077E0DE /* RedditPostsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedditPostsService.swift; sourceTree = "<group>"; };
 		427172B21E380BB3001DC989 /* ReaderReddit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReaderReddit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +94,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				222F29E3A691C636B819F8C0 /* Pods_RedditReader.framework in Frameworks */,
+				7D9347CEAAA8F509650B85DA /* Pods_ReaderReddit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				2B4404BF14F672345D1679B8 /* Pods_RedditReader.framework */,
+				322F0446BF77D0C220CFD2A1 /* Pods_ReaderReddit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -144,7 +150,7 @@
 		427172A91E380BB2001DC989 = {
 			isa = PBXGroup;
 			children = (
-				427172B41E380BB3001DC989 /* RedditReader */,
+				427172B41E380BB3001DC989 /* ReaderReddit */,
 				427172B31E380BB3001DC989 /* Products */,
 				6B9530604527D90E46423124 /* Pods */,
 				1922B475EE06ED94BD831134 /* Frameworks */,
@@ -159,7 +165,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		427172B41E380BB3001DC989 /* RedditReader */ = {
+		427172B41E380BB3001DC989 /* ReaderReddit */ = {
 			isa = PBXGroup;
 			children = (
 				4279353A1F4F8E5A00E46CBA /* Extensions */,
@@ -174,6 +180,7 @@
 				427172C41E380BB3001DC989 /* Info.plist */,
 				427172BC1E380BB3001DC989 /* RedditReader.xcdatamodeld */,
 			);
+			name = ReaderReddit;
 			path = RedditReader;
 			sourceTree = "<group>";
 		};
@@ -248,6 +255,8 @@
 			children = (
 				9BA6385183E1FC5535DC2DCD /* Pods-RedditReader.debug.xcconfig */,
 				265404F8BAE1B84D9B91B2A2 /* Pods-RedditReader.release.xcconfig */,
+				260D26EBBDC0E82B316AF08D /* Pods-ReaderReddit.debug.xcconfig */,
+				29E2D4C6705C548D2695EE97 /* Pods-ReaderReddit.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -346,7 +355,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RedditReader/Pods-RedditReader-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReaderReddit/Pods-ReaderReddit-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		5FB214EEE1EFC4AB13A4339D /* [CP] Check Pods Manifest.lock */ = {
@@ -376,7 +385,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RedditReader/Pods-RedditReader-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReaderReddit/Pods-ReaderReddit-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -526,7 +535,7 @@
 		};
 		427172C81E380BB3001DC989 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9BA6385183E1FC5535DC2DCD /* Pods-RedditReader.debug.xcconfig */;
+			baseConfigurationReference = 260D26EBBDC0E82B316AF08D /* Pods-ReaderReddit.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -541,7 +550,7 @@
 		};
 		427172C91E380BB3001DC989 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 265404F8BAE1B84D9B91B2A2 /* Pods-RedditReader.release.xcconfig */;
+			baseConfigurationReference = 29E2D4C6705C548D2695EE97 /* Pods-ReaderReddit.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
