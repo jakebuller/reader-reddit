@@ -47,12 +47,7 @@ class RedditPostsTableViewController: UIViewController, UISearchBarDelegate, UIT
         } else {
             self.subreddit.loadPosts(completion: self.postsLoaded)
         }
-        
-//        self.pullRefreshControl.addTarget(self,
-//                                 action: #selector(refreshOptions(sender:)),
-//                                 for: .valueChanged)
-    
-//        self.tableView.refreshControl = self.pullRefreshControl
+
         self.pullRefreshControl.backgroundColor = UIColor(red:0.90, green:0.90, blue:0.90, alpha:1.0)
     }
     
@@ -177,8 +172,8 @@ class RedditPostsTableViewController: UIViewController, UISearchBarDelegate, UIT
         cell.cellPostDate.text = formatter.string(from: post.createdAt)
         
 
-        let imgURL = post.sourceImg
-
+        let imgURL = post.imageUrl
+        
         if imgURL.range(of:"http") != nil {
             let url = URL(string: imgURL)
             cell.cellImage.kf.setImage(with: url)
