@@ -177,8 +177,11 @@ class RedditPostsTableViewController: UIViewController, UISearchBarDelegate, UIT
         cell.cellPostDate.text = formatter.string(from: post.createdAt)
         
 
-        let imgURL = post.sourceImg
+        let imgURL = post.imageUrl
 
+        print(post.imageUrl)
+        print(post.sourceImg)
+        
         if imgURL.range(of:"http") != nil {
             let url = URL(string: imgURL)
             cell.cellImage.kf.setImage(with: url)

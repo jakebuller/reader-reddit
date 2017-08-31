@@ -40,6 +40,8 @@ class CommentsTableViewController: UIViewController, UITableViewDelegate, UITabl
         let gesture = UITapGestureRecognizer(target: self, action: #selector(CommentsTableViewController.userTappedOnTitle))
         self.postTitle.isUserInteractionEnabled = true
         self.postTitle.addGestureRecognizer(gesture)
+        self.postImage.isUserInteractionEnabled = true
+        self.postImage.addGestureRecognizer(gesture)
 
         layoutPostComponent()
         
@@ -69,13 +71,11 @@ class CommentsTableViewController: UIViewController, UITableViewDelegate, UITabl
     func layoutPostComponent()
     {
         self.postTitle.text = self.post.title
-//        self.postAuthor.text = self.post.author
         
-//        let formatter = DateFormatter()
-//        formatter.dateFormat = "HH:mm"
-//        self.postTime.text = formatter.string(from: self.post.createdAt)
+        print(post.imageUrl)
         
         if self.post.imageUrl.range(of:"http") != nil {
+            print("loading post image")
             let url = URL(string: self.post.imageUrl)
             self.postImage.kf.setImage(with: url)
         } else {

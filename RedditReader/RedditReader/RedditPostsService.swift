@@ -19,7 +19,7 @@ class RedditPostsService {
         if (subreddit.sortOrder != "") {
             postsUrl += subreddit.sortOrder + "/"
         }
-
+        
         postsUrl += Constants.RedditApi.jsonApiExt
         
         if subreddit.filter != "" {
@@ -32,37 +32,38 @@ class RedditPostsService {
         
         Alamofire.request(postsUrl).responseJSON { response in
             var posts = Array<Post>()
-
+            
             if (response.result.value != nil) {
                 let postsJson = JSON(response.result.value!)["data"]["children"]
-
+                
                 for (_,obj) in postsJson {
                     let postJson = obj["data"]
-                        let post = Post()
-                        post.author = postJson["author"].string!
-                        post.commentCount = postJson["num_comments"].int!
-                        post.createdAt = Date(timeIntervalSince1970: TimeInterval(postJson["created"].int!))
-                        post.title = postJson["title"].string!
-                        post.isSelf = postJson["is_self"].bool!
-                        post.imageUrl = postJson["thumbnail"].string!
-                        post.permaLink = postJson["permalink"].string!
-                        post.linkUrl = postJson["url"].string!
-                        post.name = postJson["name"].string!
-                        post.imageUrl = self.extractImageUrl(postJson: postJson)
+                    let post = Post()
+                    post.author = postJson["author"].string!
+                    post.commentCount = postJson["num_comments"].int!
+                    post.createdAt = Date(timeIntervalSince1970: TimeInterval(postJson["created"].int!))
+                    post.title = postJson["title"].string!
+                    post.isSelf = postJson["is_self"].bool!
+                    post.imageUrl = postJson["thumbnail"].string!
+                    post.permaLink = postJson["permalink"].string!
+                    post.linkUrl = postJson["url"].string!
+                    post.name = postJson["name"].string!
                     
-                        if let sourceImg = postJson["preview"]["images"][0]["source"]["url"].string {
-                            post.sourceImg = sourceImg
-                        }
-
+                    do {
+                        post.imageUrl = try self.extractImageUrl(postJson: postJson).convertHtmlSymbols()!
+                    } catch {
+                        print(error.localizedDescription)
+                    }
+                    
                     posts.append(post)
                 }
             }
-
+            
             subreddit.posts.append(contentsOf: posts)
             completion(subreddit.posts)
         }
     }
-
+    
     func extractImageUrl(postJson: JSON) -> String{
         var imgUrl = ""
         if let resolutions = postJson["preview"]["images"][0]["resolutions"].array {
@@ -71,7 +72,7 @@ class RedditPostsService {
         } else if let sourceImg = postJson["preview"]["images"][0]["source"]["url"].string {
             imgUrl = sourceImg
         }
-
+        
         return imgUrl
     }
 }
