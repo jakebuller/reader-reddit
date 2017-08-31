@@ -144,7 +144,7 @@
 		427172A91E380BB2001DC989 = {
 			isa = PBXGroup;
 			children = (
-				427172B41E380BB3001DC989 /* RedditReader */,
+				427172B41E380BB3001DC989 /* ReaderReddit */,
 				427172B31E380BB3001DC989 /* Products */,
 				6B9530604527D90E46423124 /* Pods */,
 				1922B475EE06ED94BD831134 /* Frameworks */,
@@ -159,7 +159,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		427172B41E380BB3001DC989 /* RedditReader */ = {
+		427172B41E380BB3001DC989 /* ReaderReddit */ = {
 			isa = PBXGroup;
 			children = (
 				4279353A1F4F8E5A00E46CBA /* Extensions */,
@@ -174,6 +174,7 @@
 				427172C41E380BB3001DC989 /* Info.plist */,
 				427172BC1E380BB3001DC989 /* RedditReader.xcdatamodeld */,
 			);
+			name = ReaderReddit;
 			path = RedditReader;
 			sourceTree = "<group>";
 		};
