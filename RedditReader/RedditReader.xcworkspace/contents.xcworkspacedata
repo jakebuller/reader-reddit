@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:RedditReader.xcodeproj">
+      location = "group:/Users/jake.buller/github/reader-reddit/RedditReader/ReaderReddit.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

@@ -48,7 +48,7 @@
 		2B4404BF14F672345D1679B8 /* Pods_RedditReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RedditReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		423160CA1EC3BFC400E44518 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		425B9F0D1EA023830077E0DE /* RedditPostsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedditPostsService.swift; sourceTree = "<group>"; };
-		427172B21E380BB3001DC989 /* RedditReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedditReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		427172B21E380BB3001DC989 /* ReaderReddit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReaderReddit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		427172B51E380BB3001DC989 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		427172BA1E380BB3001DC989 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		427172BD1E380BB3001DC989 /* RedditReader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RedditReader.xcdatamodel; sourceTree = "<group>"; };
@@ -154,7 +154,7 @@
 		427172B31E380BB3001DC989 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				427172B21E380BB3001DC989 /* RedditReader.app */,
+				427172B21E380BB3001DC989 /* ReaderReddit.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -255,9 +255,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		427172B11E380BB2001DC989 /* RedditReader */ = {
+		427172B11E380BB2001DC989 /* ReaderReddit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 427172C71E380BB3001DC989 /* Build configuration list for PBXNativeTarget "RedditReader" */;
+			buildConfigurationList = 427172C71E380BB3001DC989 /* Build configuration list for PBXNativeTarget "ReaderReddit" */;
 			buildPhases = (
 				5FB214EEE1EFC4AB13A4339D /* [CP] Check Pods Manifest.lock */,
 				427172AE1E380BB2001DC989 /* Sources */,
@@ -270,9 +270,9 @@
 			);
 			dependencies = (
 			);
-			name = RedditReader;
+			name = ReaderReddit;
 			productName = RedditReader;
-			productReference = 427172B21E380BB3001DC989 /* RedditReader.app */;
+			productReference = 427172B21E380BB3001DC989 /* ReaderReddit.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -292,7 +292,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 427172AD1E380BB2001DC989 /* Build configuration list for PBXProject "RedditReader" */;
+			buildConfigurationList = 427172AD1E380BB2001DC989 /* Build configuration list for PBXProject "ReaderReddit" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -305,7 +305,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				427172B11E380BB2001DC989 /* RedditReader */,
+				427172B11E380BB2001DC989 /* ReaderReddit */,
 			);
 		};
 /* End PBXProject section */
@@ -557,7 +557,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		427172AD1E380BB2001DC989 /* Build configuration list for PBXProject "RedditReader" */ = {
+		427172AD1E380BB2001DC989 /* Build configuration list for PBXProject "ReaderReddit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				427172C51E380BB3001DC989 /* Debug */,
@@ -566,7 +566,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		427172C71E380BB3001DC989 /* Build configuration list for PBXNativeTarget "RedditReader" */ = {
+		427172C71E380BB3001DC989 /* Build configuration list for PBXNativeTarget "ReaderReddit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				427172C81E380BB3001DC989 /* Debug */,
