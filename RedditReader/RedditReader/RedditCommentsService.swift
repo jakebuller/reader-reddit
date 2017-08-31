@@ -20,14 +20,8 @@ class RedditCommentsService {
                 let listings = JSON(response.result.value!)
                 
                 for (_,subJson) in listings {
-                    for (_, comment) in subJson["data"]["children"] {
-                        if (comment["kind"].string == "t1") {
-                            let commentObj = Comment()
-                            commentObj.author = comment["data"]["author"].string!
-                            commentObj.body = comment["data"]["body"].string!
-                            comments.append(commentObj)
-                        }
-                    }
+                    let foundComments = self.parseCommentList(subJson["data"]["children"])
+                    comments.append(contentsOf: foundComments)
                 }
             }
             
@@ -35,5 +29,19 @@ class RedditCommentsService {
             completion(post.comments)
         }
         
+    }
+    
+    private func parseCommentList(_ commentArray: JSON) -> Array<Comment> {
+        var comments = Array<Comment>()
+        for (_, comment) in commentArray {
+            if (comment["kind"].string == "t1") {
+                let commentObj = Comment()
+                commentObj.author = comment["data"]["author"].string!
+                commentObj.body = comment["data"]["body"].string!
+                commentObj.children = self.parseCommentList(comment["data"]["replies"]["data"]["children"])
+                comments.append(commentObj)
+            }
+        }
+        return comments
     }
 }

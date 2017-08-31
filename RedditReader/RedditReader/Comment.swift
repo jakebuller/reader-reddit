@@ -12,4 +12,5 @@ import Foundation
 class Comment {
     var body: String = ""
     var author: String = ""
+    var children: Array<Comment> = []
 }

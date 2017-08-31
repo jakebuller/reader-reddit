@@ -62,6 +62,7 @@ class CommentsTableViewController: UIViewController, UITableViewDelegate, UITabl
     
     func commentsLoaded(comments: Array<Comment>)
     {
+        dump(self.post.comments)
         self.tableView.endRefreshing()
         self.tableView.reloadData()
     }
