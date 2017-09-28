@@ -19,7 +19,6 @@ class Post : CustomStringConvertible{
     var permaLink: String = ""
     var imageUrl: String = ""
     var linkUrl: String = ""
-
     var isSelf: Bool = false
 
     var comments: Array<Comment> = []

@@ -19,7 +19,9 @@ class CommentsTableViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet var postTitle: UILabel!
     @IBOutlet var postAuthor: UILabel!
     @IBOutlet var postTime: UILabel!
+    @IBOutlet var imageAspectConstraint: NSLayoutConstraint!
     
+    @IBOutlet var stackView: UIStackView!
     var commentsList : Array<JSON> = Array();
     
     var permalink = String();
@@ -64,7 +66,6 @@ class CommentsTableViewController: UIViewController, UITableViewDelegate, UITabl
     
     func commentsLoaded(comments: Array<Comment>)
     {
-        dump(self.post.comments)
         self.tableView.endRefreshing()
         self.tableView.reloadData()
     }
@@ -73,14 +74,12 @@ class CommentsTableViewController: UIViewController, UITableViewDelegate, UITabl
     {
         self.postTitle.text = self.post.title
         
-        print(post.imageUrl)
-        
         if self.post.imageUrl.range(of:"http") != nil {
-            print("loading post image")
+            self.stackView.insertArrangedSubview(self.postImage, at: 0)
             let url = URL(string: self.post.imageUrl)
             self.postImage.kf.setImage(with: url)
         } else {
-            self.postImage.image = UIImage(named: "pepe")
+            self.postImage.removeFromSuperview()
         }
     }
     
