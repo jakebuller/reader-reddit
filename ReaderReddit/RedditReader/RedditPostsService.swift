@@ -39,6 +39,7 @@ class RedditPostsService {
                 for (_,obj) in postsJson {
                     let postJson = obj["data"]
                     let post = Post()
+                    post.id = postJson["id"].string!
                     post.author = postJson["author"].string!
                     post.commentCount = postJson["num_comments"].int!
                     post.createdAt = Date(timeIntervalSince1970: TimeInterval(postJson["created"].int!))

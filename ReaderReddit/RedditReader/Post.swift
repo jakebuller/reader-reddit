@@ -11,6 +11,7 @@ import Foundation
 class Post : CustomStringConvertible{
     public var description: String { return self.toString() }
 
+    var id: String = ""
     var name: String = ""
     var title: String = ""
     var author: String = ""
