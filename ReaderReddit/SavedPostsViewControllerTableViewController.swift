@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
 class SavedPostsViewControllerTableViewController: UITableViewController {
 
+    var managedPostIds: [NSManagedObject] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,14 +30,37 @@ class SavedPostsViewControllerTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.loadSavedPosts()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func loadSavedPosts() {
+        //1
+        guard let appDelegate =
+            UIApplication.shared.delegate as? AppDelegate else {
+                return
+        }
+        
+        let managedContext =
+            appDelegate.persistentContainer.viewContext
+        
+        //2
+        let fetchRequest =
+            NSFetchRequest<NSManagedObject>(entityName: "ManagedPost")
+        
+        //3
+        do {
+            print("Fetching save posts from core data")
+            managedPostIds = try managedContext.fetch(fetchRequest)
+            print("Successfully fetched saved posts!")
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        
+        for post in managedPostIds {
+            let id = post.value(forKey: "id") as! String
+            print("Loaded saved post with id: " + id)
+        }
     }
-
-    // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections

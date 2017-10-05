@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 import Alamofire
 import SwiftyJSON
 
@@ -56,12 +57,39 @@ class RedditPostsService {
                         print(error.localizedDescription)
                     }
                     
+//                    self.save(id: post.id)
                     posts.append(post)
                 }
             }
             
             subreddit.posts.append(contentsOf: posts)
             completion(subreddit.posts)
+        }
+    }
+    
+    func save(id: String) {
+        
+        guard let appDelegate =
+            UIApplication.shared.delegate as? AppDelegate else {
+                return
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+
+        let entity = NSEntityDescription.entity(forEntityName: "ManagedPost",
+                                       in: managedContext)!
+        
+        let managedPost = NSManagedObject(entity: entity,
+                                     insertInto: managedContext)
+        
+        managedPost.setValue(id, forKeyPath: "id")
+        
+        do {
+            print("Trying to save post " + id)
+            try managedContext.save()
+//            people.append(managedPost)
+            print("Successfully saved post to core data")
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
         }
     }
     
