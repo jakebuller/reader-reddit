@@ -67,26 +67,20 @@ class RedditPostsService {
         }
     }
     
-    func save(id: String) {
-        
+    func save(post: Post) {
         guard let appDelegate =
             UIApplication.shared.delegate as? AppDelegate else {
                 return
         }
         let managedContext = appDelegate.persistentContainer.viewContext
-
-        let entity = NSEntityDescription.entity(forEntityName: "ManagedPost",
-                                       in: managedContext)!
+        let entity = NSEntityDescription.entity(forEntityName: "ManagedPost", in: managedContext)!
+        let managedPost = NSManagedObject(entity: entity, insertInto: managedContext)
         
-        let managedPost = NSManagedObject(entity: entity,
-                                     insertInto: managedContext)
-        
-        managedPost.setValue(id, forKeyPath: "id")
+        managedPost.setValue(post.id, forKeyPath: "id")
         
         do {
-            print("Trying to save post " + id)
+            print("Trying to save post " + post.id)
             try managedContext.save()
-//            people.append(managedPost)
             print("Successfully saved post to core data")
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")

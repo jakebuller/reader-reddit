@@ -187,7 +187,19 @@ class RedditPostsTableViewController: UIViewController, UISearchBarDelegate, UIT
             self.subreddit.loadPosts(after: lastPost, completion: self.postsLoaded)
         }
 
+        let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.longTap))
+        cell.addGestureRecognizer(longGesture)
+        
         return cell
+    }
+    
+    func longTap(gestureReconizer: UILongPressGestureRecognizer) {
+        let longPress = gestureReconizer as UILongPressGestureRecognizer
+        _ = longPress.state
+        let locationInView = longPress.location(in: self.tableView)
+        let indexPath = self.tableView.indexPathForRow(at: locationInView)
+        
+        RedditPostsService().save(post: subreddit.posts[(indexPath?.row)!])
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

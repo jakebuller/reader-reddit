@@ -19,7 +19,7 @@ class SubReddit {
     var filter: String = ""
     var sortOrder: String = Constants.SortType.Hot
     
-    func clearPosts() {
+func clearPosts() {
         self.posts = [Post]();
     }
     
