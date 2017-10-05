@@ -70,7 +70,7 @@
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ze-il-sS6">
                                                     <rect key="frame" x="8" y="4" width="359" height="311.5"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pepe" translatesAutoresizingMaskIntoConstraints="NO" id="hdZ-r8-AvF">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reddit_logo" translatesAutoresizingMaskIntoConstraints="NO" id="hdZ-r8-AvF">
                                                             <rect key="frame" x="0.0" y="0.0" width="359" height="202"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="hdZ-r8-AvF" secondAttribute="height" multiplier="16:9" id="3uW-1O-AMk"/>
@@ -100,7 +100,7 @@
                                                             <rect key="frame" x="0.0" y="259" width="359" height="52"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 Hours Ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BH2-JW-wa0">
-                                                                    <rect key="frame" x="8" y="28" width="67.5" height="20"/>
+                                                                    <rect key="frame" x="8" y="28" width="64" height="20"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="5c4-G5-TyN"/>
                                                                         <constraint firstAttribute="height" constant="20" id="Bm0-gP-QSm"/>
@@ -553,6 +553,7 @@
         <image name="086-home" width="25" height="25"/>
         <image name="123-bookmark" width="25" height="25"/>
         <image name="pepe" width="512" height="512"/>
+        <image name="reddit_logo" width="800" height="450"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="pw4-6B-gyu"/>

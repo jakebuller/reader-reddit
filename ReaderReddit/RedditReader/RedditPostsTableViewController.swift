@@ -178,7 +178,7 @@ class RedditPostsTableViewController: UIViewController, UISearchBarDelegate, UIT
             let url = URL(string: imgURL)
             cell.cellImage.kf.setImage(with: url)
         } else {
-            cell.cellImage.image = UIImage(named: "pepe")
+            cell.cellImage.image = UIImage(named: "reddit_logo")
         }
 
         // Start loading more posts when we are 3 away to make scrolling smoother
