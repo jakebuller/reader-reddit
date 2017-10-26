@@ -7,4 +7,5 @@ target 'ReaderReddit' do
     pod 'Kingfisher', '~> 3.0'
     pod 'SwiftyJSON'
     pod 'Floaty'
+    pod 'Toast-Swift'
 end

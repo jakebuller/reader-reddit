@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 import Alamofire
 import SwiftyJSON
 
@@ -39,6 +40,7 @@ class RedditPostsService {
                 for (_,obj) in postsJson {
                     let postJson = obj["data"]
                     let post = Post()
+                    post.id = postJson["id"].string!
                     post.author = postJson["author"].string!
                     post.commentCount = postJson["num_comments"].int!
                     post.createdAt = Date(timeIntervalSince1970: TimeInterval(postJson["created"].int!))
@@ -54,7 +56,6 @@ class RedditPostsService {
                     } catch {
                         print(error.localizedDescription)
                     }
-                    
                     posts.append(post)
                 }
             }
@@ -62,6 +63,76 @@ class RedditPostsService {
             subreddit.posts.append(contentsOf: posts)
             completion(subreddit.posts)
         }
+    }
+    
+    func isSaved(post: Post) -> Bool {
+        guard let appDelegate =
+            UIApplication.shared.delegate as? AppDelegate else {
+                return false
+        }
+        var managedPostIds: [NSManagedObject] = []
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ManagedPost")
+        fetchRequest.predicate = NSPredicate(format: "id == %@", post.id)
+        
+        do {
+            managedPostIds = try managedContext.fetch(fetchRequest)
+        } catch {
+            return false
+        }
+        
+        return managedPostIds.count >= 1
+    }
+    
+    
+    func save(post: Post) -> Bool {
+        if (self.isSaved(post: post)) {
+            return false
+        }
+        
+        guard let appDelegate =
+            UIApplication.shared.delegate as? AppDelegate else {
+                return false
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "ManagedPost", in: managedContext)!
+        let managedPost = NSManagedObject(entity: entity, insertInto: managedContext)
+        
+        managedPost.setValue(post.id, forKeyPath: "id")
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+        
+        return true
+    }
+    
+    func delete(post: Post) -> Bool {
+        var managedPostIds: [NSManagedObject] = []
+        guard let appDelegate =
+            UIApplication.shared.delegate as? AppDelegate else {
+                return false
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ManagedPost")
+        fetchRequest.predicate = NSPredicate(format: "id == %@", post.id)
+        
+        do {
+            managedPostIds = try managedContext.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        
+        for managedPost in managedPostIds {
+            let managedPostId = managedPost.value(forKey: "id") as! String
+            if (managedPostId == post.id) {
+                managedContext.delete(managedPost)
+            }
+        }
+        
+        return false
     }
     
     func extractImageUrl(postJson: JSON) -> String{
@@ -76,3 +147,4 @@ class RedditPostsService {
         return imgUrl
     }
 }
+

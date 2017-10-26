@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import Kingfisher
 import Floaty
+import Toast_Swift
 
 class RedditPostsTableViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, RefreshableUITableViewDelegate {
 
@@ -187,7 +188,27 @@ class RedditPostsTableViewController: UIViewController, UISearchBarDelegate, UIT
             self.subreddit.loadPosts(after: lastPost, completion: self.postsLoaded)
         }
 
+        let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.longTap))
+        cell.addGestureRecognizer(longGesture)
+        
         return cell
+    }
+    
+    func longTap(gestureReconizer: UILongPressGestureRecognizer) {
+        if (gestureReconizer.state == UIGestureRecognizerState.began) {
+            // TODO: Handle gesture start and end properly
+            let longPress = gestureReconizer as UILongPressGestureRecognizer
+            _ = longPress.state
+            let locationInView = longPress.location(in: self.tableView)
+            let indexPath = self.tableView.indexPathForRow(at: locationInView)
+            
+            if (subreddit.posts[(indexPath?.row)!].save()) {
+                self.view.makeToast("Post saved!", duration: 1.0, position: .center)
+            } else {
+                subreddit.posts[(indexPath?.row)!].delete()
+                self.view.makeToast("Removed from saved posts", duration: 1.0, position: .center)
+            }
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

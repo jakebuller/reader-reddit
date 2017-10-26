@@ -11,6 +11,7 @@ import Foundation
 class Post : CustomStringConvertible{
     public var description: String { return self.toString() }
 
+    var id: String = ""
     var name: String = ""
     var title: String = ""
     var author: String = ""
@@ -30,6 +31,14 @@ class Post : CustomStringConvertible{
     
     func loadComments( completion: @escaping (_ result: Array<Comment>) -> Void) {
         RedditCommentsService().get(post: self, completion: completion)
+    }
+    
+    func save() -> Bool {
+        return RedditPostsService().save(post: self)
+    }
+    
+    func delete() -> Bool {
+        return RedditPostsService().delete(post: self)
     }
     
     func toString() -> String {

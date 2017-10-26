@@ -19,6 +19,7 @@
 		427172CF1E381C49001DC989 /* RedditPostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427172CE1E381C49001DC989 /* RedditPostsTableViewCell.swift */; };
 		4279353C1F4F8E8800E46CBA /* HtmlString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4279353B1F4F8E8800E46CBA /* HtmlString.swift */; };
 		428B3B491EFC83B20018F323 /* SavedPostsViewControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428B3B481EFC83B20018F323 /* SavedPostsViewControllerTableViewController.swift */; };
+		42A0510B1FA28962002EF8B7 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A0510A1FA28962002EF8B7 /* AccountViewController.swift */; };
 		42D0BC8F1F05B6D2003CDA3B /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42D0BC851F05B66B003CDA3B /* Lato-Black.ttf */; };
 		42D0BC901F05B6D2003CDA3B /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42D0BC861F05B66B003CDA3B /* Lato-BlackItalic.ttf */; };
 		42D0BC911F05B6D2003CDA3B /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42D0BC871F05B66B003CDA3B /* Lato-Bold.ttf */; };
@@ -58,6 +59,7 @@
 		427172CE1E381C49001DC989 /* RedditPostsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedditPostsTableViewCell.swift; sourceTree = "<group>"; };
 		4279353B1F4F8E8800E46CBA /* HtmlString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HtmlString.swift; sourceTree = "<group>"; };
 		428B3B481EFC83B20018F323 /* SavedPostsViewControllerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SavedPostsViewControllerTableViewController.swift; path = ../SavedPostsViewControllerTableViewController.swift; sourceTree = "<group>"; };
+		42A0510A1FA28962002EF8B7 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		42D0BC851F05B66B003CDA3B /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
 		42D0BC861F05B66B003CDA3B /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
 		42D0BC871F05B66B003CDA3B /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				622CDF571E81DECB00747944 /* CommentsTableViewController.swift */,
 				622CDF551E81DEB100747944 /* CommentsTableViewCell.swift */,
 				428B3B481EFC83B20018F323 /* SavedPostsViewControllerTableViewController.swift */,
+				42A0510A1FA28962002EF8B7 /* AccountViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 			files = (
 				6254AAD31F464BD000D932A1 /* RefreshableUITableViewDelegate.swift in Sources */,
 				6254AAD11F4645FF00D932A1 /* RefreshableUITableView.swift in Sources */,
+				42A0510B1FA28962002EF8B7 /* AccountViewController.swift in Sources */,
 				62F2EFD51F4F7EA20026FB2C /* RedditCommentsService.swift in Sources */,
 				427172CF1E381C49001DC989 /* RedditPostsTableViewCell.swift in Sources */,
 				427172B61E380BB3001DC989 /* AppDelegate.swift in Sources */,
