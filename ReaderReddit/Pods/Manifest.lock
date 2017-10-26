@@ -3,19 +3,22 @@ PODS:
   - Floaty (3.0.0)
   - Kingfisher (3.10.3)
   - SwiftyJSON (3.1.4)
+  - Toast-Swift (2.0.0)
 
 DEPENDENCIES:
   - Alamofire
   - Floaty
   - Kingfisher (~> 3.0)
   - SwiftyJSON
+  - Toast-Swift
 
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
   Floaty: d1be5d323094f0de422bb615452d00ba26ac74dd
   Kingfisher: a0ac82dc5bcf0388dd74b294cf2cc13730c63436
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  Toast-Swift: 5b2f8f720f7e78e48511f693df1f9c9a6e38a25a
 
-PODFILE CHECKSUM: be3603cc3436ef35a4ae4356ea81c0c44547a05f
+PODFILE CHECKSUM: 232e6754d7af123978781363ebf29a27572f639e
 
 COCOAPODS: 1.1.1

@@ -56,8 +56,6 @@ class RedditPostsService {
                     } catch {
                         print(error.localizedDescription)
                     }
-                    
-//                    self.save(id: post.id)
                     posts.append(post)
                 }
             }
@@ -67,10 +65,42 @@ class RedditPostsService {
         }
     }
     
-    func save(post: Post) {
+    func isSaved(post: Post) -> Bool {
+        var managedPostIds: [NSManagedObject] = []
         guard let appDelegate =
             UIApplication.shared.delegate as? AppDelegate else {
-                return
+                return false
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ManagedPost")
+
+        do {
+            print("Fetching save posts from core data")
+            managedPostIds = try managedContext.fetch(fetchRequest)
+            print("Successfully fetched saved posts!")
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        
+        for managedPost in managedPostIds {
+            let managedPostId = managedPost.value(forKey: "id") as! String
+            if (managedPostId == post.id) {
+                return true
+            }
+        }
+        
+        return false
+    }
+    
+    
+    func save(post: Post) -> Bool {
+        if (self.isSaved(post: post)) {
+            return false
+        }
+        
+        guard let appDelegate =
+            UIApplication.shared.delegate as? AppDelegate else {
+                return false
         }
         let managedContext = appDelegate.persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "ManagedPost", in: managedContext)!
@@ -85,6 +115,37 @@ class RedditPostsService {
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
+        
+        return true
+    }
+    
+    func delete(post: Post) -> Bool {
+        var managedPostIds: [NSManagedObject] = []
+        guard let appDelegate =
+            UIApplication.shared.delegate as? AppDelegate else {
+                return false
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ManagedPost")
+        
+        do {
+            print("Fetching save posts from core data")
+            managedPostIds = try managedContext.fetch(fetchRequest)
+            print("Successfully fetched saved posts!")
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        
+        for managedPost in managedPostIds {
+            let managedPostId = managedPost.value(forKey: "id") as! String
+            if (managedPostId == post.id) {
+                print("Deleting post " + post.id)
+                managedContext.delete(managedPost)
+                print("Successfully deleted post" + post.id)
+            }
+        }
+        
+        return false
     }
     
     func extractImageUrl(postJson: JSON) -> String{
@@ -99,3 +160,4 @@ class RedditPostsService {
         return imgUrl
     }
 }
+

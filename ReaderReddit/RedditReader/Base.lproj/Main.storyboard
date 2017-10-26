@@ -5,7 +5,7 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -100,7 +100,7 @@
                                                             <rect key="frame" x="0.0" y="259" width="359" height="52"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 Hours Ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BH2-JW-wa0">
-                                                                    <rect key="frame" x="8" y="28" width="64" height="20"/>
+                                                                    <rect key="frame" x="8" y="28" width="67.5" height="20"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="5c4-G5-TyN"/>
                                                                         <constraint firstAttribute="height" constant="20" id="Bm0-gP-QSm"/>
@@ -457,7 +457,7 @@
         <!--Account-->
         <scene sceneID="ZRy-mC-Nk6">
             <objects>
-                <viewController id="Kz6-m2-Fya" sceneMemberID="viewController">
+                <viewController id="Kz6-m2-Fya" customClass="AccountViewController" customModule="ReaderReddit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rDX-3G-w4u"/>
                         <viewControllerLayoutGuide type="bottom" id="1ux-GS-oLh"/>
@@ -491,6 +491,9 @@
                                         <rect key="frame" x="293" y="111" width="38" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Login"/>
+                                        <connections>
+                                            <action selector="loginButtonPressed:" destination="Kz6-m2-Fya" eventType="touchUpInside" id="LBG-im-yxv"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZR-nD-XfW">
                                         <rect key="frame" x="8" y="49" width="74" height="21"/>
@@ -523,6 +526,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Account" image="011-user-2" id="NUv-DJ-mTp"/>
+                    <connections>
+                        <outlet property="loginButton" destination="06g-zG-X3o" id="rR6-d7-7f0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cZ3-cn-xDF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

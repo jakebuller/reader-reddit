@@ -33,6 +33,14 @@ class Post : CustomStringConvertible{
         RedditCommentsService().get(post: self, completion: completion)
     }
     
+    func save() -> Bool {
+        return RedditPostsService().save(post: self)
+    }
+    
+    func delete() -> Bool {
+        return RedditPostsService().delete(post: self)
+    }
+    
     func toString() -> String {
         return "Author: " + self.author + " title: " + self.title
     }
