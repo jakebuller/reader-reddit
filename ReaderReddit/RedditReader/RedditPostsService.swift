@@ -66,30 +66,22 @@ class RedditPostsService {
     }
     
     func isSaved(post: Post) -> Bool {
-        var managedPostIds: [NSManagedObject] = []
         guard let appDelegate =
             UIApplication.shared.delegate as? AppDelegate else {
                 return false
         }
+        var managedPostIds: [NSManagedObject] = []
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ManagedPost")
-
+        fetchRequest.predicate = NSPredicate(format: "id == %@", post.id)
+        
         do {
-            print("Fetching save posts from core data")
             managedPostIds = try managedContext.fetch(fetchRequest)
-            print("Successfully fetched saved posts!")
-        } catch let error as NSError {
-            print("Could not fetch. \(error), \(error.userInfo)")
+        } catch {
+            return false
         }
         
-        for managedPost in managedPostIds {
-            let managedPostId = managedPost.value(forKey: "id") as! String
-            if (managedPostId == post.id) {
-                return true
-            }
-        }
-        
-        return false
+        return managedPostIds.count >= 1
     }
     
     
@@ -109,9 +101,7 @@ class RedditPostsService {
         managedPost.setValue(post.id, forKeyPath: "id")
         
         do {
-            print("Trying to save post " + post.id)
             try managedContext.save()
-            print("Successfully saved post to core data")
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
@@ -127,11 +117,10 @@ class RedditPostsService {
         }
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ManagedPost")
+        fetchRequest.predicate = NSPredicate(format: "id == %@", post.id)
         
         do {
-            print("Fetching save posts from core data")
             managedPostIds = try managedContext.fetch(fetchRequest)
-            print("Successfully fetched saved posts!")
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
@@ -139,9 +128,7 @@ class RedditPostsService {
         for managedPost in managedPostIds {
             let managedPostId = managedPost.value(forKey: "id") as! String
             if (managedPostId == post.id) {
-                print("Deleting post " + post.id)
                 managedContext.delete(managedPost)
-                print("Successfully deleted post" + post.id)
             }
         }
         
