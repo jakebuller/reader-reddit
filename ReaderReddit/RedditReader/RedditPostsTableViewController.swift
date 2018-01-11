@@ -205,7 +205,7 @@ class RedditPostsTableViewController: UIViewController, UISearchBarDelegate, UIT
             if (subreddit.posts[(indexPath?.row)!].save()) {
                 self.view.makeToast("Post saved!", duration: 1.0, position: .center)
             } else {
-                subreddit.posts[(indexPath?.row)!].delete()
+                _ = subreddit.posts[(indexPath?.row)!].delete()
                 self.view.makeToast("Removed from saved posts", duration: 1.0, position: .center)
             }
         }

@@ -12,7 +12,7 @@ import SwiftyJSON
 
 class RedditCommentsService {
     func get(post: Post, completion: @escaping (_ result: Array<Comment>) -> Void) {
-        var url = Constants.RedditApi.baseUrl + post.permaLink + Constants.RedditApi.jsonApiExt
+        let url = Constants.RedditApi.baseUrl + post.permaLink + Constants.RedditApi.jsonApiExt
         
         Alamofire.request(url).responseJSON { response in
             var comments = Array<Comment>()
